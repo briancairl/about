@@ -1,0 +1,5 @@
+# about
+
+C++ compile-time reflection utility via code generation.
+
+Build tool for generating code about types, primarily for use in a compile-time context.
