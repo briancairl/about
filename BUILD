@@ -1,0 +1,21 @@
+cc_library(
+  name="common",
+  hdrs=[
+    "include/common.hpp",
+  ],
+  strip_include_prefix="include",
+  include_prefix="about",
+  linkopts=[],
+  deps=[],
+  visibility=["//visibility:public"]
+)
+
+cc_library(
+  name="sequence",
+  hdrs=glob(["include/sequence/*.hpp"]),
+  strip_include_prefix="include",
+  include_prefix="about",
+  linkopts=[],
+  deps=[],
+  visibility=["//visibility:public"]
+)

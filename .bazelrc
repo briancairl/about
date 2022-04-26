@@ -1,4 +1,4 @@
-build --cxxopt='-std=c++11'
+build --cxxopt='-std=c++14'
 build --cxxopt='-Wall'
 build --repo_env=CC=gcc
 
