@@ -8,7 +8,7 @@ cc_test(
   timeout="short"
 )
 
-about(name="gen-test-code-generation", srcs=["gen-test.hpp"], strip_include_prefix="/test")
+about(name="gen-test-about", srcs=["gen-test.hpp"], strip_include_prefix="/test")
 
 cc_library(
   name="gen-test",
@@ -19,7 +19,7 @@ cc_library(
 cc_test(
   name="gen",
   srcs=["gen-test.cpp"],
-  deps=["//:common", "//:utility", "@googletest//:gtest", ":gen-test", ":gen-test-code-generation"],
+  deps=["//:common", "//:utility", "@googletest//:gtest", ":gen-test", ":gen-test-about"],
   visibility=["//visibility:public"],
   timeout="short"
 )

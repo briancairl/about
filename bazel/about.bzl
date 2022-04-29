@@ -1,7 +1,7 @@
 
 def about(name, srcs, strip_include_prefix=None, include_prefix=None):
     gen_name = "__{name}_code_generation".format(name=name)
-    out_files = ["{s}.about".format(s=s) for s in srcs]
+    out_files = ["{name}.hpp".format(name=name)]
     native.genrule(
         name = gen_name,
         outs = out_files,

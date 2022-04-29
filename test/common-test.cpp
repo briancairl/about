@@ -40,3 +40,13 @@ TEST(Common, HasMember) { ASSERT_FALSE(has<::TestClass>("cool"_member)); }
 TEST(Common, HasReflectionInfoClass) { ASSERT_TRUE((has_reflection_info<::TestClass>)); }
 
 TEST(Common, HasReflectionInfoPrimitive) { ASSERT_FALSE((has_reflection_info<int>)); }
+
+template <bool U> struct SimpleSwitch : std::false_type
+{};
+
+template <> struct SimpleSwitch<true> : std::true_type
+{};
+
+TEST(Common, HasMemberSwitchTrue) { ASSERT_TRUE((SimpleSwitch<has<::TestClass>("cool"_method)>::value)); }
+
+TEST(Common, HasMemberSwitchFalse) { ASSERT_FALSE((SimpleSwitch<has<::TestClass>("cool"_member)>::value)); }
