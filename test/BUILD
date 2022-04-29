@@ -1,4 +1,4 @@
-load("//:bazel/about.bzl", "about")
+load("//:bazel/about.bzl", "cc_library_about")
 
 cc_test(
   name="common",
@@ -8,20 +8,16 @@ cc_test(
   timeout="short"
 )
 
-about(name="gen-test-about", srcs=["gen-test.hpp"], strip_include_prefix="/test")
-
-cc_library(
-  name="gen-test",
+cc_library_about(
+  name="gen-test-about",
   hdrs=["gen-test.hpp"],
-  strip_include_prefix="/test",
-  include_prefix="test",
-  visibility=["//visibility:public"],
+  visibility=["//visibility:public"]
 )
 
 cc_test(
   name="gen",
   srcs=["gen-test.cpp"],
-  deps=["//:common", "//:utility", "@googletest//:gtest", ":gen-test", ":gen-test-about"],
+  deps=["//:common", "//:utility", "@googletest//:gtest", ":gen-test-about"],
   visibility=["//visibility:public"],
   timeout="short"
 )

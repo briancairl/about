@@ -7,8 +7,7 @@
 #include <gtest/gtest.h>
 
 // About
-#include "gen-test-about.hpp"
-#include "gen-test.hpp"
+#include "test/gen-test-about.hpp"
 #include <about/common.hpp>
 #include <about/utility/print.hpp>
 
