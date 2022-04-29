@@ -2,7 +2,8 @@
  * @copyright 2022-present About
  * @author Brian Cairl
  */
-#pragma once
+#ifndef ABOUT_SEQUENCE_INTEGER_SEQUENCE_HPP
+#define ABOUT_SEQUENCE_INTEGER_SEQUENCE_HPP
 
 // C++ Standard Library
 #include <type_traits>
@@ -79,3 +80,5 @@ template <size_t N> using make_index_sequence = make_integer_sequence<size_t, N>
 template <class... TPack> using index_sequence_for = make_integer_sequence<size_t, sizeof...(TPack)>;
 
 }  // namespace about
+
+#endif  // ABOUT_SEQUENCE_INTEGER_SEQUENCE_HPP

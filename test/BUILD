@@ -19,7 +19,7 @@ cc_library(
 cc_test(
   name="gen",
   srcs=["gen-test.cpp"],
-  deps=["//:common", "//:sequence", "@googletest//:gtest", ":gen-test", ":gen-test-code-generation"],
+  deps=["//:common", "//:utility", "@googletest//:gtest", ":gen-test", ":gen-test-code-generation"],
   visibility=["//visibility:public"],
   timeout="short"
 )

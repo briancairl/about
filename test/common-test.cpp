@@ -15,7 +15,10 @@ class TestClass
 namespace about
 {
 
-template <> struct Has<::TestClass, decltype("cool"_method)> : std::true_type
+template <> struct ClassHas<::TestClass, decltype("cool"_method)> : std::true_type
+{};
+
+template <> struct Class<::TestClass> : std::true_type
 {};
 
 }  // namespace
@@ -33,3 +36,7 @@ TEST(Common, MemberTagCompareNotEqual) { ASSERT_NE("cool"_method, "hot"_method);
 TEST(Common, HasMethod) { ASSERT_TRUE(has<::TestClass>("cool"_method)); }
 
 TEST(Common, HasMember) { ASSERT_FALSE(has<::TestClass>("cool"_member)); }
+
+TEST(Common, HasReflectionInfoClass) { ASSERT_TRUE((has_reflection_info<::TestClass>)); }
+
+TEST(Common, HasReflectionInfoPrimitive) { ASSERT_FALSE((has_reflection_info<int>)); }

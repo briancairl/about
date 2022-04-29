@@ -2,6 +2,11 @@
 namespace test
 {
 
+class Something
+{
+  float real_number;
+};
+
 /**
  * Very cool
  */
@@ -19,7 +24,9 @@ public:
     Inner& operator=(const Inner&) = delete;
   };
 
-  int a, b, c;
+  int a, b, d;
+
+  Something real;
 
   int func();
 

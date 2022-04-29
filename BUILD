@@ -19,3 +19,13 @@ cc_library(
   deps=[],
   visibility=["//visibility:public"]
 )
+
+cc_library(
+  name="utility",
+  hdrs=glob(["include/utility/*.hpp"]),
+  strip_include_prefix="include",
+  include_prefix="about",
+  linkopts=[],
+  deps=[":sequence"],
+  visibility=["//visibility:public"]
+)

@@ -2,7 +2,8 @@
  * @copyright 2022-present About
  * @author Brian Cairl
  */
-#pragma once
+#ifndef ABOUT_SEQUENCE_APPLY_HPP
+#define ABOUT_SEQUENCE_APPLY_HPP
 
 // C++ Standard Library
 #include <tuple>
@@ -45,3 +46,5 @@ template <typename InvocableT, typename ArgTupleT> constexpr decltype(auto) appl
 }
 
 }  // namespace about
+
+#endif  // ABOUT_SEQUENCE_APPLY_HPP

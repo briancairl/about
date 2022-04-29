@@ -58,7 +58,8 @@ constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> r
   return true;
 }
 
-template <typename T> struct Class;
+template <typename T> struct Class : std::false_type
+{};
 
 template <typename T, typename MemberTag> struct ClassHas : std::false_type
 {};
@@ -73,7 +74,14 @@ template <typename ClassT, char... Chars> constexpr bool has(MemberName<Chars...
   return ClassHas<ClassT, MemberName<Chars...>>::value;
 }
 
-template <typename T> auto get_public_members(const T& value) { return Class<T>::public_members(value); }
+template <typename T> constexpr auto get_public_members(const T& value) { return Class<T>::public_members(value); }
+
+template <typename T> constexpr auto get_public_member_names(const T& value) { return Class<T>::public_member_names(); }
+
+template <typename T> using cleaned_t = typename std::remove_const<typename std::remove_reference<T>::type>::type;
+
+template <typename T>
+constexpr bool has_reflection_info = !std::is_base_of<std::false_type, Class<cleaned_t<T>>>::value;
 
 }  // namespace about
 

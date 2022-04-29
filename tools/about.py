@@ -19,6 +19,9 @@ START_OF_FILE = """
 #include <type_traits>
 #include <utility>
 
+// About
+#include <about/common.hpp>
+
 namespace about
 {{
 """
@@ -30,7 +33,7 @@ END_OF_FILE = """
 """
 
 
-def expand_class(out, ns_name, decl):
+def expand_class(out, ns_name:str, decl):
     _public_members_comma_sep = ', '.join([f"v.{v.name}" for v in decl.public_members if isinstance(v, declarations.variable_t)])
     out.write(f"""
 template<>
@@ -38,7 +41,27 @@ struct Class<{ns_name}::{decl.name}>
 {{
 """)
 
+    member_name_wrappers = []
+    for v in decl.public_members:
+        if isinstance(v, declarations.variable_t):
+            member_name_wrappers.append(f"MemberName__{v.name}")
+            out.write(f"""
+struct MemberName__{v.name}
+{{
+    static constexpr const char* name = "{v.name}";
+}};
+""")
+
     out.write(f"""
+/**
+ * @brief Returns tuple of references to all public members
+ * @note THIS CODE WAS AUTO-GENERATED
+ */
+static constexpr auto public_member_names()
+{{
+    return ::std::tuple<{", ".join(member_name_wrappers)}>{{}};
+}}
+
 /**
  * @brief Returns tuple of references to all public members
  * @note THIS CODE WAS AUTO-GENERATED
