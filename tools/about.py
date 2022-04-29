@@ -22,8 +22,8 @@ START_OF_FILE = """
 // About
 #include <about/common.hpp>
 
-namespace about
-{{
+// USER LIBRARIES
+
 """
 
 END_OF_FILE = """
@@ -130,6 +130,13 @@ if __name__ == '__main__':
 
     with open(output, 'w+') as out:
         out.write(START_OF_FILE.format(gaurd=include_gaurd))
+        for filename in args.inputs:
+            out.write(f"#include \"{filename}\"\n");
+
+            out.write("""
+namespace about
+{
+""")
         for filename in args.inputs:
             # Parse the code
             decls = xml_parser.parse([filename], xml_generator_config)

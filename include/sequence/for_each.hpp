@@ -38,12 +38,13 @@ template <std::size_t I, std::size_t N> struct Enumeration
 {};
 
 /**
- * @brief Invokes a callback, \c cb, for elements of each tuple, \c tups
+ * @brief Invokes a callback, \c cb, for elements of each tuple, \c tups, with an enumeration type
  *
  *        Callback should take N args, where N is \c sizeof...(tups)
  *        @code{.cpp}
  *        for_each(
- *          [](const auto& tuple1_element, const auto& tuple2_element, ..., const auto& tupleN_element)
+ *          [](Enumeration<I, N> e, const auto& tuple1_element, const auto& tuple2_element, ..., const auto&
+ * tupleN_element)
  *          {
  *          },
  *          tuple1,
@@ -110,7 +111,7 @@ inline void for_each(CallbackT&& cb, index_sequence<Indices...> _, TupleTs&&... 
 }
 
 /**
- * @copydoc for_each
+ * @copydoc for_each_enumerated
  * @warn implementation
  */
 template <typename CallbackT, std::size_t... Indices, typename... TupleTs>
@@ -139,7 +140,7 @@ template <typename CallbackT, typename... TupleTs> inline void for_each(Callback
 }
 
 /**
- * @copydoc for_each
+ * @copydoc for_each_enumerated
  * @warn implementation
  */
 template <typename CallbackT, typename... TupleTs> inline void for_each_enumerated(CallbackT&& cb, TupleTs&&... tups)

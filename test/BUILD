@@ -13,6 +13,8 @@ about(name="gen-test-about", srcs=["gen-test.hpp"], strip_include_prefix="/test"
 cc_library(
   name="gen-test",
   hdrs=["gen-test.hpp"],
+  strip_include_prefix="/test",
+  include_prefix="test",
   visibility=["//visibility:public"],
 )
 

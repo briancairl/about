@@ -20,7 +20,7 @@ namespace about
 namespace detail
 {
 
-template <std::size_t Step> class Printer
+template <std::size_t Justification> class Printer
 {
 public:
   Printer(std::ostream& os, const std::size_t justification) : os_{std::addressof(os)}, justification_{justification} {}
@@ -33,24 +33,24 @@ private:
   std::size_t justification_;
 };
 
-template <std::size_t Step = 2UL, typename ValueT>
+template <std::size_t Justification = 2UL, typename ValueT>
 typename std::enable_if<!has_reflection_info<ValueT>>::type
-print(std::ostream& os, ValueT&& value, const std::size_t justification = Step)
+print(std::ostream& os, ValueT&& value, const std::size_t justification = Justification)
 {
   os << std::forward<ValueT>(value);
 }
 
-template <std::size_t Step = 2UL, typename ValueT>
+template <std::size_t Justification = 2UL, typename ValueT>
 typename std::enable_if<has_reflection_info<ValueT>>::type
-print(std::ostream& os, ValueT&& value, const std::size_t justification = Step)
+print(std::ostream& os, ValueT&& value, const std::size_t justification = Justification)
 {
   os << "{\n";
   for_each_enumerated(
-    detail::Printer<Step>{os, justification},
+    detail::Printer<Justification>{os, justification},
     get_public_member_names(std::forward<ValueT>(value)),
     get_public_members(std::forward<ValueT>(value)));
   os << "\n";
-  os << std::setw(justification - Step) << '}';
+  os << std::setw(justification - Justification) << '}';
 }
 
 template <std::size_t I, std::size_t N> constexpr bool put_comma_condition = (I + 1 < N);
@@ -65,12 +65,12 @@ template <std::size_t I, std::size_t N>
 typename std::enable_if<!put_comma_condition<I, N>>::type put_comma(std::ostream& os)
 {}
 
-template <std::size_t Step>
+template <std::size_t Justification>
 template <std::size_t I, std::size_t N, typename NameT, typename ValueT>
-void Printer<Step>::operator()(Enumeration<I, N> e, NameT _, ValueT&& v) const
+void Printer<Justification>::operator()(Enumeration<I, N> e, NameT _, ValueT&& v) const
 {
   (*os_) << std::setw(justification_) << '"' << NameT::name << "\" : ";
-  print<Step>(*os_, std::forward<ValueT>(v), this->justification_ + Step);
+  print<Justification>(*os_, std::forward<ValueT>(v), this->justification_ + Justification);
   put_comma<I, N>(*os_);
 }
 

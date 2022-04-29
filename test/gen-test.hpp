@@ -2,6 +2,7 @@
  * @copyright 2022-present About
  * @author Brian Cairl
  */
+#pragma once
 
 namespace my_ns
 {
