@@ -20,7 +20,13 @@ TEST(Generation, MethodDoesNotExist) { ASSERT_FALSE(has<my_ns::MyClass>("not_my_
 
 TEST(Generation, PrintPublicMembers)
 {
-  my_ns::MyClass obj{};
+  {
+    my_ns::SomethingElse obj{};
+    std::cout << about::fmt<4>(obj) << std::endl;
+  }
 
-  std::cout << about::fmt<4>(obj) << std::endl;
+  {
+    my_ns::MyClass obj{};
+    std::cout << about::fmt<4>(obj) << std::endl;
+  }
 }
