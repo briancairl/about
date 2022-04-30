@@ -19,18 +19,18 @@ namespace about
 /**
  * @brief Invokes a callback, \c cb, for elements of each tuple, \c tups
  *
- *        Callback should take N args, where N is \c sizeof...(tups)
- *        @code{.cpp}
- *        for_each(
- *          [](const auto& tuple1_element, const auto& tuple2_element, ..., const auto& tupleN_element)
- *          {
- *          },
- *          tuple1,
- *          tuple2,
- *          ...,
- *          tupleN
- *        );
- *        @endcode
+ * Callback should take N args, where N is \c sizeof...(tups)
+ * @code{.cpp}
+ * for_each(
+ *   [](const auto& tuple1_element, const auto& tuple2_element, ..., const auto& tupleN_element)
+ *   {
+ *   },
+ *   tuple1,
+ *   tuple2,
+ *   ...,
+ *   tupleN
+ * );
+ * @endcode
  */
 template <typename CallbackT, typename... TupleTs> void for_each(CallbackT&& cb, TupleTs&&... tups);
 
@@ -40,19 +40,19 @@ template <std::size_t I, std::size_t N> struct Enumeration
 /**
  * @brief Invokes a callback, \c cb, for elements of each tuple, \c tups, with an enumeration type
  *
- *        Callback should take N args, where N is \c sizeof...(tups)
- *        @code{.cpp}
- *        for_each(
- *          [](Enumeration<I, N> e, const auto& tuple1_element, const auto& tuple2_element, ..., const auto&
+ * Callback should take N args, where N is \c sizeof...(tups)
+ * @code{.cpp}
+ * for_each(
+ *   [](Enumeration<I, N> e, const auto& tuple1_element, const auto& tuple2_element, ..., const auto&
  * tupleN_element)
- *          {
- *          },
- *          tuple1,
- *          tuple2,
- *          ...,
- *          tupleN
- *        );
- *        @endcode
+ *   {
+ *   },
+ *   tuple1,
+ *   tuple2,
+ *   ...,
+ *   tupleN
+ * );
+ * @endcode
  */
 template <typename CallbackT, typename... TupleTs> void for_each_enumerated(CallbackT&& cb, TupleTs&&... tups);
 
@@ -67,7 +67,7 @@ template <typename... TupleTs> struct CommonTupleSize;
 /**
  * @copydoc CommonTupleSize
  *
- *          Termination case
+ * Termination case
  */
 template <typename FirstTupleT> struct CommonTupleSize<FirstTupleT>
 {
@@ -77,7 +77,7 @@ template <typename FirstTupleT> struct CommonTupleSize<FirstTupleT>
 /**
  * @copydoc CommonTupleSize
  *
- *          Size-checking case
+ * Size-checking case
  */
 template <typename FirstTupleT, typename SecondTupleT, typename... OtherTupleTs>
 struct CommonTupleSize<FirstTupleT, SecondTupleT, OtherTupleTs...>
@@ -99,6 +99,7 @@ template <std::size_t Index> struct MultiTupleForEachAdapter
 
 /**
  * @copydoc for_each
+ *
  * @warn implementation
  */
 template <typename CallbackT, std::size_t... Indices, typename... TupleTs>
@@ -112,6 +113,7 @@ inline void for_each(CallbackT&& cb, index_sequence<Indices...> _, TupleTs&&... 
 
 /**
  * @copydoc for_each_enumerated
+ *
  * @warn implementation
  */
 template <typename CallbackT, std::size_t... Indices, typename... TupleTs>
@@ -131,6 +133,7 @@ inline void for_each_enumerated(CallbackT&& cb, index_sequence<Indices...> _, Tu
 
 /**
  * @copydoc for_each
+ *
  * @warn implementation
  */
 template <typename CallbackT, typename... TupleTs> inline void for_each(CallbackT&& cb, TupleTs&&... tups)
@@ -141,6 +144,7 @@ template <typename CallbackT, typename... TupleTs> inline void for_each(Callback
 
 /**
  * @copydoc for_each_enumerated
+ *
  * @warn implementation
  */
 template <typename CallbackT, typename... TupleTs> inline void for_each_enumerated(CallbackT&& cb, TupleTs&&... tups)
