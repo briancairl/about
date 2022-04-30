@@ -9,7 +9,7 @@
 // About
 #include "test/gen-test-about.hpp"
 #include <about/common.hpp>
-#include <about/utility/print.hpp>
+#include <about/utility/fmt.hpp>
 
 using namespace about;
 
