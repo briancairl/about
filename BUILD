@@ -1,18 +1,8 @@
 cc_library(
-  name="common",
+  name="decl",
   hdrs=[
-    "include/common.hpp",
+    "include/decl.hpp",
   ],
-  strip_include_prefix="include",
-  include_prefix="about",
-  linkopts=[],
-  deps=[],
-  visibility=["//visibility:public"]
-)
-
-cc_library(
-  name="sequence",
-  hdrs=glob(["include/sequence/*.hpp"]),
   strip_include_prefix="include",
   include_prefix="about",
   linkopts=[],
@@ -23,9 +13,9 @@ cc_library(
 cc_library(
   name="utility",
   hdrs=glob(["include/utility/*.hpp"]),
-  strip_include_prefix="include",
+  strip_include_prefix="include/utility",
   include_prefix="about",
   linkopts=[],
-  deps=[":sequence"],
+  deps=[],
   visibility=["//visibility:public"]
 )

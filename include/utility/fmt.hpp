@@ -3,8 +3,8 @@
  *
  * @file fmt.hpp
  */
-#ifndef ABOUT_UTILITY_FMT_HPP
-#define ABOUT_UTILITY_FMT_HPP
+#ifndef ABOUT_FMT_HPP
+#define ABOUT_FMT_HPP
 
 // C++ Standard Library
 #include <ostream>
@@ -12,8 +12,8 @@
 #include <utility>
 
 // About
-#include <about/common.hpp>
-#include <about/sequence/for_each.hpp>
+#include <about/decl.hpp>
+#include <about/for_each.hpp>
 
 namespace about
 {
@@ -107,4 +107,4 @@ std::ostream& operator<<(std::ostream& os, const detail::Formatted<N, T>& fmt_pr
 
 }  // namespace about
 
-#endif  // ABOUT_UTILITY_FMT_HPP
+#endif  // ABOUT_FMT_HPP

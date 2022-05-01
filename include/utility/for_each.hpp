@@ -2,16 +2,16 @@
  * @copyright 2022-present About
  * @author Brian Cairl
  */
-#ifndef ABOUT_SEQUENCE_FOR_EACH_HPP
-#define ABOUT_SEQUENCE_FOR_EACH_HPP
+#ifndef ABOUT_FOR_EACH_HPP
+#define ABOUT_FOR_EACH_HPP
 
 // C++ Standard Library
 #include <tuple>
 #include <type_traits>
 
 // About
-#include <about/sequence/apply.hpp>
-#include <about/sequence/integer_sequence.hpp>
+#include <about/apply.hpp>
+#include <about/integer_sequence.hpp>
 
 namespace about
 {
@@ -156,4 +156,4 @@ template <typename CallbackT, typename... TupleTs> inline void for_each_enumerat
 
 }  // namespace about
 
-#endif  // ABOUT_SEQUENCE_FOR_EACH_HPP
+#endif  // ABOUT_FOR_EACH_HPP

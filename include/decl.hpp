@@ -1,10 +1,10 @@
 /**
  * @copyright 2022-present Brian Cairl
  *
- * @file common.hpp
+ * @file decl.hpp
  */
-#ifndef ABOUT_COMMON_HPP
-#define ABOUT_COMMON_HPP
+#ifndef ABOUT_DECL_HPP
+#define ABOUT_DECL_HPP
 
 // C++ Standard Library
 #include <type_traits>
@@ -85,4 +85,4 @@ constexpr bool has_reflection_info = !std::is_base_of<std::false_type, Class<cle
 
 }  // namespace about
 
-#endif  // ABOUT_COMMON_HPP
+#endif  // ABOUT_DECL_HPP

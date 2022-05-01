@@ -20,7 +20,7 @@ START_OF_FILE = """
 #include <utility>
 
 // About
-#include <about/common.hpp>
+#include <about/decl.hpp>
 
 // USER LIBRARIES
 

@@ -2,8 +2,8 @@
  * @copyright 2022-present About
  * @author Brian Cairl
  */
-#ifndef ABOUT_SEQUENCE_INTEGER_SEQUENCE_HPP
-#define ABOUT_SEQUENCE_INTEGER_SEQUENCE_HPP
+#ifndef ABOUT_INTEGER_SEQUENCE_HPP
+#define ABOUT_INTEGER_SEQUENCE_HPP
 
 // C++ Standard Library
 #include <type_traits>
@@ -81,4 +81,4 @@ template <class... TPack> using index_sequence_for = make_integer_sequence<size_
 
 }  // namespace about
 
-#endif  // ABOUT_SEQUENCE_INTEGER_SEQUENCE_HPP
+#endif  // ABOUT_INTEGER_SEQUENCE_HPP

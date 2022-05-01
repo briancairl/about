@@ -8,8 +8,7 @@
 
 // About
 #include "test/gen-test-about.hpp"
-#include <about/common.hpp>
-#include <about/utility/fmt.hpp>
+#include <about/fmt.hpp>
 
 using namespace about;
 
