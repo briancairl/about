@@ -83,6 +83,8 @@ template <typename T> using cleaned_t = typename std::remove_const<typename std:
 template <typename T>
 constexpr bool has_reflection_info = !std::is_base_of<std::false_type, Class<cleaned_t<T>>>::value;
 
+template <typename T> using public_member_info_t = typename Class<cleaned_t<T>>::public_member_info;
+
 }  // namespace about
 
 #endif  // ABOUT_DECL_HPP

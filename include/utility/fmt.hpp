@@ -47,7 +47,7 @@ fmt_print(std::ostream& os, ValueT&& value, const std::size_t justification = Ju
   os << "{\n";
   for_each_enumerated(
     detail::Printer<Justification>{os, justification},
-    get_public_member_names(std::forward<ValueT>(value)),
+    public_member_info_t<ValueT>{},
     get_public_members(std::forward<ValueT>(value)));
   os << "\n";
   os << std::setw(justification - Justification) << '}';

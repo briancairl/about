@@ -12,8 +12,12 @@ from pygccxml import parser as xml_parser
 
 
 START_OF_FILE = """
+/**
+ * THIS CODE WAS AUTO-GENERATED
+ */
 #ifndef {gaurd}_HPP
 #define {gaurd}_HPP
+
 
 // C++ Standard Library
 #include <type_traits>
@@ -44,27 +48,27 @@ struct Class<{ns_name}::{decl.name}>
     member_name_wrappers = []
     for v in decl.public_members:
         if isinstance(v, declarations.variable_t):
-            member_name_wrappers.append(f"MemberName__{v.name}")
+            member_name_wrappers.append(f"MemberInfo__{decl.name}__{v.name}")
+            if isinstance(v._decl_type, declarations.declarated_t):
+                var_type_name = f"{ns_name}::{v.decl_type.declaration.name}"
+            else:
+                var_type_name = v.decl_type._name
             out.write(f"""
-struct MemberName__{v.name}
+struct MemberInfo__{decl.name}__{v.name}
 {{
+    using type = {var_type_name};
     static constexpr const char* name = "{v.name}";
 }};
 """)
 
     out.write(f"""
 /**
- * @brief Returns tuple of references to all public members
- * @note THIS CODE WAS AUTO-GENERATED
+ * @brief Sequence containing information for all public members
  */
-static constexpr auto public_member_names()
-{{
-    return ::std::tuple<{", ".join(member_name_wrappers)}>{{}};
-}}
+using public_member_info = ::std::tuple<{", ".join(member_name_wrappers)}>;
 
 /**
  * @brief Returns tuple of references to all public members
- * @note THIS CODE WAS AUTO-GENERATED
  */
 static constexpr decltype(auto) public_members({ns_name}::{decl.name}& v)
 {{
@@ -73,7 +77,6 @@ static constexpr decltype(auto) public_members({ns_name}::{decl.name}& v)
 
 /**
  * @brief Returns tuple of const references to all public members
- * @note THIS CODE WAS AUTO-GENERATED
  */
 static constexpr decltype(auto) public_members(const {ns_name}::{decl.name}& v)
 {{
@@ -90,7 +93,6 @@ static constexpr decltype(auto) public_members(const {ns_name}::{decl.name}& v)
             out.write(f"""
 /**
  * @brief Checks if class has a public member variable <code>{mem.name}</code>
- * @note THIS CODE WAS AUTO-GENERATED
  */
 template<>
 struct ClassHas<{ns_name}::{decl.name}, decltype("{mem.name}"_member)> : std::true_type {{}};
@@ -99,7 +101,6 @@ struct ClassHas<{ns_name}::{decl.name}, decltype("{mem.name}"_member)> : std::tr
             out.write(f"""
 /**
  * @brief Checks if class has a public member function <code>{mem.name}</code>
- * @note THIS CODE WAS AUTO-GENERATED
  */
 template<>
 struct ClassHas<{ns_name}::{decl.name}, decltype("{mem.name}"_method)> : std::true_type {{}};
