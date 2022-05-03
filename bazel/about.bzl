@@ -1,5 +1,5 @@
 
-def cc_library_about(name, hdrs, **kwargs):
+def cc_library_about(name, hdrs, deps=[], **kwargs):
     gen_name = "__{name}_code_generation".format(name=name)
     out_files = ["{name}.hpp".format(name=name)]
     native.genrule(
@@ -13,5 +13,6 @@ def cc_library_about(name, hdrs, **kwargs):
     native.cc_library(
       name=name,
       hdrs=hdrs + out_files,
+      deps=["//:decl"] + deps,
       **kwargs
     )

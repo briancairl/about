@@ -21,3 +21,12 @@ cc_test(
   visibility=["//visibility:public"],
   timeout="short"
 )
+
+
+cc_test(
+  name="filter",
+  srcs=["filter-test.cpp"],
+  deps=["//:utility", "@googletest//:gtest", ":gen-test-about"],
+  visibility=["//visibility:public"],
+  timeout="short"
+)
