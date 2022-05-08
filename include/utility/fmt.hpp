@@ -45,10 +45,10 @@ typename std::enable_if<has_reflection_info<ValueT>>::type
 fmt_print(std::ostream& os, ValueT&& value, const std::size_t justification = Justification)
 {
   os << "{\n";
-  for_each_enumerated(
-    detail::Printer<Justification>{os, justification},
-    public_member_info_t<ValueT>{},
-    get_public_members(std::forward<ValueT>(value)));
+  ::about::for_each_enumerated(
+    ::about::detail::Printer<Justification>{os, justification},
+    ::about::public_member_info_t<ValueT>{},
+    ::about::get_public_members(std::forward<ValueT>(value)));
   os << "\n";
   os << std::setw(justification - Justification) << '}';
 }

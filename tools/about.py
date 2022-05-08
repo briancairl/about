@@ -32,8 +32,6 @@ START_OF_FILE = """
 """
 
 END_OF_FILE = """
-}} // namespace about
-
 #endif // {gaurd}_HPP
 """
 
@@ -132,6 +130,8 @@ def generate_meta(args):
             out.write("""
 namespace about
 {
+namespace detail
+{
 """)
         for filename in args.inputs:
             # Parse the code
@@ -146,6 +146,10 @@ namespace about
                     for n in inner_ns.declarations:
                         if isinstance(n, declarations.class_t):
                             expand_class(out, inner_ns.name, n)
+        out.write("""
+} // namespace detail
+} // namespace about
+""")
         out.write(END_OF_FILE.format(gaurd=include_gaurd))
 
 
@@ -207,6 +211,9 @@ namespace about
                             expand_enum(out, inner_ns.name, n)
                         # elif isinstance(n, declarations.class_t):
                         #     expand_class_enum(out, inner_ns.name, n)
+        out.write("""
+} // namespace about
+""")
         out.write(END_OF_FILE.format(gaurd=include_gaurd))
 
 

@@ -14,6 +14,8 @@ class TestClass
 
 namespace about
 {
+namespace detail
+{
 
 template <> struct ClassMemberExists<::TestClass, decltype("cool"_method)> : std::true_type
 {};
@@ -21,7 +23,8 @@ template <> struct ClassMemberExists<::TestClass, decltype("cool"_method)> : std
 template <> struct ClassMetaInfo<::TestClass> : std::true_type
 {};
 
-}  // namespace
+}  // namespace detail
+}  // namespace about
 
 using namespace about;
 
