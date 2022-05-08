@@ -1,4 +1,4 @@
-load("//:bazel/about.bzl", "cc_library_about")
+load("//:bazel/about.bzl", "cc_library_with_reflection")
 
 cc_test(
   name="decl",
@@ -8,7 +8,7 @@ cc_test(
   timeout="short"
 )
 
-cc_library_about(
+cc_library_with_reflection(
   name="gen-test-about",
   hdrs=["gen-test.hpp"],
   visibility=["//visibility:public"]

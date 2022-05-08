@@ -10,7 +10,7 @@
 #include <gtest/gtest.h>
 
 // About
-#include "test/gen-test-about.hpp"
+#include "test/gen-test-about.meta.hpp"
 #include <about/filter.hpp>
 #include <about/for_each.hpp>
 

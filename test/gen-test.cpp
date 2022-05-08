@@ -7,7 +7,7 @@
 #include <gtest/gtest.h>
 
 // About
-#include "test/gen-test-about.hpp"
+#include "test/gen-test-about.meta.hpp"
 #include <about/fmt.hpp>
 
 using namespace about;
