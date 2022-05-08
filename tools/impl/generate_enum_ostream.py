@@ -36,9 +36,9 @@ END_OF_FILE = """
 
 
 def expand_enum(out, ns_name:str, decl):
-    full_enum_name = f"{ns_name}::{decl.name}"
+    fully_qualified_enum_name = f"{ns_name}::{decl.name}"
     out.write(f"""
-inline std::ostream& operator<<(std::ostream& os, const {full_enum_name} e)
+inline std::ostream& operator<<(std::ostream& os, const {fully_qualified_enum_name} e)
 {{
     switch (e)
     {{
@@ -46,12 +46,11 @@ inline std::ostream& operator<<(std::ostream& os, const {full_enum_name} e)
 
     for label, value in decl.values:
         out.write(f"""
-        case {full_enum_name}::{label}:
+        case {fully_qualified_enum_name}::{label}:
         {{
-            return os << \"{full_enum_name}::{label}\";
+            return os << \"{decl.name}::{label}\";
         }}
 """)
-
 
     out.write(f"""
         default:
@@ -59,7 +58,7 @@ inline std::ostream& operator<<(std::ostream& os, const {full_enum_name} e)
             break;
         }}
     }}
-    return os << "INVALID <<{full_enum_name}>>";
+    return os << "INVALID <<{decl.name}>>";
 }}
 """)
 
