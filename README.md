@@ -4,6 +4,10 @@ C++11 tool for compile-time reflection utility through code generation.
 
 Also includes some nice meta-programming utilities.
 
+## API Documentation
+
+Doxygen output for the **latest version** is available [here](https://briancairl.github.io/about/doxygen-out/html/index.html)
+
 ## Prerequisites
 
 - `apt-get install castxml python`
