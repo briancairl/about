@@ -48,6 +48,6 @@ def cc_library_with_reflection(name, hdrs, deps=[], enable_meta=True, enable_enu
             enable_enum_ostream=enable_enum_ostream,
             __genrule_target_name=reflection_target_name,
         ),
-        deps=["//:decl"] + deps,
+        deps=["//:about"] + deps,
         **kwargs
     )

@@ -3,7 +3,7 @@ load("//:bazel/about.bzl", "cc_library_with_reflection")
 cc_test(
   name="decl",
   srcs=["decl-test.cpp"],
-  deps=["//:decl", "@googletest//:gtest"],
+  deps=["//:about", "@googletest//:gtest"],
   visibility=["//visibility:public"],
   timeout="short"
 )
@@ -17,7 +17,7 @@ cc_library_with_reflection(
 cc_test(
   name="meta",
   srcs=["meta-test.cpp"],
-  deps=["//:decl", "//:utility", "@googletest//:gtest", ":test_classes_with_reflection"],
+  deps=["//:about", "//:utility", "@googletest//:gtest", ":test_classes_with_reflection"],
   visibility=["//visibility:public"],
   timeout="short"
 )
@@ -25,7 +25,7 @@ cc_test(
 cc_test(
   name="enum-ostream",
   srcs=["enum-ostream-test.cpp"],
-  deps=["//:decl", "//:utility", "@googletest//:gtest", ":test_classes_with_reflection"],
+  deps=["//:about", "//:utility", "@googletest//:gtest", ":test_classes_with_reflection"],
   visibility=["//visibility:public"],
   timeout="short"
 )

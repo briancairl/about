@@ -1,5 +1,5 @@
 cc_library(
-  name="decl",
+  name="about",
   hdrs=[
     "include/about.hpp",
   ],
@@ -16,6 +16,6 @@ cc_library(
   strip_include_prefix="include/utility",
   include_prefix="about",
   linkopts=[],
-  deps=[],
+  deps=[":about"],
   visibility=["//visibility:public"]
 )
