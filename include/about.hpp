@@ -236,8 +236,7 @@ template <typename T> constexpr auto get_public_members(const T& value)
 }
 
 /**
- * @brief Returns a <code>std::tuple</code> of immutable lvalue references to all public members (in order of
- * declaration)
+ * @brief Returns string literal type name of a class \c T
  *
  * @tparam T  type to reflect
  */
@@ -249,6 +248,24 @@ template <typename T> constexpr auto get_name(const T& value) { return detail::C
  * @tparam T  type to reflect
  */
 template <typename T> constexpr const char* nameof = detail::ClassMetaInfo<T>::name;
+
+/**
+ * @brief Returns string literal type name of a class \c T with full namespace
+ *
+ * @tparam T  type to reflect
+ */
+template <typename T> constexpr auto get_absolute_name(const T& value)
+{
+  return detail::ClassMetaInfo<T>::absolute_name;
+}
+
+/**
+ * @brief <code>constexpr</code> string literal type name of a class \c T with full namespace
+ *
+ * @tparam T  type to reflect
+ */
+template <typename T> constexpr const char* absolute_nameof = detail::ClassMetaInfo<T>::absolute_name;
+
 
 /**
  * @brief <code>std::tuple</code> of meta information for each public class member variable, in order of declaration

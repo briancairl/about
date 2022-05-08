@@ -27,6 +27,15 @@ public:
 
   void my_method(const char* my_arg);
 
+  // A nested enumeration
+  enum class NestedEnum
+  {
+    PASS,
+    FAIL,
+    NOOP
+  };
+
+
 private:
   const char* privates = "don't touch me";
 };
