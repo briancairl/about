@@ -6,7 +6,7 @@ Also includes some nice meta-programming utilities.
 
 ## Prerequisites
 
-- `apt-get install castxml`
+- `apt-get install castxml python`
 - `pip install pygccxml`
 - `bazel` or `cmake`
 
