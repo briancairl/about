@@ -27,6 +27,7 @@ public:
 
   void my_method(const char* my_arg);
 
+  // A nested enumeration
   enum class NestedEnum
   {
     PASS,

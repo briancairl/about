@@ -44,6 +44,9 @@ struct ClassMetaInfo<{ns_name}::{decl.name}>
 {{
     // Enum name as string literal
     static constexpr const char* name = \"{decl.name}\";
+
+    // Absolute enum name as string literal
+    static constexpr const char* absolute_name = \"{ns_name}::{decl.name}\";
 }};
 """)
 
@@ -56,6 +59,9 @@ struct ClassMetaInfo<{ns_name}::{decl.name}>
 {{
     // Class name as string literal
     static constexpr const char* name = \"{decl.name}\";
+
+    // Absolute class name as string literal
+    static constexpr const char* absolute_name = \"{ns_name}::{decl.name}\";
 """)
 
     member_name_wrappers = []
