@@ -22,6 +22,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Install debs
+      run: sudo apt install python castxml
+
+    - name: Install pip-reqs
+      run: pip install pygccxml
+
     - name: Checkout repository
       uses: actions/checkout@v2.3.4
 
