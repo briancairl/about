@@ -36,6 +36,18 @@ END_OF_FILE = """
 """
 
 
+def expand_enum(out, ns_name:str, decl):
+    fully_qualified_enum_name = f"{ns_name}::{decl.name}"
+    out.write(f"""
+template<>
+struct ClassMetaInfo<{ns_name}::{decl.name}>
+{{
+    // Enum name as string literal
+    static constexpr const char* name = \"{decl.name}\";
+}};
+""")
+
+
 def expand_class(out, ns_name:str, decl):
     _public_members_comma_sep = ', '.join([f"v.{v.name}" for v in decl.public_members if isinstance(v, declarations.variable_t)])
     out.write(f"""
@@ -109,6 +121,9 @@ struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_method)> 
         elif isinstance(mem, declarations.class_declaration.class_t):
             expand_class(out, f"{ns_name}::{decl.name}", mem)
 
+        elif isinstance(mem, declarations.enumeration_t):
+            expand_enum(out, f"{ns_name}::{decl.name}", mem)
+
 
 def generate_meta(args, xml_generator_config):
     output = args.output_meta
@@ -141,6 +156,8 @@ namespace detail
                     for n in inner_ns.declarations:
                         if isinstance(n, declarations.class_t):
                             expand_class(out, inner_ns.name, n)
+                        elif isinstance(n, declarations.enumeration_t):
+                            expand_enum(out, inner_ns.name, n)
         out.write("""
 } // namespace detail
 } // namespace about

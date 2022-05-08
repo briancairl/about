@@ -35,4 +35,8 @@ TEST(MetaGeneration, GetName)
   ASSERT_EQ("SomethingElse", get_name(obj));
 }
 
-TEST(MetaGeneration, NameOf) { ASSERT_EQ("SomethingElse", nameof<my_ns::SomethingElse>); }
+TEST(MetaGeneration, NameOfClass) { ASSERT_EQ("SomethingElse", nameof<my_ns::SomethingElse>); }
+
+TEST(MetaGeneration, NameOfEnum) { ASSERT_EQ("MyEnum", nameof<my_ns::MyEnum>); }
+
+TEST(MetaGeneration, NameOfNestedEnum) { ASSERT_EQ("NestedEnum", nameof<my_ns::MyClass::NestedEnum>); }
