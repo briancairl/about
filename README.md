@@ -65,11 +65,11 @@ private:
 #### Bazel
 
 ```py
-load("//:bazel/about.bzl", "cc_library_about")
+load("//:bazel/about.bzl", "cc_library_with_reflection")
 
 ...
 
-cc_library_about(
+cc_library_with_reflection(
   name="test-about",
   hdrs=["test.hpp"],
   visibility=["//visibility:public"]
@@ -78,6 +78,47 @@ cc_library_about(
 
 ### Use your code and the generated compile time reflection classes
 
+#### Basic reflection:
+
+*Sample code:*
+```c++
+
+// C++ Standard Library
+#include <iostream>
+#include <type_traits>
+
+// About
+#include <about/about.hpp>
+
+// User Code (output by "test-about")
+#include "test-about.meta.hpp"
+
+using namespace about;
+
+template<typename T>
+static typename std::enable_if<has<T>("an_int"_member)>::type print_an_int(const T& object)
+{
+  std::cout << "This is the value of T.an_int : " << object.an_int << std::endl;
+}
+
+template<typename T>
+static typename std::enable_if<!has<T>("an_int"_member)>::type print_an_int(const T& object)
+{
+  std::cout << "T doesn't have an_int" << std::endl;
+}
+
+int main(int argc, char const *argv[])
+{
+  my_ns::MyClass obj{};
+  print_an_int(obj);
+  return 0;
+}
+```
+
+
+#### `fmt` utility
+
+*Sample code:*
 ```c++
 
 // C++ Standard Library
@@ -86,8 +127,8 @@ cc_library_about(
 // About
 #include <about/utility/fmt.hpp>
 
-// My Code
-#include "test-about.hpp"
+// User Code (output by "test-about")
+#include "test-about.meta.hpp"
 
 int main(int argc, char const *argv[])
 {
@@ -97,7 +138,7 @@ int main(int argc, char const *argv[])
 }
 ```
 
-#### Output
+*Output:*
 ```
 my_class {
    "a" : 0,
