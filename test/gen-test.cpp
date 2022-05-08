@@ -28,3 +28,11 @@ TEST(Generation, PrintPublicMembers)
     std::cout << about::fmt<4>(obj) << std::endl;
   }
 }
+
+TEST(Generation, GetName)
+{
+  my_ns::SomethingElse obj{};
+  ASSERT_EQ("SomethingElse", get_name(obj));
+}
+
+TEST(Generation, NameOf) { ASSERT_EQ("SomethingElse", nameof<my_ns::SomethingElse>); }

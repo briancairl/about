@@ -7,21 +7,24 @@
 #include <gtest/gtest.h>
 
 // About
-#include <about/common.hpp>
+#include <about/about.hpp>
 
 class TestClass
 {};
 
 namespace about
 {
+namespace detail
+{
 
-template <> struct ClassHas<::TestClass, decltype("cool"_method)> : std::true_type
+template <> struct ClassMemberExists<::TestClass, decltype("cool"_method)> : std::true_type
 {};
 
-template <> struct Class<::TestClass> : std::true_type
+template <> struct ClassMetaInfo<::TestClass> : std::true_type
 {};
 
-}  // namespace
+}  // namespace detail
+}  // namespace about
 
 using namespace about;
 
