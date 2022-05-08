@@ -79,11 +79,6 @@ template <typename T> constexpr auto get_public_members(const T& value)
   return ClassMetaInfo<T>::public_members(value);
 }
 
-template <typename T> constexpr auto get_public_member_names(const T& value)
-{
-  return ClassMetaInfo<T>::public_member_names();
-}
-
 template <typename T> using cleaned_t = typename std::remove_const<typename std::remove_reference<T>::type>::type;
 
 template <typename T>
