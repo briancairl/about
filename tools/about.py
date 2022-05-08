@@ -44,6 +44,8 @@ def expand_class(out, ns_name:str, decl):
 template<>
 struct ClassMetaInfo<{ns_name}::{decl.name}>
 {{
+    // Class name as string literal
+    static constexpr const char* name = \"{decl.name}\";
 """)
 
     member_name_wrappers = []
