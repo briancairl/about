@@ -57,6 +57,12 @@ private:
   const char* privates = "don't touch me";
 };
 
+enum class MyEnum
+{
+  VALUE_A,
+  VALUE_B
+};
+
 }  // namespace my_ns
 ```
 
@@ -115,8 +121,7 @@ int main(int argc, char const *argv[])
 }
 ```
 
-
-#### `fmt` utility
+#### Output stream overloads using `fmt`
 
 *Sample code:*
 ```c++
@@ -153,4 +158,28 @@ my_class {
        }
    }
 }
+```
+
+#### Output stream overloads for `enum`
+
+
+*Sample code:*
+```c++
+
+// C++ Standard Library
+#include <iostream>
+
+// User Code (output by "test-about")
+#include "test-about.enum_ostream.hpp"
+
+int main(int argc, char const *argv[])
+{
+  std::cout << my_ns::MyEnum::VALUE_A << ", " << my_ns::MyEnum::VALUE_B << std::endl;
+  return 0;
+}
+```
+
+*Output:*
+```
+MyEnum::VALUE_A, MyEnum::VALUE_B
 ```
