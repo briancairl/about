@@ -43,7 +43,9 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 {\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_a4c391f697db39fcf29295b487d2bc58f}{get\+\_\+public\+\_\+members}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of lvalue references to all public members, in order of declaration. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}{get\+\_\+name}} (const T \&value)
-\begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of immutable lvalue references to all public members (in order of declaration) \end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Returns string literal type name of a class {\ttfamily T}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_aeca253257033f7bc535bcd3196e2060e}{get\+\_\+absolute\+\_\+name}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Returns string literal type name of a class {\ttfamily T} with full namespace. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename InvocableT , typename Arg\+TupleT $>$ }\\constexpr decltype(auto) \mbox{\hyperlink{namespaceabout_a8c3e7e50f3bae2e5070a31325749cc48}{apply}} (InvocableT \&\&fn, Arg\+TupleT \&\&targs)
 \begin{DoxyCompactList}\small\item\em Calls function with with tuple (e.\+g {\ttfamily std\+::tuple}) as argument list. \end{DoxyCompactList}\item 
 {\footnotesize template$<$std\+::size\+\_\+t N = 4\+UL, typename T $>$ }\\constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{detail\+::\+Formatted}}$<$ N, T $>$ \mbox{\hyperlink{namespaceabout_a6b031f2e76a38cbf43915694f621fe65}{fmt}} (const T \&value)
@@ -60,7 +62,9 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 {\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{has\+\_\+reflection\+\_\+info}}
 \begin{DoxyCompactList}\small\item\em Used to check if reflection information is available for a given type. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ade38136d9fe12346812648e0fa732615}{nameof}} = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::name
-\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ae4f925f92f8bac5c44b94ecf228c3b9d}{absolute\+\_\+nameof}} = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::absolute\+\_\+name
+\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} with full namespace \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
@@ -296,7 +300,23 @@ Callback should take N args, where N is {\ttfamily sizeof}...(tups)
 
 @warn implementation
 
-@warn implementation \mbox{\Hypertarget{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}\label{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}} 
+@warn implementation \mbox{\Hypertarget{namespaceabout_aeca253257033f7bc535bcd3196e2060e}\label{namespaceabout_aeca253257033f7bc535bcd3196e2060e}} 
+\index{about@{about}!get\_absolute\_name@{get\_absolute\_name}}
+\index{get\_absolute\_name@{get\_absolute\_name}!about@{about}}
+\doxysubsubsection{\texorpdfstring{get\_absolute\_name()}{get\_absolute\_name()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr auto about\+::get\+\_\+absolute\+\_\+name (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Returns string literal type name of a class {\ttfamily T} with full namespace. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type to reflect \\
+\hline
+\end{DoxyTemplParams}
+\mbox{\Hypertarget{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}\label{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}} 
 \index{about@{about}!get\_name@{get\_name}}
 \index{get\_name@{get\_name}!about@{about}}
 \doxysubsubsection{\texorpdfstring{get\_name()}{get\_name()}}
@@ -305,7 +325,7 @@ constexpr auto about\+::get\+\_\+name (\begin{DoxyParamCaption}\item[{const T \&
 
 
 
-Returns a {\ttfamily std\+::tuple} of immutable lvalue references to all public members (in order of declaration) 
+Returns string literal type name of a class {\ttfamily T}. 
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -418,6 +438,22 @@ Auto-\/formatted {\ttfamily ostream} overload.
 
 
 \doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceabout_ae4f925f92f8bac5c44b94ecf228c3b9d}\label{namespaceabout_ae4f925f92f8bac5c44b94ecf228c3b9d}} 
+\index{about@{about}!absolute\_nameof@{absolute\_nameof}}
+\index{absolute\_nameof@{absolute\_nameof}!about@{about}}
+\doxysubsubsection{\texorpdfstring{absolute\_nameof}{absolute\_nameof}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr const char$\ast$ about\+::absolute\+\_\+nameof = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::absolute\+\_\+name\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+{\ttfamily constexpr} string literal type name of a class {\ttfamily T} with full namespace 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type to reflect \\
+\hline
+\end{DoxyTemplParams}
 \mbox{\Hypertarget{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}\label{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}} 
 \index{about@{about}!has\_reflection\_info@{has\_reflection\_info}}
 \index{has\_reflection\_info@{has\_reflection\_info}!about@{about}}

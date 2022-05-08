@@ -140,8 +140,12 @@ Functions</h2></td></tr>
 <tr class="separator:a4c391f697db39fcf29295b487d2bc58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2867909eb37ef22965c76351c5b8f6b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa2867909eb37ef22965c76351c5b8f6b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#aa2867909eb37ef22965c76351c5b8f6b">get_name</a> (const T &amp;value)</td></tr>
-<tr class="memdesc:aa2867909eb37ef22965c76351c5b8f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>std::tuple</code> of immutable lvalue references to all public members (in order of declaration)  <a href="namespaceabout.html#aa2867909eb37ef22965c76351c5b8f6b">More...</a><br /></td></tr>
+<tr class="memdesc:aa2867909eb37ef22965c76351c5b8f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string literal type name of a class <code>T</code>.  <a href="namespaceabout.html#aa2867909eb37ef22965c76351c5b8f6b">More...</a><br /></td></tr>
 <tr class="separator:aa2867909eb37ef22965c76351c5b8f6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeca253257033f7bc535bcd3196e2060e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aeca253257033f7bc535bcd3196e2060e"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#aeca253257033f7bc535bcd3196e2060e">get_absolute_name</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:aeca253257033f7bc535bcd3196e2060e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string literal type name of a class <code>T</code> with full namespace.  <a href="namespaceabout.html#aeca253257033f7bc535bcd3196e2060e">More...</a><br /></td></tr>
+<tr class="separator:aeca253257033f7bc535bcd3196e2060e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8c3e7e50f3bae2e5070a31325749cc48"><td class="memTemplParams" colspan="2">template&lt;typename InvocableT , typename ArgTupleT &gt; </td></tr>
 <tr class="memitem:a8c3e7e50f3bae2e5070a31325749cc48"><td class="memTemplItemLeft" align="right" valign="top">constexpr decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a8c3e7e50f3bae2e5070a31325749cc48">apply</a> (InvocableT &amp;&amp;fn, ArgTupleT &amp;&amp;targs)</td></tr>
 <tr class="memdesc:a8c3e7e50f3bae2e5070a31325749cc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls function with with tuple (e.g <code>std::tuple</code>) as argument list.  <a href="namespaceabout.html#a8c3e7e50f3bae2e5070a31325749cc48">More...</a><br /></td></tr>
@@ -173,6 +177,10 @@ Variables</h2></td></tr>
 <tr class="memitem:ade38136d9fe12346812648e0fa732615"><td class="memTemplItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ade38136d9fe12346812648e0fa732615">nameof</a> = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::name</td></tr>
 <tr class="memdesc:ade38136d9fe12346812648e0fa732615"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>constexpr</code> string literal type name of a class <code>T</code>  <a href="namespaceabout.html#ade38136d9fe12346812648e0fa732615">More...</a><br /></td></tr>
 <tr class="separator:ade38136d9fe12346812648e0fa732615"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memTemplItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ae4f925f92f8bac5c44b94ecf228c3b9d">absolute_nameof</a> = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::absolute_name</td></tr>
+<tr class="memdesc:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>constexpr</code> string literal type name of a class <code>T</code> with full namespace  <a href="namespaceabout.html#ae4f925f92f8bac5c44b94ecf228c3b9d">More...</a><br /></td></tr>
+<tr class="separator:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>2022-present About </dd></dl>
@@ -540,6 +548,42 @@ template&lt;typename CallbackT , typename... TupleTs&gt; </div>
 
 </div>
 </div>
+<a id="aeca253257033f7bc535bcd3196e2060e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeca253257033f7bc535bcd3196e2060e">&#9670;&nbsp;</a></span>get_absolute_name()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr auto about::get_absolute_name </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns string literal type name of a class <code>T</code> with full namespace. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type to reflect </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa2867909eb37ef22965c76351c5b8f6b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa2867909eb37ef22965c76351c5b8f6b">&#9670;&nbsp;</a></span>get_name()</h2>
 
@@ -566,7 +610,7 @@ template&lt;typename T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a <code>std::tuple</code> of immutable lvalue references to all public members (in order of declaration) </p>
+<p>Returns string literal type name of a class <code>T</code>. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type to reflect </td></tr>
@@ -789,6 +833,38 @@ template&lt;std::size_t N, typename T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Variable Documentation</h2>
+<a id="ae4f925f92f8bac5c44b94ecf228c3b9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4f925f92f8bac5c44b94ecf228c3b9d">&#9670;&nbsp;</a></span>absolute_nameof</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const char* about::absolute_nameof = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::absolute_name</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p><code>constexpr</code> string literal type name of a class <code>T</code> with full namespace </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type to reflect </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a5fdbe1ea7c0ec8ae9aa68732dbb79854"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5fdbe1ea7c0ec8ae9aa68732dbb79854">&#9670;&nbsp;</a></span>has_reflection_info</h2>
 

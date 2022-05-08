@@ -66,14 +66,18 @@ struct \mbox{\hyperlink{structabout_1_1detail_1_1_class_member_exists}{about\+::
 {\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_a4c391f697db39fcf29295b487d2bc58f}{about\+::get\+\_\+public\+\_\+members}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of lvalue references to all public members, in order of declaration. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}{about\+::get\+\_\+name}} (const T \&value)
-\begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of immutable lvalue references to all public members (in order of declaration) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Returns string literal type name of a class {\ttfamily T}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_aeca253257033f7bc535bcd3196e2060e}{about\+::get\+\_\+absolute\+\_\+name}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Returns string literal type name of a class {\ttfamily T} with full namespace. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Variables}
 \begin{DoxyCompactItemize}
 \item 
 {\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{about\+::has\+\_\+reflection\+\_\+info}}
 \begin{DoxyCompactList}\small\item\em Used to check if reflection information is available for a given type. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ade38136d9fe12346812648e0fa732615}{about\+::nameof}} = detail\+::\+Class\+Meta\+Info$<$T$>$\+::name
-\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ae4f925f92f8bac5c44b94ecf228c3b9d}{about\+::absolute\+\_\+nameof}} = detail\+::\+Class\+Meta\+Info$<$T$>$\+::absolute\+\_\+name
+\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} with full namespace \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

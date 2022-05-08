@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['justification_5f_109',['justification_',['../classabout_1_1detail_1_1_printer.html#a5134ecdbdc717f0e4b3f0771b70f4f70',1,'about::detail::Printer']]]
+  ['has_5freflection_5finfo_112',['has_reflection_info',['../namespaceabout.html#a5fdbe1ea7c0ec8ae9aa68732dbb79854',1,'about']]]
 ];

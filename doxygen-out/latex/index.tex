@@ -62,6 +62,12 @@ Doxygen output for the {\bfseries{latest version}} is available \href{https://br
 \DoxyCodeLine{  const char* privates = "don't touch me";}
 \DoxyCodeLine{\};}
 \DoxyCodeLine{}
+\DoxyCodeLine{enum class MyEnum}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  VALUE\_A,}
+\DoxyCodeLine{  VALUE\_B}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
 \DoxyCodeLine{\}  // namespace my\_ns}
 \end{DoxyCode}
 
@@ -125,7 +131,7 @@ Doxygen output for the {\bfseries{latest version}} is available \href{https://br
 \end{DoxyCode}
 
 
-\doxysubsubsection*{{\ttfamily fmt} utility}
+\doxysubsubsection*{Output stream overloads using {\ttfamily fmt}}
 
 {\itshape Sample code\+:} 
 \begin{DoxyCode}{0}
@@ -164,5 +170,31 @@ Doxygen output for the {\bfseries{latest version}} is available \href{https://br
 \DoxyCodeLine{       \}}
 \DoxyCodeLine{   \}}
 \DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+\doxysubsubsection*{Output stream overloads for {\ttfamily enum}}
+
+{\itshape Sample code\+:} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// C++ Standard Library}
+\DoxyCodeLine{\#include <iostream>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// User Code (output by "test-\/about")}
+\DoxyCodeLine{\#include "test-\/about.enum\_ostream.hpp"}
+\DoxyCodeLine{}
+\DoxyCodeLine{int main(int argc, char const *argv[])}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  std::cout << my\_ns::MyEnum::VALUE\_A << ", " << my\_ns::MyEnum::VALUE\_B << std::endl;}
+\DoxyCodeLine{  return 0;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+{\itshape Output\+:} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{MyEnum::VALUE\_A, MyEnum::VALUE\_B}
 \end{DoxyCode}
  

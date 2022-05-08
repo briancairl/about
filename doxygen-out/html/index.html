@@ -117,6 +117,12 @@ $(function() {
 <div class="line">  const char* privates = &quot;don&#39;t touch me&quot;;</div>
 <div class="line">};</div>
 <div class="line"> </div>
+<div class="line">enum class MyEnum</div>
+<div class="line">{</div>
+<div class="line">  VALUE_A,</div>
+<div class="line">  VALUE_B</div>
+<div class="line">};</div>
+<div class="line"> </div>
 <div class="line">}  // namespace my_ns</div>
 </div><!-- fragment --><h2>Setup the build</h2>
 <h3>Bazel</h3>
@@ -163,7 +169,7 @@ $(function() {
 <div class="line">  print_an_int(obj);</div>
 <div class="line">  return 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h3><code>fmt</code> utility</h3>
+</div><!-- fragment --><h3>Output stream overloads using <code>fmt</code></h3>
 <p><em>Sample code:</em> </p><div class="fragment"><div class="line"> {c++}</div>
 <div class="line"> </div>
 <div class="line">// C++ Standard Library</div>
@@ -194,6 +200,21 @@ $(function() {
 <div class="line">       }</div>
 <div class="line">   }</div>
 <div class="line">}</div>
+</div><!-- fragment --><h3>Output stream overloads for <code>enum</code></h3>
+<p><em>Sample code:</em> </p><div class="fragment"><div class="line"> {c++}</div>
+<div class="line"> </div>
+<div class="line">// C++ Standard Library</div>
+<div class="line">#include &lt;iostream&gt;</div>
+<div class="line"> </div>
+<div class="line">// User Code (output by &quot;test-about&quot;)</div>
+<div class="line">#include &quot;test-about.enum_ostream.hpp&quot;</div>
+<div class="line"> </div>
+<div class="line">int main(int argc, char const *argv[])</div>
+<div class="line">{</div>
+<div class="line">  std::cout &lt;&lt; my_ns::MyEnum::VALUE_A &lt;&lt; &quot;, &quot; &lt;&lt; my_ns::MyEnum::VALUE_B &lt;&lt; std::endl;</div>
+<div class="line">  return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p><em>Output:</em> </p><div class="fragment"><div class="line">MyEnum::VALUE_A, MyEnum::VALUE_B</div>
 </div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
