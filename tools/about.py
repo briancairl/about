@@ -115,8 +115,8 @@ def open_output_handle(filename:Optional[str] = None):
     else:
         return sys.stdout
 
-def generate_common(args):
-    output = args.output
+def generate_meta(args):
+    output = args.output_meta
     base, ext = os.path.splitext(os.path.split(output.upper())[-1])
     include_gaurd = f"__ABOUT_AUTO_GENERATED__{base}"
     include_gaurd = include_gaurd.replace("-", "_")
@@ -172,16 +172,16 @@ inline std::ostream& operator<<(std::ostream& os, const {full_enum_name} e)
 """)
 
 
-def generate_enum_utilities(args):
-    if not args.output_enum:
+def generate_enum_ostream(args):
+    if not args.output_enum_ostream:
         return
-    output = args.output_enum
+    output = args.output_enum_ostream
     base, ext = os.path.splitext(os.path.split(output.upper())[-1])
     include_gaurd = f"__ABOUT_AUTO_GENERATED__{base}"
     include_gaurd = include_gaurd.replace("-", "_")
     include_gaurd = include_gaurd.replace(".", "_")
 
-    with open_output_handle(args.output_enum) as out:
+    with open_output_handle(args.output_enum_ostream) as out:
         out.write(START_OF_FILE.format(gaurd=include_gaurd))
         for filename in args.inputs:
             out.write(f"#include \"{filename}\"\n");
@@ -210,9 +210,10 @@ namespace about
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("-i", "--inputs", nargs="*", required=True, help="Input file paths", default=None)
-    parser.add_argument("-o", "--output", type=str, help="Output file path", default=None)
-    parser.add_argument("-oe", "--output-enum", type=str, help="Output file path for enum utilities", default=None)
+    parser.add_argument("-i",  "--inputs", nargs="*", required=True, help="Input file paths", default=None)
+    parser.add_argument("-o",  "--output-meta", type=str, help="Output file path", default=None)
+    parser.add_argument("-oe", "--output-enum-ostream", type=str, help="Output file path for enum utilities", default=None)
+    parser.add_argument("-d",  "--debug", action="store_true", help="Print generated file contents to console")
     args = parser.parse_args()
 
     # Find the location of the xml generator (castxml or gccxml)
@@ -223,5 +224,8 @@ if __name__ == '__main__':
         xml_generator_path=generator_path,
         xml_generator=generator_name)
 
-    generate_common(args=args)
-    generate_enum_utilities(args=args)
+    if (args.output_meta or args.debug):
+        generate_meta(args=args)
+
+    if (args.output_enum_ostream or args.debug):
+        generate_enum_ostream(args=args)
