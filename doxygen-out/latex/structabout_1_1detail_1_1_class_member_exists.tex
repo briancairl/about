@@ -1,0 +1,57 @@
+\hypertarget{structabout_1_1detail_1_1_class_member_exists}{}\doxysection{about\+::detail\+::Class\+Member\+Exists$<$ T, Member\+Tag $>$ Struct Template Reference}
+\label{structabout_1_1detail_1_1_class_member_exists}\index{about::detail::ClassMemberExists$<$ T, MemberTag $>$@{about::detail::ClassMemberExists$<$ T, MemberTag $>$}}
+
+
+Traits type used to check if a member variable or method exists via a tag.  
+
+
+
+
+{\ttfamily \#include $<$about.\+hpp$>$}
+
+
+
+Inheritance diagram for about\+::detail\+::Class\+Member\+Exists$<$ T, Member\+Tag $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{structabout_1_1detail_1_1_class_member_exists__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for about\+::detail\+::Class\+Member\+Exists$<$ T, Member\+Tag $>$\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=231pt]{structabout_1_1detail_1_1_class_member_exists__coll__graph}
+\end{center}
+\end{figure}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T, typename Member\+Tag$>$\newline
+struct about\+::detail\+::\+Class\+Member\+Exists$<$ T, Member\+Tag $>$}
+
+Traits type used to check if a member variable or method exists via a tag. 
+
+For example\+: $<$verbatim$>$
+
+std\+::cout $<$$<$ std\+::boolalpha $<$$<$ \mbox{\hyperlink{structabout_1_1detail_1_1_class_member_exists}{Class\+Member\+Exists}}$<$T, decltype(\char`\"{}a\char`\"{}\+\_\+member)$>$\+::value $<$$<$ std\+::endl;
+
+std\+::cout $<$$<$ std\+::boolalpha $<$$<$ \mbox{\hyperlink{structabout_1_1detail_1_1_class_member_exists}{Class\+Member\+Exists}}$<$T, decltype(\char`\"{}b\char`\"{}\+\_\+method)$>$\+::value $<$$<$ std\+::endl;
+
+$<$/endverbatim$>$
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type to reflect \\
+\hline
+\end{DoxyTemplParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/\mbox{\hyperlink{about_8hpp}{about.\+hpp}}\end{DoxyCompactItemize}

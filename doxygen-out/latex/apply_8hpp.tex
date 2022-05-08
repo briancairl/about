@@ -1,0 +1,27 @@
+\hypertarget{apply_8hpp}{}\doxysection{include/utility/apply.hpp File Reference}
+\label{apply_8hpp}\index{include/utility/apply.hpp@{include/utility/apply.hpp}}
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$about/integer\+\_\+sequence.\+hpp$>$}\newline
+Include dependency graph for apply.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{apply_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceabout}{about}}
+\item 
+ \mbox{\hyperlink{namespaceabout_1_1detail}{about\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename InvocableT , typename Arg\+TupleT , std\+::size\+\_\+t... Int\+Pack$>$ }\\constexpr decltype(auto) \mbox{\hyperlink{namespaceabout_1_1detail_a44a893d4fc872eed52d16617dea708f3}{about\+::detail\+::apply}} (InvocableT \&\&fn, Arg\+TupleT \&\&targs, index\+\_\+sequence$<$ Int\+Pack... $>$)
+\begin{DoxyCompactList}\small\item\em Implementation for flow\+::apply. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename InvocableT , typename Arg\+TupleT $>$ }\\constexpr decltype(auto) \mbox{\hyperlink{namespaceabout_a8c3e7e50f3bae2e5070a31325749cc48}{about\+::apply}} (InvocableT \&\&fn, Arg\+TupleT \&\&targs)
+\begin{DoxyCompactList}\small\item\em Calls function with with tuple (e.\+g {\ttfamily std\+::tuple}) as argument list. \end{DoxyCompactList}\end{DoxyCompactItemize}

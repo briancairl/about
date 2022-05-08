@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Snek: Main Page</title>
+<title>About: about</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,10 +21,10 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">Snek
+   <div id="projectname">About
    &#160;<span id="projectnumber">0.1.0</span>
    </div>
-   <div id="projectbrief">Simple non-linear execution kontroller</div>
+   <div id="projectbrief">Compile-time reflection for C++11 (and above) via code generation</div>
   </td>
  </tr>
  </tbody>
@@ -62,11 +62,139 @@ $(function() {
 </iframe>
 </div>
 
-<div class="header">
+<div class="PageDoc"><div class="header">
   <div class="headertitle">
-<div class="title">Snek Documentation</div>  </div>
+<div class="title">about </div>  </div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><p>C++11 tool for compile-time reflection utility through code generation.</p>
+<p>Also includes some nice meta-programming utilities.</p>
+<h1>API Documentation</h1>
+<p>Doxygen output for the <b>latest version</b> is available <a href="https://briancairl.github.io/about/doxygen-out/html/index.html">here</a></p>
+<h1>Prerequisites</h1>
+<ul>
+<li><code>apt-get install castxml python</code></li>
+<li><code>pip install pygccxml</code></li>
+<li><code>bazel</code> or <code>cmake</code></li>
+</ul>
+<h1>Supported Build Systems</h1>
+<ul>
+<li><code>bazel</code></li>
+<li><code>cmake</code> [in the future...]</li>
+</ul>
+<h1>How To</h1>
+<h2>Write some code you want reflect</h2>
+<div class="fragment"><div class="line"> {c++}</div>
+<div class="line">// test.hpp</div>
+<div class="line"> </div>
+<div class="line">#pragma once</div>
+<div class="line"> </div>
+<div class="line">namespace my_ns</div>
+<div class="line">{</div>
+<div class="line"> </div>
+<div class="line">struct Something</div>
+<div class="line">{</div>
+<div class="line">  float real_number;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">struct SomethingElse</div>
+<div class="line">{</div>
+<div class="line">  Something a, b;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">class MyClass</div>
+<div class="line">{</div>
+<div class="line">public:</div>
+<div class="line">  int a;</div>
+<div class="line">  float b;</div>
+<div class="line">  double c;</div>
+<div class="line"> </div>
+<div class="line">  SomethingElse d;</div>
+<div class="line"> </div>
+<div class="line">  void my_method(const char* my_arg);</div>
+<div class="line"> </div>
+<div class="line">private:</div>
+<div class="line">  const char* privates = &quot;don&#39;t touch me&quot;;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">}  // namespace my_ns</div>
+</div><!-- fragment --><h2>Setup the build</h2>
+<h3>Bazel</h3>
+<div class="fragment"><div class="line">load(<span class="stringliteral">&quot;//:bazel/about.bzl&quot;</span>, <span class="stringliteral">&quot;cc_library_with_reflection&quot;</span>)</div>
+<div class="line"> </div>
+<div class="line">...</div>
+<div class="line"> </div>
+<div class="line">cc_library_with_reflection(</div>
+<div class="line">  name=<span class="stringliteral">&quot;test-about&quot;</span>,</div>
+<div class="line">  hdrs=[<span class="stringliteral">&quot;test.hpp&quot;</span>],</div>
+<div class="line">  visibility=[<span class="stringliteral">&quot;//visibility:public&quot;</span>]</div>
+<div class="line">)</div>
+</div><!-- fragment --><h2>Use your code and the generated compile time reflection classes</h2>
+<h3>Basic reflection:</h3>
+<p><em>Sample code:</em> </p><div class="fragment"><div class="line"> {c++}</div>
+<div class="line"> </div>
+<div class="line">// C++ Standard Library</div>
+<div class="line">#include &lt;iostream&gt;</div>
+<div class="line">#include &lt;type_traits&gt;</div>
+<div class="line"> </div>
+<div class="line">// About</div>
+<div class="line">#include &lt;about/about.hpp&gt;</div>
+<div class="line"> </div>
+<div class="line">// User Code (output by &quot;test-about&quot;)</div>
+<div class="line">#include &quot;test-about.meta.hpp&quot;</div>
+<div class="line"> </div>
+<div class="line">using namespace about;</div>
+<div class="line"> </div>
+<div class="line">template&lt;typename T&gt;</div>
+<div class="line">static typename std::enable_if&lt;has&lt;T&gt;(&quot;an_int&quot;_member)&gt;::type print_an_int(const T&amp; object)</div>
+<div class="line">{</div>
+<div class="line">  std::cout &lt;&lt; &quot;This is the value of T.an_int : &quot; &lt;&lt; object.an_int &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">template&lt;typename T&gt;</div>
+<div class="line">static typename std::enable_if&lt;!has&lt;T&gt;(&quot;an_int&quot;_member)&gt;::type print_an_int(const T&amp; object)</div>
+<div class="line">{</div>
+<div class="line">  std::cout &lt;&lt; &quot;T doesn&#39;t have an_int&quot; &lt;&lt; std::endl;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line">int main(int argc, char const *argv[])</div>
+<div class="line">{</div>
+<div class="line">  my_ns::MyClass obj{};</div>
+<div class="line">  print_an_int(obj);</div>
+<div class="line">  return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h3><code>fmt</code> utility</h3>
+<p><em>Sample code:</em> </p><div class="fragment"><div class="line"> {c++}</div>
+<div class="line"> </div>
+<div class="line">// C++ Standard Library</div>
+<div class="line">#include &lt;iostream&gt;</div>
+<div class="line"> </div>
+<div class="line">// About</div>
+<div class="line">#include &lt;about/utility/fmt.hpp&gt;</div>
+<div class="line"> </div>
+<div class="line">// User Code (output by &quot;test-about&quot;)</div>
+<div class="line">#include &quot;test-about.meta.hpp&quot;</div>
+<div class="line"> </div>
+<div class="line">int main(int argc, char const *argv[])</div>
+<div class="line">{</div>
+<div class="line">  my_ns::MyClass obj{};</div>
+<div class="line">  std::cout &lt;&lt; &quot;my_class &quot; &lt;&lt; about::fmt&lt;4&gt;(obj) &lt;&lt; std::endl;</div>
+<div class="line">  return 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p><em>Output:</em> </p><div class="fragment"><div class="line">my_class {</div>
+<div class="line">   &quot;a&quot; : 0,</div>
+<div class="line">   &quot;b&quot; : 0,</div>
+<div class="line">   &quot;c&quot; : 0,</div>
+<div class="line">   &quot;d&quot; : {</div>
+<div class="line">       &quot;a&quot; : {</div>
+<div class="line">           &quot;real_number&quot; : 0</div>
+<div class="line">       },</div>
+<div class="line">       &quot;b&quot; : {</div>
+<div class="line">           &quot;real_number&quot; : 0</div>
+<div class="line">       }</div>
+<div class="line">   }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

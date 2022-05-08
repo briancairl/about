@@ -1,0 +1,33 @@
+\hypertarget{integer__sequence_8hpp}{}\doxysection{include/utility/integer\+\_\+sequence.hpp File Reference}
+\label{integer__sequence_8hpp}\index{include/utility/integer\_sequence.hpp@{include/utility/integer\_sequence.hpp}}
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$utility$>$}\newline
+Include dependency graph for integer\+\_\+sequence.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{integer__sequence_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structabout_1_1integer__sequence}{about\+::integer\+\_\+sequence$<$ Int\+T, Ns $>$}}
+\begin{DoxyCompactList}\small\item\em Represents a compile-\/time sequence of integers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceabout}{about}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename IntT , size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespaceabout_a8a850eef2c5548e09261289d6dc6ed37}{about\+::make\+\_\+integer\+\_\+sequence}} = typename detail\+::make\+\_\+sequence$<$ IntT, N $>$\+::type
+\begin{DoxyCompactList}\small\item\em Integer sequence where the integer type is {\ttfamily std\+::size\+\_\+t} \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t... Ns$>$ }\\using \mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{about\+::index\+\_\+sequence}} = integer\+\_\+sequence$<$ size\+\_\+t, Ns... $>$
+\begin{DoxyCompactList}\small\item\em Integer sequence where the integer type is {\ttfamily size\+\_\+t} \end{DoxyCompactList}\item 
+{\footnotesize template$<$size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespaceabout_a14b44a7d06abdd7dc752e93c2a00e72f}{about\+::make\+\_\+index\+\_\+sequence}} = make\+\_\+integer\+\_\+sequence$<$ size\+\_\+t, N $>$
+\begin{DoxyCompactList}\small\item\em Makes an integer sequence where the integer type is {\ttfamily size\+\_\+t} \end{DoxyCompactList}\item 
+{\footnotesize template$<$class... T\+Pack$>$ }\\using \mbox{\hyperlink{namespaceabout_afef7a9e70155378166b391e58e9adcbd}{about\+::index\+\_\+sequence\+\_\+for}} = make\+\_\+integer\+\_\+sequence$<$ size\+\_\+t, sizeof...(T\+Pack)$>$
+\begin{DoxyCompactList}\small\item\em Makes an index sequence type with elements for each type in {\ttfamily T...} \end{DoxyCompactList}\end{DoxyCompactItemize}

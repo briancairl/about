@@ -1,0 +1,168 @@
+C++11 tool for compile-\/time reflection utility through code generation.
+
+Also includes some nice meta-\/programming utilities.
+
+\doxysection*{A\+PI Documentation}
+
+Doxygen output for the {\bfseries{latest version}} is available \href{https://briancairl.github.io/about/doxygen-out/html/index.html}{\texttt{ here}}
+
+\doxysection*{Prerequisites}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily apt-\/get install castxml python}
+\item {\ttfamily pip install pygccxml}
+\item {\ttfamily bazel} or {\ttfamily cmake}
+\end{DoxyItemize}
+
+\doxysection*{Supported Build Systems}
+
+
+\begin{DoxyItemize}
+\item {\ttfamily bazel}
+\item {\ttfamily cmake} \mbox{[}in the future...\mbox{]}
+\end{DoxyItemize}
+
+\doxysection*{How To}
+
+\doxysubsection*{Write some code you want reflect}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{// test.hpp}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#pragma once}
+\DoxyCodeLine{}
+\DoxyCodeLine{namespace my\_ns}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{}
+\DoxyCodeLine{struct Something}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  float real\_number;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{struct SomethingElse}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  Something a, b;}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{class MyClass}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{public:}
+\DoxyCodeLine{  int a;}
+\DoxyCodeLine{  float b;}
+\DoxyCodeLine{  double c;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  SomethingElse d;}
+\DoxyCodeLine{}
+\DoxyCodeLine{  void my\_method(const char* my\_arg);}
+\DoxyCodeLine{}
+\DoxyCodeLine{private:}
+\DoxyCodeLine{  const char* privates = "don't touch me";}
+\DoxyCodeLine{\};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\}  // namespace my\_ns}
+\end{DoxyCode}
+
+
+\doxysubsection*{Setup the build}
+
+\doxysubsubsection*{Bazel}
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{load(\textcolor{stringliteral}{"//:bazel/about.bzl"}, \textcolor{stringliteral}{"cc\_library\_with\_reflection"})}
+\DoxyCodeLine{}
+\DoxyCodeLine{...}
+\DoxyCodeLine{}
+\DoxyCodeLine{cc\_library\_with\_reflection(}
+\DoxyCodeLine{  name=\textcolor{stringliteral}{"test-\/about"},}
+\DoxyCodeLine{  hdrs=[\textcolor{stringliteral}{"test.hpp"}],}
+\DoxyCodeLine{  visibility=[\textcolor{stringliteral}{"//visibility:public"}]}
+\DoxyCodeLine{)}
+\end{DoxyCode}
+
+
+\doxysubsection*{Use your code and the generated compile time reflection classes}
+
+\doxysubsubsection*{Basic reflection\+:}
+
+{\itshape Sample code\+:} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// C++ Standard Library}
+\DoxyCodeLine{\#include <iostream>}
+\DoxyCodeLine{\#include <type\_traits>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// About}
+\DoxyCodeLine{\#include <about/about.hpp>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// User Code (output by "test-\/about")}
+\DoxyCodeLine{\#include "test-\/about.meta.hpp"}
+\DoxyCodeLine{}
+\DoxyCodeLine{using namespace about;}
+\DoxyCodeLine{}
+\DoxyCodeLine{template<typename T>}
+\DoxyCodeLine{static typename std::enable\_if<has<T>("an\_int"\_member)>::type print\_an\_int(const T\& object)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  std::cout << "This is the value of T.an\_int : " << object.an\_int << std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{template<typename T>}
+\DoxyCodeLine{static typename std::enable\_if<!has<T>("an\_int"\_member)>::type print\_an\_int(const T\& object)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  std::cout << "T doesn't have an\_int" << std::endl;}
+\DoxyCodeLine{\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{int main(int argc, char const *argv[])}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  my\_ns::MyClass obj\{\};}
+\DoxyCodeLine{  print\_an\_int(obj);}
+\DoxyCodeLine{  return 0;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+\doxysubsubsection*{{\ttfamily fmt} utility}
+
+{\itshape Sample code\+:} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{ \{c++\}}
+\DoxyCodeLine{}
+\DoxyCodeLine{// C++ Standard Library}
+\DoxyCodeLine{\#include <iostream>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// About}
+\DoxyCodeLine{\#include <about/utility/fmt.hpp>}
+\DoxyCodeLine{}
+\DoxyCodeLine{// User Code (output by "test-\/about")}
+\DoxyCodeLine{\#include "test-\/about.meta.hpp"}
+\DoxyCodeLine{}
+\DoxyCodeLine{int main(int argc, char const *argv[])}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  my\_ns::MyClass obj\{\};}
+\DoxyCodeLine{  std::cout << "my\_class " << about::fmt<4>(obj) << std::endl;}
+\DoxyCodeLine{  return 0;}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+
+
+{\itshape Output\+:} 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{my\_class \{}
+\DoxyCodeLine{   "a" : 0,}
+\DoxyCodeLine{   "b" : 0,}
+\DoxyCodeLine{   "c" : 0,}
+\DoxyCodeLine{   "d" : \{}
+\DoxyCodeLine{       "a" : \{}
+\DoxyCodeLine{           "real\_number" : 0}
+\DoxyCodeLine{       \},}
+\DoxyCodeLine{       "b" : \{}
+\DoxyCodeLine{           "real\_number" : 0}
+\DoxyCodeLine{       \}}
+\DoxyCodeLine{   \}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
+ 

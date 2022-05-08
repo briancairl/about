@@ -1,0 +1,82 @@
+\hypertarget{about_8hpp}{}\doxysection{include/about.hpp File Reference}
+\label{about_8hpp}\index{include/about.hpp@{include/about.hpp}}
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+Include dependency graph for about.\+hpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{about_8hpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_attr_name}{about\+::detail\+::\+Attr\+Name}}
+\begin{DoxyCompactList}\small\item\em Base for attribute names. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{about\+::detail\+::\+Member\+Name$<$ Chars $>$}}
+\begin{DoxyCompactList}\small\item\em Tagging element used to refer to member variables. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{about\+::detail\+::\+Method\+Name$<$ Chars $>$}}
+\begin{DoxyCompactList}\small\item\em Tagging element used to refer to class methods. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{about\+::detail\+::\+Class\+Meta\+Info$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Traits type containing information about a type {\ttfamily T} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_class_member_exists}{about\+::detail\+::\+Class\+Member\+Exists$<$ T, Member\+Tag $>$}}
+\begin{DoxyCompactList}\small\item\em Traits type used to check if a member variable or method exists via a tag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespaceabout}{about}}
+\item 
+ \mbox{\hyperlink{namespaceabout_1_1detail}{about\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}{about\+::detail\+::cleaned\+\_\+t}} = typename std\+::remove\+\_\+const$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::type
+\begin{DoxyCompactList}\small\item\em Removes reference and const qualifiers. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceabout_a16685b0923e676ee1aab9b0792bb1b58}{about\+::public\+\_\+member\+\_\+info\+\_\+t}} = typename detail\+::\+Class\+Meta\+Info$<$ detail\+::cleaned\+\_\+t$<$ T $>$ $>$\+::public\+\_\+member\+\_\+info
+\begin{DoxyCompactList}\small\item\em {\ttfamily std\+::tuple} of meta information for each public class member variable, in order of declaration \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a8726bcfbf391f3fab8965bbbe5891b52}{about\+::detail\+::operator==}} (Member\+Name$<$ Chars... $>$ lhs, Member\+Name$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a87d8ff6d10fd822f055c3a4a72b0e114}{about\+::detail\+::operator!=}} (Member\+Name$<$ Chars... $>$ lhs, Member\+Name$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a182ce03f1ac9825f2fa469204cea66bb}{about\+::detail\+::operator==}} (Member\+Name$<$ L\+H\+S\+Chars... $>$ lhs, Member\+Name$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a45864b2efff867979894eaf401f5c3d7}{about\+::detail\+::operator!=}} (Member\+Name$<$ L\+H\+S\+Chars... $>$ lhs, Member\+Name$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a9dfa737b0e4dd7a6e0eddbb728501be8}{about\+::detail\+::operator==}} (Method\+Name$<$ Chars... $>$ lhs, Method\+Name$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_ac9354af3d5f2ff799e2492a4c284cc89}{about\+::detail\+::operator!=}} (Method\+Name$<$ Chars... $>$ lhs, Method\+Name$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_abbfbf01ea4bc1bdf5a49419beae1ea6f}{about\+::detail\+::operator==}} (Method\+Name$<$ L\+H\+S\+Chars... $>$ lhs, Method\+Name$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_afcde9b151706957b754fc2831f9bf861}{about\+::detail\+::operator!=}} (Method\+Name$<$ L\+H\+S\+Chars... $>$ lhs, Method\+Name$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr detail\+::\+Member\+Name$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a7420592076be9f921f5b54968ec5fde5}{about\+::operator\char`\"{}\char`\"{}\+\_\+member}} ()
+\begin{DoxyCompactList}\small\item\em Literal used to refer to a class member variable. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr detail\+::\+Method\+Name$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a315f301abb47cfd846d19dd01583279c}{about\+::operator\char`\"{}\char`\"{}\+\_\+method}} ()
+\begin{DoxyCompactList}\small\item\em Literal used to refer to a class method. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a64633addc9a58a505d1376b82169221b}{about\+::has}} (detail\+::\+Member\+Name$<$ Chars... $>$ \+\_\+)
+\begin{DoxyCompactList}\small\item\em Checks if a member variable exists via a tag. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_ada47007c4677d68ad52e204637b5b82b}{about\+::has}} (detail\+::\+Method\+Name$<$ Chars... $>$ \+\_\+)
+\begin{DoxyCompactList}\small\item\em Checks if a class method exists via a tag. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_a4c391f697db39fcf29295b487d2bc58f}{about\+::get\+\_\+public\+\_\+members}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of lvalue references to all public members, in order of declaration. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}{about\+::get\+\_\+name}} (const T \&value)
+\begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of immutable lvalue references to all public members (in order of declaration) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{about\+::has\+\_\+reflection\+\_\+info}}
+\begin{DoxyCompactList}\small\item\em Used to check if reflection information is available for a given type. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ade38136d9fe12346812648e0fa732615}{about\+::nameof}} = detail\+::\+Class\+Meta\+Info$<$T$>$\+::name
+\begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyCopyright}{Copyright}
+2022-\/present Brian Cairl 
+\end{DoxyCopyright}

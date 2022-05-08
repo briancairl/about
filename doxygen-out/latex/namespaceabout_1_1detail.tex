@@ -1,0 +1,284 @@
+\hypertarget{namespaceabout_1_1detail}{}\doxysection{about\+::detail Namespace Reference}
+\label{namespaceabout_1_1detail}\index{about::detail@{about::detail}}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_attr_name}{Attr\+Name}}
+\begin{DoxyCompactList}\small\item\em Base for attribute names. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_class_member_exists}{Class\+Member\+Exists}}
+\begin{DoxyCompactList}\small\item\em Traits type used to check if a member variable or method exists via a tag. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{Class\+Meta\+Info}}
+\begin{DoxyCompactList}\small\item\em Traits type containing information about a type {\ttfamily T} \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_common_tuple_size}{Common\+Tuple\+Size}}
+\begin{DoxyCompactList}\small\item\em Generates (and statically checks) common size between tuples, {\ttfamily Tuple\+Ts}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_01_4}{Common\+Tuple\+Size$<$ First\+Tuple\+T $>$}}
+\begin{DoxyCompactList}\small\item\em Generates (and statically checks) common size between tuples, {\ttfamily Tuple\+Ts}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_00_01_second_tuple_t_00_01_other_tuple_ts_8_8_8_01_4}{Common\+Tuple\+Size$<$ First\+Tuple\+T, Second\+Tuple\+T, Other\+Tuple\+Ts... $>$}}
+\begin{DoxyCompactList}\small\item\em Generates (and statically checks) common size between tuples, {\ttfamily Tuple\+Ts}. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_filter_impl}{Filter\+Impl}}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_filter_impl_3_01_filter_00_01_tup_tmpl_3_01_t_01_4_01_4}{Filter\+Impl$<$ Filter, Tup\+Tmpl$<$ T $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_filter_impl_3_01_filter_00_01_tup_tmpl_3_01_t0_00_01_t1_00_01_other_ts_8_8_8_01_4_01_4}{Filter\+Impl$<$ Filter, Tup\+Tmpl$<$ T0, T1, Other\+Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{Formatted}}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}
+\begin{DoxyCompactList}\small\item\em Tagging element used to refer to member variables. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_merge_impl}{Merge\+Impl}}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_merge_impl_3_01_t_00_01_tup_tmpl_3_01_origina_ts_8_8_8_01_4_01_4}{Merge\+Impl$<$ T, Tup\+Tmpl$<$ Origina\+Ts... $>$ $>$}}
+\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}
+\begin{DoxyCompactList}\small\item\em Tagging element used to refer to class methods. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structabout_1_1detail_1_1_multi_tuple_for_each_adapter}{Multi\+Tuple\+For\+Each\+Adapter}}
+\begin{DoxyCompactList}\small\item\em Calls {\ttfamily \mbox{\hyperlink{namespaceabout_a8c3e7e50f3bae2e5070a31325749cc48}{about\+::apply}}} on a tuple formed of elements at each {\ttfamily Tuple\+Ts} at {\ttfamily Index}. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classabout_1_1detail_1_1_printer}{Printer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}{cleaned\+\_\+t}} = typename std\+::remove\+\_\+const$<$ typename std\+::remove\+\_\+reference$<$ T $>$\+::type $>$\+::type
+\begin{DoxyCompactList}\small\item\em Removes reference and const qualifiers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a8726bcfbf391f3fab8965bbbe5891b52}{operator==}} (\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a87d8ff6d10fd822f055c3a4a72b0e114}{operator!=}} (\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a182ce03f1ac9825f2fa469204cea66bb}{operator==}} (\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ L\+H\+S\+Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a45864b2efff867979894eaf401f5c3d7}{operator!=}} (\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ L\+H\+S\+Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a9dfa737b0e4dd7a6e0eddbb728501be8}{operator==}} (\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_ac9354af3d5f2ff799e2492a4c284cc89}{operator!=}} (\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_abbfbf01ea4bc1bdf5a49419beae1ea6f}{operator==}} (\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ L\+H\+S\+Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_afcde9b151706957b754fc2831f9bf861}{operator!=}} (\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ L\+H\+S\+Chars... $>$ lhs, \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ R\+H\+S\+Chars... $>$ rhs)
+\begin{DoxyCompactList}\small\item\em Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename InvocableT , typename Arg\+TupleT , std\+::size\+\_\+t... Int\+Pack$>$ }\\constexpr decltype(auto) \mbox{\hyperlink{namespaceabout_1_1detail_a44a893d4fc872eed52d16617dea708f3}{apply}} (InvocableT \&\&fn, Arg\+TupleT \&\&targs, \mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{index\+\_\+sequence}}$<$ Int\+Pack... $>$)
+\begin{DoxyCompactList}\small\item\em Implementation for flow\+::apply. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t Justification = 2\+UL, typename ValueT $>$ }\\std\+::enable\+\_\+if$<$!\mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{has\+\_\+reflection\+\_\+info}}$<$ ValueT $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_aaa8481d5af6f3128a0447c9e669ae954}{fmt\+\_\+print}} (std\+::ostream \&os, ValueT \&\&value, const std\+::size\+\_\+t justification=Justification)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t Justification = 2\+UL, typename ValueT $>$ }\\std\+::enable\+\_\+if$<$ \mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{has\+\_\+reflection\+\_\+info}}$<$ ValueT $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_ad091661eaaec507c4a6ce4ff1387f6f8}{fmt\+\_\+print}} (std\+::ostream \&os, ValueT \&\&value, const std\+::size\+\_\+t justification=Justification)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ }\\std\+::enable\+\_\+if$<$ \mbox{\hyperlink{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}{put\+\_\+comma\+\_\+condition}}$<$ I, N $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_af63e7664256e4c9b19570eb4586d9a08}{put\+\_\+comma}} (std\+::ostream \&os)
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ }\\std\+::enable\+\_\+if$<$!\mbox{\hyperlink{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}{put\+\_\+comma\+\_\+condition}}$<$ I, N $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_a26d3251fd63e65ac889f553f48b65d0e}{put\+\_\+comma}} (std\+::ostream \&os)
+\item 
+{\footnotesize template$<$typename CallbackT , std\+::size\+\_\+t... Indices, typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_1_1detail_ae3d8a9b66b194c0a288a73d0ef87f197}{for\+\_\+each}} (CallbackT \&\&cb, \mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{index\+\_\+sequence}}$<$ Indices... $>$ \+\_\+, Tuple\+Ts \&\&... tups)
+\item 
+{\footnotesize template$<$typename CallbackT , std\+::size\+\_\+t... Indices, typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_1_1detail_a263bf8fffb045fd17609bd15900ed2a9}{for\+\_\+each\+\_\+enumerated}} (CallbackT \&\&cb, \mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{index\+\_\+sequence}}$<$ Indices... $>$ \+\_\+, Tuple\+Ts \&\&... tups)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}{put\+\_\+comma\+\_\+condition}} = (I + 1 $<$ N)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}\label{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}} 
+\index{about::detail@{about::detail}!cleaned\_t@{cleaned\_t}}
+\index{cleaned\_t@{cleaned\_t}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{cleaned\_t}{cleaned\_t}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+using \mbox{\hyperlink{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}{about\+::detail\+::cleaned\+\_\+t}} = typedef typename std\+::remove\+\_\+const$<$typename std\+::remove\+\_\+reference$<$T$>$\+::type$>$\+::type}
+
+
+
+Removes reference and const qualifiers. 
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a44a893d4fc872eed52d16617dea708f3}\label{namespaceabout_1_1detail_a44a893d4fc872eed52d16617dea708f3}} 
+\index{about::detail@{about::detail}!apply@{apply}}
+\index{apply@{apply}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{apply()}{apply()}}
+{\footnotesize\ttfamily template$<$typename InvocableT , typename Arg\+TupleT , std\+::size\+\_\+t... Int\+Pack$>$ \\
+constexpr decltype(auto) about\+::detail\+::apply (\begin{DoxyParamCaption}\item[{InvocableT \&\&}]{fn,  }\item[{Arg\+TupleT \&\&}]{targs,  }\item[{\mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{index\+\_\+sequence}}$<$ Int\+Pack... $>$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Implementation for flow\+::apply. 
+
+\mbox{\Hypertarget{namespaceabout_1_1detail_aaa8481d5af6f3128a0447c9e669ae954}\label{namespaceabout_1_1detail_aaa8481d5af6f3128a0447c9e669ae954}} 
+\index{about::detail@{about::detail}!fmt\_print@{fmt\_print}}
+\index{fmt\_print@{fmt\_print}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{fmt\_print()}{fmt\_print()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t Justification = 2\+UL, typename ValueT $>$ \\
+std\+::enable\+\_\+if$<$!\mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{has\+\_\+reflection\+\_\+info}}$<$ValueT$>$ $>$\+::type about\+::detail\+::fmt\+\_\+print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{ValueT \&\&}]{value,  }\item[{const std\+::size\+\_\+t}]{justification = {\ttfamily Justification} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceabout_1_1detail_ad091661eaaec507c4a6ce4ff1387f6f8}\label{namespaceabout_1_1detail_ad091661eaaec507c4a6ce4ff1387f6f8}} 
+\index{about::detail@{about::detail}!fmt\_print@{fmt\_print}}
+\index{fmt\_print@{fmt\_print}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{fmt\_print()}{fmt\_print()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t Justification = 2\+UL, typename ValueT $>$ \\
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{has\+\_\+reflection\+\_\+info}}$<$ValueT$>$ $>$\+::type about\+::detail\+::fmt\+\_\+print (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{ValueT \&\&}]{value,  }\item[{const std\+::size\+\_\+t}]{justification = {\ttfamily Justification} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceabout_1_1detail_ae3d8a9b66b194c0a288a73d0ef87f197}\label{namespaceabout_1_1detail_ae3d8a9b66b194c0a288a73d0ef87f197}} 
+\index{about::detail@{about::detail}!for\_each@{for\_each}}
+\index{for\_each@{for\_each}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{for\_each()}{for\_each()}}
+{\footnotesize\ttfamily template$<$typename CallbackT , std\+::size\+\_\+t... Indices, typename... Tuple\+Ts$>$ \\
+void about\+::detail\+::for\+\_\+each (\begin{DoxyParamCaption}\item[{CallbackT \&\&}]{cb,  }\item[{\mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{index\+\_\+sequence}}$<$ Indices... $>$}]{\+\_\+,  }\item[{Tuple\+Ts \&\&...}]{tups }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+
+
+@warn implementation
+
+@warn implementation \mbox{\Hypertarget{namespaceabout_1_1detail_a263bf8fffb045fd17609bd15900ed2a9}\label{namespaceabout_1_1detail_a263bf8fffb045fd17609bd15900ed2a9}} 
+\index{about::detail@{about::detail}!for\_each\_enumerated@{for\_each\_enumerated}}
+\index{for\_each\_enumerated@{for\_each\_enumerated}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{for\_each\_enumerated()}{for\_each\_enumerated()}}
+{\footnotesize\ttfamily template$<$typename CallbackT , std\+::size\+\_\+t... Indices, typename... Tuple\+Ts$>$ \\
+void about\+::detail\+::for\+\_\+each\+\_\+enumerated (\begin{DoxyParamCaption}\item[{CallbackT \&\&}]{cb,  }\item[{\mbox{\hyperlink{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}{index\+\_\+sequence}}$<$ Indices... $>$}]{\+\_\+,  }\item[{Tuple\+Ts \&\&...}]{tups }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+
+
+@warn implementation
+
+@warn implementation \mbox{\Hypertarget{namespaceabout_1_1detail_a87d8ff6d10fd822f055c3a4a72b0e114}\label{namespaceabout_1_1detail_a87d8ff6d10fd822f055c3a4a72b0e114}} 
+\index{about::detail@{about::detail}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$char... Chars$>$ \\
+constexpr bool about\+::detail\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a45864b2efff867979894eaf401f5c3d7}\label{namespaceabout_1_1detail_a45864b2efff867979894eaf401f5c3d7}} 
+\index{about::detail@{about::detail}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ \\
+constexpr bool about\+::detail\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ L\+H\+S\+Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ R\+H\+S\+Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_ac9354af3d5f2ff799e2492a4c284cc89}\label{namespaceabout_1_1detail_ac9354af3d5f2ff799e2492a4c284cc89}} 
+\index{about::detail@{about::detail}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$char... Chars$>$ \\
+constexpr bool about\+::detail\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_afcde9b151706957b754fc2831f9bf861}\label{namespaceabout_1_1detail_afcde9b151706957b754fc2831f9bf861}} 
+\index{about::detail@{about::detail}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator"!=()}{operator!=()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ \\
+constexpr bool about\+::detail\+::operator!= (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ L\+H\+S\+Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ R\+H\+S\+Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Inequality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a8726bcfbf391f3fab8965bbbe5891b52}\label{namespaceabout_1_1detail_a8726bcfbf391f3fab8965bbbe5891b52}} 
+\index{about::detail@{about::detail}!operator==@{operator==}}
+\index{operator==@{operator==}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$char... Chars$>$ \\
+constexpr bool about\+::detail\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a182ce03f1ac9825f2fa469204cea66bb}\label{namespaceabout_1_1detail_a182ce03f1ac9825f2fa469204cea66bb}} 
+\index{about::detail@{about::detail}!operator==@{operator==}}
+\index{operator==@{operator==}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ \\
+constexpr bool about\+::detail\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ L\+H\+S\+Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}$<$ R\+H\+S\+Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{Member\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a9dfa737b0e4dd7a6e0eddbb728501be8}\label{namespaceabout_1_1detail_a9dfa737b0e4dd7a6e0eddbb728501be8}} 
+\index{about::detail@{about::detail}!operator==@{operator==}}
+\index{operator==@{operator==}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$char... Chars$>$ \\
+constexpr bool about\+::detail\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_abbfbf01ea4bc1bdf5a49419beae1ea6f}\label{namespaceabout_1_1detail_abbfbf01ea4bc1bdf5a49419beae1ea6f}} 
+\index{about::detail@{about::detail}!operator==@{operator==}}
+\index{operator==@{operator==}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{operator==()}{operator==()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$char... L\+H\+S\+Chars, char... R\+H\+S\+Chars$>$ \\
+constexpr bool about\+::detail\+::operator== (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ L\+H\+S\+Chars... $>$}]{lhs,  }\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}$<$ R\+H\+S\+Chars... $>$}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Equality comparison overload for \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{Method\+Name}}. 
+
+\begin{DoxyNote}{Note}
+evaluation happens entirely at compile-\/time, based on variadic pack 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespaceabout_1_1detail_af63e7664256e4c9b19570eb4586d9a08}\label{namespaceabout_1_1detail_af63e7664256e4c9b19570eb4586d9a08}} 
+\index{about::detail@{about::detail}!put\_comma@{put\_comma}}
+\index{put\_comma@{put\_comma}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{put\_comma()}{put\_comma()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ \\
+std\+::enable\+\_\+if$<$\mbox{\hyperlink{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}{put\+\_\+comma\+\_\+condition}}$<$I, N$>$ $>$\+::type about\+::detail\+::put\+\_\+comma (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceabout_1_1detail_a26d3251fd63e65ac889f553f48b65d0e}\label{namespaceabout_1_1detail_a26d3251fd63e65ac889f553f48b65d0e}} 
+\index{about::detail@{about::detail}!put\_comma@{put\_comma}}
+\index{put\_comma@{put\_comma}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{put\_comma()}{put\_comma()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ \\
+std\+::enable\+\_\+if$<$!\mbox{\hyperlink{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}{put\+\_\+comma\+\_\+condition}}$<$I, N$>$ $>$\+::type about\+::detail\+::put\+\_\+comma (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}\label{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}} 
+\index{about::detail@{about::detail}!put\_comma\_condition@{put\_comma\_condition}}
+\index{put\_comma\_condition@{put\_comma\_condition}!about::detail@{about::detail}}
+\doxysubsubsection{\texorpdfstring{put\_comma\_condition}{put\_comma\_condition}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ \\
+constexpr bool about\+::detail\+::put\+\_\+comma\+\_\+condition = (I + 1 $<$ N)\hspace{0.3cm}{\ttfamily [constexpr]}}
+
