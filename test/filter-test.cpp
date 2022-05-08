@@ -19,7 +19,7 @@ using namespace about;
 template <typename T> struct HasA : std::integral_constant<bool, has<T>("a"_member)>
 {};
 
-TEST(Filter, TupleMergeNonEmpty)
+TEST(Merge, TupleMergeNonEmpty)
 {
   using tup = std::tuple<int>;
   ASSERT_EQ((std::tuple_size<tup>::value), 1UL);
@@ -28,7 +28,7 @@ TEST(Filter, TupleMergeNonEmpty)
   ASSERT_EQ((std::tuple_size<tup_merged>::value), 2UL);
 }
 
-TEST(Filter, TupleMergeEmpty)
+TEST(Merge, TupleMergeEmpty)
 {
   using tup = std::tuple<>;
   ASSERT_EQ((std::tuple_size<tup>::value), 0UL);
