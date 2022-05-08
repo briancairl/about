@@ -58,32 +58,38 @@ constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> r
   return true;
 }
 
-template <typename T> struct Class : std::false_type
+template <typename T> struct ClassMetaInfo : std::false_type
 {};
 
-template <typename T, typename MemberTag> struct ClassHas : std::false_type
+template <typename T, typename MemberTag> struct ClassMemberExists : std::false_type
 {};
 
 template <typename ClassT, char... Chars> constexpr bool has(MethodName<Chars...> _)
 {
-  return ClassHas<ClassT, MethodName<Chars...>>::value;
+  return ClassMemberExists<ClassT, MethodName<Chars...>>::value;
 }
 
 template <typename ClassT, char... Chars> constexpr bool has(MemberName<Chars...> _)
 {
-  return ClassHas<ClassT, MemberName<Chars...>>::value;
+  return ClassMemberExists<ClassT, MemberName<Chars...>>::value;
 }
 
-template <typename T> constexpr auto get_public_members(const T& value) { return Class<T>::public_members(value); }
+template <typename T> constexpr auto get_public_members(const T& value)
+{
+  return ClassMetaInfo<T>::public_members(value);
+}
 
-template <typename T> constexpr auto get_public_member_names(const T& value) { return Class<T>::public_member_names(); }
+template <typename T> constexpr auto get_public_member_names(const T& value)
+{
+  return ClassMetaInfo<T>::public_member_names();
+}
 
 template <typename T> using cleaned_t = typename std::remove_const<typename std::remove_reference<T>::type>::type;
 
 template <typename T>
-constexpr bool has_reflection_info = !std::is_base_of<std::false_type, Class<cleaned_t<T>>>::value;
+constexpr bool has_reflection_info = !std::is_base_of<std::false_type, ClassMetaInfo<cleaned_t<T>>>::value;
 
-template <typename T> using public_member_info_t = typename Class<cleaned_t<T>>::public_member_info;
+template <typename T> using public_member_info_t = typename ClassMetaInfo<cleaned_t<T>>::public_member_info;
 
 }  // namespace about
 

@@ -42,7 +42,7 @@ def expand_class(out, ns_name:str, decl):
     _public_members_comma_sep = ', '.join([f"v.{v.name}" for v in decl.public_members if isinstance(v, declarations.variable_t)])
     out.write(f"""
 template<>
-struct Class<{ns_name}::{decl.name}>
+struct ClassMetaInfo<{ns_name}::{decl.name}>
 {{
 """)
 
@@ -86,7 +86,7 @@ static constexpr decltype(auto) public_members(const {ns_name}::{decl.name}& v)
 """)
 
     out.write(f"""
-}};  // class Class<{ns_name}::{decl.name}>
+}};  // class ClassMetaInfo<{ns_name}::{decl.name}>
 """)
 
     for mem in decl.public_members:
@@ -96,7 +96,7 @@ static constexpr decltype(auto) public_members(const {ns_name}::{decl.name}& v)
  * @brief Checks if class has a public member variable <code>{mem.name}</code>
  */
 template<>
-struct ClassHas<{ns_name}::{decl.name}, decltype("{mem.name}"_member)> : std::true_type {{}};
+struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_member)> : std::true_type {{}};
 """)
         elif isinstance(mem, declarations.member_function_t) or isinstance(mem, declarations.member_operator_t):
             out.write(f"""
@@ -104,7 +104,7 @@ struct ClassHas<{ns_name}::{decl.name}, decltype("{mem.name}"_member)> : std::tr
  * @brief Checks if class has a public member function <code>{mem.name}</code>
  */
 template<>
-struct ClassHas<{ns_name}::{decl.name}, decltype("{mem.name}"_method)> : std::true_type {{}};
+struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_method)> : std::true_type {{}};
 """)
         elif isinstance(mem, declarations.class_declaration.class_t):
             expand_class(out, f"{ns_name}::{decl.name}", mem)

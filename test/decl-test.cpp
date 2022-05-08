@@ -15,10 +15,10 @@ class TestClass
 namespace about
 {
 
-template <> struct ClassHas<::TestClass, decltype("cool"_method)> : std::true_type
+template <> struct ClassMemberExists<::TestClass, decltype("cool"_method)> : std::true_type
 {};
 
-template <> struct Class<::TestClass> : std::true_type
+template <> struct ClassMetaInfo<::TestClass> : std::true_type
 {};
 
 }  // namespace
