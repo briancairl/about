@@ -1,10 +1,10 @@
 /**
  * @copyright 2022-present Brian Cairl
  *
- * @file decl.hpp
+ * @file about.hpp
  */
-#ifndef ABOUT_DECL_HPP
-#define ABOUT_DECL_HPP
+#ifndef ABOUT_ABOUT_HPP
+#define ABOUT_ABOUT_HPP
 
 // C++ Standard Library
 #include <type_traits>
@@ -87,4 +87,4 @@ template <typename T> using public_member_info_t = typename Class<cleaned_t<T>>:
 
 }  // namespace about
 
-#endif  // ABOUT_DECL_HPP
+#endif  // ABOUT_ABOUT_HPP

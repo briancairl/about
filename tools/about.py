@@ -25,7 +25,7 @@ START_OF_FILE = """
 #include <utility>
 
 // About
-#include <about/decl.hpp>
+#include <about/about.hpp>
 
 // USER LIBRARIES
 

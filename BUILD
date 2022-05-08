@@ -1,7 +1,7 @@
 cc_library(
   name="decl",
   hdrs=[
-    "include/decl.hpp",
+    "include/about.hpp",
   ],
   strip_include_prefix="include",
   include_prefix="about",

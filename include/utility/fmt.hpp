@@ -12,7 +12,7 @@
 #include <utility>
 
 // About
-#include <about/decl.hpp>
+#include <about/about.hpp>
 #include <about/for_each.hpp>
 
 namespace about
