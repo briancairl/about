@@ -7,7 +7,7 @@
 #include <gtest/gtest.h>
 
 // About
-#include <about/common.hpp>
+#include <about/decl.hpp>
 
 class TestClass
 {};

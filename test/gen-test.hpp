@@ -2,7 +2,6 @@
  * @copyright 2022-present About
  * @author Brian Cairl
  */
-#pragma once
 
 namespace my_ns
 {
@@ -30,6 +29,14 @@ public:
 
 private:
   const char* privates = "don't touch me";
+};
+
+enum class MyEnum
+{
+  THIS,
+  IS,
+  A,
+  CODE
 };
 
 }  // namespace my_ns
