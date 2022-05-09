@@ -123,7 +123,7 @@ std::cout << ClassMetaInfo<T>::name << std::endl;
 // Name of a member
 std::cout << ClassMetaInfo<T>::public_member_info<0>::name << std::endl:
 
- * </endverbatim>
+ * <endverbatim>
  *
  * @tparam T  type to reflect
  */
@@ -140,7 +140,7 @@ std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_member)>::value
 
 std::cout << std::boolalpha << ClassMemberExists<T, decltype("b"_method)>::value << std::endl;
 
- * </endverbatim>
+ * <endverbatim>
  *
  * @tparam T  type to reflect
  */
@@ -167,7 +167,7 @@ typename std::enable_if<has_reflection_info<T>, void>::type use_reflection(const
   // code which uses generated reflection traits
 }
 
- * </endverbatim>
+ * <endverbatim>
  *
  * @tparam T  type to check
  */
@@ -199,7 +199,7 @@ template <typename T, T... Chars> constexpr detail::MethodName<Chars...> operato
 
 std::cout << std::boolalpha << has<T>("a"_member) << std::endl;
 
- * </endverbatim>
+ * <endverbatim>
  *
  * @tparam T  type to reflect
  */
@@ -216,7 +216,7 @@ template <typename ClassT, char... Chars> constexpr bool has(detail::MemberName<
 
 std::cout << std::boolalpha << has<T>("b"_method) << std::endl;
 
- * </endverbatim>
+ * <endverbatim>
  *
  * @tparam T  type to reflect
  */
