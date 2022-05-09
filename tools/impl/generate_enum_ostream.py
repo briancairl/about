@@ -32,6 +32,14 @@ END_OF_FILE = """
 #endif // {gaurd}__ENUM_OSTREAM_HPP
 """
 
+def expand_class(out, ns_name:str, decl):
+    for mem in decl.public_members:
+        if isinstance(mem, declarations.class_declaration.class_t):
+            expand_class(out, f"{ns_name}::{decl.name}", mem)
+
+        elif isinstance(mem, declarations.enumeration_t):
+            expand_enum(out, f"{ns_name}::{decl.name}", mem)
+
 
 def expand_enum(out, ns_name:str, decl):
     fully_qualified_enum_name = f"{ns_name}::{decl.name}"
@@ -88,8 +96,8 @@ namespace about
                 for n in inner_ns.declarations:
                     if isinstance(n, declarations.enumeration_t):
                         expand_enum(out, inner_ns.name, n)
-                    # elif isinstance(n, declarations.class_t):
-                    #     expand_class_enum(out, inner_ns.name, n)
+                    elif isinstance(n, declarations.class_t):
+                        expand_class(out, inner_ns.name, n)
         out.write("""
 } // namespace about
 """)
