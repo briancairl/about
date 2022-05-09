@@ -27,8 +27,10 @@ if __name__ == '__main__':
         xml_generator_path=generator_path,
         xml_generator=generator_name)
 
+    decls = xml_parser.parse(args.inputs, xml_generator_config)
+
     if (args.output_meta or args.debug):
-        generate_meta(args=args, xml_generator_config=xml_generator_config)
+        generate_meta(args=args, decls=decls)
 
     if (args.output_enum_ostream or args.debug):
-        generate_enum_ostream(args=args, xml_generator_config=xml_generator_config)
+        generate_enum_ostream(args=args, decls=decls)

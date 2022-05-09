@@ -5,9 +5,7 @@ import os
 from typing import (Dict, List, Optional)
 
 # PyGCCXML
-from pygccxml import utils
 from pygccxml import declarations
-from pygccxml import parser as xml_parser
 
 # About
 from impl.common import open_output_handle
@@ -131,7 +129,7 @@ struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_method)> 
             expand_enum(out, f"{ns_name}::{decl.name}", mem)
 
 
-def generate_meta(args, xml_generator_config):
+def generate_meta(args, decls):
     output = args.output_meta
     base, ext = os.path.splitext(os.path.split(output.upper())[-1])
     include_gaurd = f"__ABOUT_AUTO_GENERATED__{base}"
@@ -149,21 +147,17 @@ namespace about
 namespace detail
 {
 """)
-        for filename in args.inputs:
-            # Parse the code
-            decls = xml_parser.parse([filename], xml_generator_config)
+        # Get access to the global namespace
+        global_ns = declarations.get_global_namespace(decls)
 
-            # Get access to the global namespace
-            global_ns = declarations.get_global_namespace(decls)
-
-            for n in global_ns.declarations:
-                if isinstance(n, declarations.namespace_t):
-                    inner_ns = global_ns.namespace(n.name)
-                    for n in inner_ns.declarations:
-                        if isinstance(n, declarations.class_t):
-                            expand_class(out, inner_ns.name, n)
-                        elif isinstance(n, declarations.enumeration_t):
-                            expand_enum(out, inner_ns.name, n)
+        for n in global_ns.declarations:
+            if isinstance(n, declarations.namespace_t):
+                inner_ns = global_ns.namespace(n.name)
+                for n in inner_ns.declarations:
+                    if isinstance(n, declarations.class_t):
+                        expand_class(out, inner_ns.name, n)
+                    elif isinstance(n, declarations.enumeration_t):
+                        expand_enum(out, inner_ns.name, n)
         out.write("""
 } // namespace detail
 } // namespace about
