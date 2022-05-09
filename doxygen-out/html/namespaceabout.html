@@ -685,7 +685,7 @@ template&lt;typename ClassT , char... Chars&gt; </div>
 <p>Checks if a member variable exists via a tag. </p>
 <p>For example: &lt;verbatim&gt;</p>
 <p>std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;("a"_member) &lt;&lt; std::endl;</p>
-<p>&lt;/endverbatim&gt;</p>
+<p>&lt;endverbatim&gt;</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type to reflect </td></tr>
@@ -724,7 +724,7 @@ template&lt;typename ClassT , char... Chars&gt; </div>
 <p>Checks if a class method exists via a tag. </p>
 <p>For example: &lt;verbatim&gt;</p>
 <p>std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;("b"_method) &lt;&lt; std::endl;</p>
-<p>&lt;/endverbatim&gt;</p>
+<p>&lt;endverbatim&gt;</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type to reflect </td></tr>
@@ -892,7 +892,7 @@ template&lt;typename T &gt; </div>
 <p>Used to check if reflection information is available for a given type. </p>
 <p>For example: &lt;verbatim&gt;</p>
 <p>template&lt;typename T&gt; typename std::enable_if&lt;has_reflection_info&lt;T&gt;, void&gt;::type use_reflection(const T&amp; value) { code which uses generated reflection traits }</p>
-<p>&lt;/endverbatim&gt;</p>
+<p>&lt;endverbatim&gt;</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type to check </td></tr>
