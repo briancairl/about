@@ -5,9 +5,7 @@ import os
 from typing import (Dict, List, Optional)
 
 # PyGCCXML
-from pygccxml import utils
 from pygccxml import declarations
-from pygccxml import parser as xml_parser
 
 # About
 from impl.common import open_output_handle
@@ -33,6 +31,14 @@ START_OF_FILE = """
 END_OF_FILE = """
 #endif // {gaurd}__ENUM_OSTREAM_HPP
 """
+
+def expand_class(out, ns_name:str, decl):
+    for mem in decl.public_members:
+        if isinstance(mem, declarations.class_declaration.class_t):
+            expand_class(out, f"{ns_name}::{decl.name}", mem)
+
+        elif isinstance(mem, declarations.enumeration_t):
+            expand_enum(out, f"{ns_name}::{decl.name}", mem)
 
 
 def expand_enum(out, ns_name:str, decl):
@@ -63,7 +69,7 @@ inline std::ostream& operator<<(std::ostream& os, const {fully_qualified_enum_na
 """)
 
 
-def generate_enum_ostream(args, xml_generator_config):
+def generate_enum_ostream(args, decls):
     if not args.output_enum_ostream:
         return
     output = args.output_enum_ostream
@@ -81,21 +87,17 @@ def generate_enum_ostream(args, xml_generator_config):
 namespace about
 {
 """)
-        for filename in args.inputs:
-            # Parse the code
-            decls = xml_parser.parse([filename], xml_generator_config)
+        # Get access to the global namespace
+        global_ns = declarations.get_global_namespace(decls)
 
-            # Get access to the global namespace
-            global_ns = declarations.get_global_namespace(decls)
-
-            for n in global_ns.declarations:
-                if isinstance(n, declarations.namespace_t):
-                    inner_ns = global_ns.namespace(n.name)
-                    for n in inner_ns.declarations:
-                        if isinstance(n, declarations.enumeration_t):
-                            expand_enum(out, inner_ns.name, n)
-                        # elif isinstance(n, declarations.class_t):
-                        #     expand_class_enum(out, inner_ns.name, n)
+        for n in global_ns.declarations:
+            if isinstance(n, declarations.namespace_t):
+                inner_ns = global_ns.namespace(n.name)
+                for n in inner_ns.declarations:
+                    if isinstance(n, declarations.enumeration_t):
+                        expand_enum(out, inner_ns.name, n)
+                    elif isinstance(n, declarations.class_t):
+                        expand_class(out, inner_ns.name, n)
         out.write("""
 } // namespace about
 """)

@@ -35,7 +35,6 @@ public:
     NOOP
   };
 
-
 private:
   const char* privates = "don't touch me";
 };
