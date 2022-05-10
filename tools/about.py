@@ -24,6 +24,7 @@ if __name__ == '__main__':
 
     # Configure the xml generator
     xml_generator_config = xml_parser.xml_generator_configuration_t(
+        castxml_epic_version=1,
         xml_generator_path=generator_path,
         xml_generator=generator_name)
 

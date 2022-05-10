@@ -18,9 +18,19 @@ namespace detail
 template <typename T> using cleaned_t = typename std::remove_const<typename std::remove_reference<T>::type>::type;
 
 /**
+ * @brief Tagging value used to distinguish between attributes
+ */
+enum class Tag
+{
+  Var,
+  Type,
+  Method
+};
+
+/**
  * @brief Base for attribute names
  */
-struct AttrName
+template <Tag TagValue, char... Chars> struct AttrName
 {};
 
 /**
@@ -28,7 +38,15 @@ struct AttrName
  *
  * e.g. <code>VarName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_var</code>
  */
-template <char... Chars> struct VarName : AttrName
+template <char... Chars> struct VarName : AttrName<Tag::Var, Chars...>
+{};
+
+/**
+ * @brief Tagging element used to refer to member typedefs
+ *
+ * e.g. <code>VarName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_type</code>
+ */
+template <char... Chars> struct TypeName : AttrName<Tag::Type, Chars...>
 {};
 
 /**
@@ -36,77 +54,49 @@ template <char... Chars> struct VarName : AttrName
  *
  * e.g. <code>MethodName<'m', 'y', '_', 'm', 'f', 'n'> == "my_mfn"_method</code>
  */
-template <char... Chars> struct MethodName : AttrName
+template <char... Chars> struct MethodName : AttrName<Tag::Method, Chars...>
 {};
 
 /**
- * @brief Equality comparison overload for VarName
+ * @brief Equality comparison overload for AttrName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... Chars> constexpr bool operator==(VarName<Chars...> lhs, VarName<Chars...> rhs) { return true; }
-
-/**
- * @brief Inequality comparison overload for VarName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... Chars> constexpr bool operator!=(VarName<Chars...> lhs, VarName<Chars...> rhs) { return false; }
-
-/**
- * @brief Equality comparison overload for VarName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator==(VarName<LHSChars...> lhs, VarName<RHSChars...> rhs)
-{
-  return false;
-}
-
-/**
- * @brief Inequality comparison overload for VarName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator!=(VarName<LHSChars...> lhs, VarName<RHSChars...> rhs)
+template <Tag TagValue, char... Chars>
+constexpr bool operator==(const AttrName<TagValue, Chars...>& lhs, const AttrName<TagValue, Chars...>& rhs)
 {
   return true;
 }
 
 /**
- * @brief Equality comparison overload for MethodName
+ * @brief Inequality comparison overload for AttrName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... Chars> constexpr bool operator==(MethodName<Chars...> lhs, MethodName<Chars...> rhs) { return true; }
-
-/**
- * @brief Inequality comparison overload for MethodName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... Chars> constexpr bool operator!=(MethodName<Chars...> lhs, MethodName<Chars...> rhs) { return false; }
-
-/**
- * @brief Equality comparison overload for MethodName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator==(MethodName<LHSChars...> lhs, MethodName<RHSChars...> rhs)
+template <Tag TagValue, char... Chars>
+constexpr bool operator!=(const AttrName<TagValue, Chars...>& lhs, const AttrName<TagValue, Chars...>& rhs)
 {
   return false;
 }
 
 /**
- * @brief Inequality comparison overload for MethodName
+ * @brief Equality comparison overload for AttrName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> rhs)
+template <Tag TagValue, char... LHSChars, char... RHSChars>
+constexpr bool operator==(const AttrName<TagValue, LHSChars...>& lhs, const AttrName<TagValue, RHSChars...>& rhs)
+{
+  return false;
+}
+
+/**
+ * @brief Inequality comparison overload for AttrName
+ *
+ * @note evaluation happens entirely at compile-time, based on variadic pack
+ */
+template <Tag TagValue, char... LHSChars, char... RHSChars>
+constexpr bool operator!=(const AttrName<TagValue, LHSChars...>& lhs, const AttrName<TagValue, RHSChars...>& rhs)
 {
   return true;
 }
@@ -174,6 +164,14 @@ constexpr bool has_reflection_info =
 template <typename T, T... Chars> constexpr detail::VarName<Chars...> operator""_var()
 {
   return detail::VarName<Chars...>{};
+}
+
+/**
+ * @brief Literal used to refer to a class member typedef
+ */
+template <typename T, T... Chars> constexpr detail::TypeName<Chars...> operator""_type()
+{
+  return detail::TypeName<Chars...>{};
 }
 
 /**

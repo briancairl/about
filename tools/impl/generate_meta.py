@@ -106,7 +106,15 @@ static constexpr decltype(auto) public_vars(const {ns_name}::{decl.name}& v)
 """)
 
     for mem in decl.public_members:
-        if isinstance(mem, declarations.variable_t):
+        if isinstance(mem, declarations.typedef_t):
+            out.write(f"""
+/**
+ * @brief Checks if class has a public member type <code>{mem.name}</code>
+ */
+template<>
+struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_type)> : std::true_type {{}};
+""")
+        elif isinstance(mem, declarations.variable_t):
             out.write(f"""
 /**
  * @brief Checks if class has a public member variable <code>{mem.name}</code>
