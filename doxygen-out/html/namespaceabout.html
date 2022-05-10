@@ -128,6 +128,10 @@ Functions</h2></td></tr>
 <tr class="memitem:acc62ed67bc92a2ad4d48667220a1ea75"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#acc62ed67bc92a2ad4d48667220a1ea75">has</a> (detail::VarName&lt; Chars... &gt; _)</td></tr>
 <tr class="memdesc:acc62ed67bc92a2ad4d48667220a1ea75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a member variable exists via a tag.  <a href="namespaceabout.html#acc62ed67bc92a2ad4d48667220a1ea75">More...</a><br /></td></tr>
 <tr class="separator:acc62ed67bc92a2ad4d48667220a1ea75"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9008f018411c52dfc00b774b7083251b"><td class="memTemplParams" colspan="2">template&lt;typename ClassT , char... Chars&gt; </td></tr>
+<tr class="memitem:a9008f018411c52dfc00b774b7083251b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a9008f018411c52dfc00b774b7083251b">has</a> (detail::TypeName&lt; Chars... &gt; _)</td></tr>
+<tr class="memdesc:a9008f018411c52dfc00b774b7083251b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a member typedef exists via a tag.  <a href="namespaceabout.html#a9008f018411c52dfc00b774b7083251b">More...</a><br /></td></tr>
+<tr class="separator:a9008f018411c52dfc00b774b7083251b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada47007c4677d68ad52e204637b5b82b"><td class="memTemplParams" colspan="2">template&lt;typename ClassT , char... Chars&gt; </td></tr>
 <tr class="memitem:ada47007c4677d68ad52e204637b5b82b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ada47007c4677d68ad52e204637b5b82b">has</a> (detail::MethodName&lt; Chars... &gt; _)</td></tr>
 <tr class="memdesc:ada47007c4677d68ad52e204637b5b82b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a class method exists via a tag.  <a href="namespaceabout.html#ada47007c4677d68ad52e204637b5b82b">More...</a><br /></td></tr>
@@ -655,7 +659,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 <a id="ada47007c4677d68ad52e204637b5b82b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada47007c4677d68ad52e204637b5b82b">&#9670;&nbsp;</a></span>has() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada47007c4677d68ad52e204637b5b82b">&#9670;&nbsp;</a></span>has() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -691,8 +695,45 @@ template&lt;typename ClassT , char... Chars&gt; </div>
 
 </div>
 </div>
+<a id="a9008f018411c52dfc00b774b7083251b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9008f018411c52dfc00b774b7083251b">&#9670;&nbsp;</a></span>has() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ClassT , char... Chars&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr bool about::has </td>
+          <td>(</td>
+          <td class="paramtype">detail::TypeName&lt; Chars... &gt;&#160;</td>
+          <td class="paramname"><em>_</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Checks if a member typedef exists via a tag. </p>
+<p>For example: </p><div class="fragment"><div class="line">std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;(<span class="stringliteral">&quot;a&quot;</span>_type) &lt;&lt; std::endl;</div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type to reflect </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="acc62ed67bc92a2ad4d48667220a1ea75"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc62ed67bc92a2ad4d48667220a1ea75">&#9670;&nbsp;</a></span>has() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acc62ed67bc92a2ad4d48667220a1ea75">&#9670;&nbsp;</a></span>has() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">

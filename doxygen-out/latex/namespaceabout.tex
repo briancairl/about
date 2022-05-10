@@ -35,6 +35,8 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 \begin{DoxyCompactList}\small\item\em Literal used to refer to a class method. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_acc62ed67bc92a2ad4d48667220a1ea75}{has}} (detail\+::\+Var\+Name$<$ Chars... $>$ \+\_\+)
 \begin{DoxyCompactList}\small\item\em Checks if a member variable exists via a tag. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a9008f018411c52dfc00b774b7083251b}{has}} (detail\+::\+Type\+Name$<$ Chars... $>$ \+\_\+)
+\begin{DoxyCompactList}\small\item\em Checks if a member typedef exists via a tag. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_ada47007c4677d68ad52e204637b5b82b}{has}} (detail\+::\+Method\+Name$<$ Chars... $>$ \+\_\+)
 \begin{DoxyCompactList}\small\item\em Checks if a class method exists via a tag. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_a22e1d21115ec01ab2d3d673083b66713}{get\+\_\+public\+\_\+vars}} (const T \&value)
@@ -348,7 +350,7 @@ Returns a {\ttfamily std\+::tuple} of lvalue references to all public members, i
 \mbox{\Hypertarget{namespaceabout_ada47007c4677d68ad52e204637b5b82b}\label{namespaceabout_ada47007c4677d68ad52e204637b5b82b}} 
 \index{about@{about}!has@{has}}
 \index{has@{has}!about@{about}}
-\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily template$<$typename ClassT , char... Chars$>$ \\
 constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{detail\+::\+Method\+Name$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
@@ -367,10 +369,32 @@ For example\+:
 {\em T} & type to reflect \\
 \hline
 \end{DoxyTemplParams}
+\mbox{\Hypertarget{namespaceabout_a9008f018411c52dfc00b774b7083251b}\label{namespaceabout_a9008f018411c52dfc00b774b7083251b}} 
+\index{about@{about}!has@{has}}
+\index{has@{has}!about@{about}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename ClassT , char... Chars$>$ \\
+constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{detail\+::\+Type\+Name$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Checks if a member typedef exists via a tag. 
+
+For example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::cout << std::boolalpha << has<T>(\textcolor{stringliteral}{"a"}\_type) << std::endl;}
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type to reflect \\
+\hline
+\end{DoxyTemplParams}
 \mbox{\Hypertarget{namespaceabout_acc62ed67bc92a2ad4d48667220a1ea75}\label{namespaceabout_acc62ed67bc92a2ad4d48667220a1ea75}} 
 \index{about@{about}!has@{has}}
 \index{has@{has}!about@{about}}
-\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
 {\footnotesize\ttfamily template$<$typename ClassT , char... Chars$>$ \\
 constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{detail\+::\+Var\+Name$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
