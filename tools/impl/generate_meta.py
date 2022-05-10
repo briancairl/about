@@ -50,7 +50,7 @@ struct ClassMetaInfo<{ns_name}::{decl.name}>
 
 
 def expand_class(out, ns_name:str, decl):
-    _public_members_comma_sep = ', '.join([f"v.{v.name}" for v in decl.public_members if isinstance(v, declarations.variable_t)])
+    _public_vars_comma_sep = ', '.join([f"v.{v.name}" for v in decl.public_members if isinstance(v, declarations.variable_t)])
     out.write(f"""
 template<>
 struct ClassMetaInfo<{ns_name}::{decl.name}>
@@ -82,22 +82,22 @@ struct MemberInfo__{decl.name}__{v.name}
 /**
  * @brief Sequence containing information for all public members
  */
-using public_member_info = ::std::tuple<{", ".join(member_name_wrappers)}>;
+using public_var_info = ::std::tuple<{", ".join(member_name_wrappers)}>;
 
 /**
  * @brief Returns tuple of references to all public members
  */
-static constexpr decltype(auto) public_members({ns_name}::{decl.name}& v)
+static constexpr decltype(auto) public_vars({ns_name}::{decl.name}& v)
 {{
-    return ::std::tie({_public_members_comma_sep});
+    return ::std::tie({_public_vars_comma_sep});
 }}
 
 /**
  * @brief Returns tuple of const references to all public members
  */
-static constexpr decltype(auto) public_members(const {ns_name}::{decl.name}& v)
+static constexpr decltype(auto) public_vars(const {ns_name}::{decl.name}& v)
 {{
-    return ::std::tie({_public_members_comma_sep});
+    return ::std::tie({_public_vars_comma_sep});
 }}
 """)
 
@@ -106,13 +106,21 @@ static constexpr decltype(auto) public_members(const {ns_name}::{decl.name}& v)
 """)
 
     for mem in decl.public_members:
-        if isinstance(mem, declarations.variable_t):
+        if isinstance(mem, declarations.typedef_t):
+            out.write(f"""
+/**
+ * @brief Checks if class has a public member type <code>{mem.name}</code>
+ */
+template<>
+struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_type)> : std::true_type {{}};
+""")
+        elif isinstance(mem, declarations.variable_t):
             out.write(f"""
 /**
  * @brief Checks if class has a public member variable <code>{mem.name}</code>
  */
 template<>
-struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_member)> : std::true_type {{}};
+struct ClassMemberExists<{ns_name}::{decl.name}, decltype("{mem.name}"_var)> : std::true_type {{}};
 """)
         elif isinstance(mem, declarations.member_function_t) or isinstance(mem, declarations.member_operator_t):
             out.write(f"""

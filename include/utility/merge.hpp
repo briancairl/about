@@ -7,6 +7,7 @@
 
 namespace about
 {
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -19,6 +20,7 @@ struct MergeImpl<T, TupTmpl<OriginaTs...>>
 };
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 template <typename T, typename TupT> using merge_t = typename detail::MergeImpl<T, TupT>::type;
 

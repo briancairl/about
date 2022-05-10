@@ -19,6 +19,9 @@ struct SomethingElse
 class MyClass
 {
 public:
+  typedef int typdef_member_type;
+  typedef float typdef_member_type_2;
+
   int a;
   float b;
   double c;

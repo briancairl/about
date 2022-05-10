@@ -11,6 +11,8 @@
 
 namespace about
 {
+
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -18,95 +20,85 @@ namespace detail
 template <typename T> using cleaned_t = typename std::remove_const<typename std::remove_reference<T>::type>::type;
 
 /**
+ * @brief Tagging value used to distinguish between attributes
+ */
+enum class Tag
+{
+  Var,
+  Type,
+  Method
+};
+
+/**
  * @brief Base for attribute names
  */
-struct AttrName
+template <Tag TagValue, char... Chars> struct AttrName
 {};
 
 /**
  * @brief Tagging element used to refer to member variables
  *
- * e.g. <code>MemberName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_member</code>
+ * e.g. <code>VarName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_var</code>
  */
-template <char... Chars> struct MemberName : AttrName
+template <char... Chars> struct VarName : AttrName<Tag::Var, Chars...>
+{};
+
+/**
+ * @brief Tagging element used to refer to member typedefs
+ *
+ * e.g. <code>VarName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_type</code>
+ */
+template <char... Chars> struct TypeName : AttrName<Tag::Type, Chars...>
 {};
 
 /**
  * @brief Tagging element used to refer to class methods
  *
- * e.g. <code>MemberName<'m', 'y', '_', 'm', 'f', 'n'> == "my_mfn"_method</code>
+ * e.g. <code>MethodName<'m', 'y', '_', 'm', 'f', 'n'> == "my_mfn"_method</code>
  */
-template <char... Chars> struct MethodName : AttrName
+template <char... Chars> struct MethodName : AttrName<Tag::Method, Chars...>
 {};
 
 /**
- * @brief Equality comparison overload for MemberName
+ * @brief Equality comparison overload for AttrName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... Chars> constexpr bool operator==(MemberName<Chars...> lhs, MemberName<Chars...> rhs) { return true; }
-
-/**
- * @brief Inequality comparison overload for MemberName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... Chars> constexpr bool operator!=(MemberName<Chars...> lhs, MemberName<Chars...> rhs) { return false; }
-
-/**
- * @brief Equality comparison overload for MemberName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator==(MemberName<LHSChars...> lhs, MemberName<RHSChars...> rhs)
-{
-  return false;
-}
-
-/**
- * @brief Inequality comparison overload for MemberName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator!=(MemberName<LHSChars...> lhs, MemberName<RHSChars...> rhs)
+template <Tag TagValue, char... Chars>
+constexpr bool operator==(const AttrName<TagValue, Chars...>& lhs, const AttrName<TagValue, Chars...>& rhs)
 {
   return true;
 }
 
 /**
- * @brief Equality comparison overload for MethodName
+ * @brief Inequality comparison overload for AttrName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... Chars> constexpr bool operator==(MethodName<Chars...> lhs, MethodName<Chars...> rhs) { return true; }
-
-/**
- * @brief Inequality comparison overload for MethodName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... Chars> constexpr bool operator!=(MethodName<Chars...> lhs, MethodName<Chars...> rhs) { return false; }
-
-/**
- * @brief Equality comparison overload for MethodName
- *
- * @note evaluation happens entirely at compile-time, based on variadic pack
- */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator==(MethodName<LHSChars...> lhs, MethodName<RHSChars...> rhs)
+template <Tag TagValue, char... Chars>
+constexpr bool operator!=(const AttrName<TagValue, Chars...>& lhs, const AttrName<TagValue, Chars...>& rhs)
 {
   return false;
 }
 
 /**
- * @brief Inequality comparison overload for MethodName
+ * @brief Equality comparison overload for AttrName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... LHSChars, char... RHSChars>
-constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> rhs)
+template <Tag TagValue, char... LHSChars, char... RHSChars>
+constexpr bool operator==(const AttrName<TagValue, LHSChars...>& lhs, const AttrName<TagValue, RHSChars...>& rhs)
+{
+  return false;
+}
+
+/**
+ * @brief Inequality comparison overload for AttrName
+ *
+ * @note evaluation happens entirely at compile-time, based on variadic pack
+ */
+template <Tag TagValue, char... LHSChars, char... RHSChars>
+constexpr bool operator!=(const AttrName<TagValue, LHSChars...>& lhs, const AttrName<TagValue, RHSChars...>& rhs)
 {
   return true;
 }
@@ -115,15 +107,13 @@ constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> r
  * @brief Traits type containing information about a type <code>T</code>
  *
  * For example:
- * <verbatim>
-
-// Name of the class
-std::cout << ClassMetaInfo<T>::name << std::endl;
-
-// Name of a member
-std::cout << ClassMetaInfo<T>::public_member_info<0>::name << std::endl:
-
- * <endverbatim>
+ * @code{.cpp}
+ * // Name of the class
+ * std::cout << ClassMetaInfo<T>::name << std::endl;
+ *
+ * // Name of a member
+ * std::cout << ClassMetaInfo<T>::public_var_info<0>::name << std::endl:
+ * @endcode
  *
  * @tparam T  type to reflect
  */
@@ -134,13 +124,10 @@ template <typename T> struct ClassMetaInfo : std::false_type
  * @brief Traits type used to check if a member variable or method exists via a tag
  *
  * For example:
- * <verbatim>
-
-std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_member)>::value << std::endl;
-
-std::cout << std::boolalpha << ClassMemberExists<T, decltype("b"_method)>::value << std::endl;
-
- * <endverbatim>
+ * @code{.cpp}
+ * std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_var)>::value << std::endl;
+ * std::cout << std::boolalpha << ClassMemberExists<T, decltype("b"_method)>::value << std::endl;
+ * @endcode
  *
  * @tparam T  type to reflect
  */
@@ -148,6 +135,7 @@ template <typename T, typename MemberTag> struct ClassMemberExists : std::false_
 {};
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 //////////////////////////////////////////
 //                                      //
@@ -159,15 +147,13 @@ template <typename T, typename MemberTag> struct ClassMemberExists : std::false_
  * @brief Used to check if reflection information is available for a given type
  *
  * For example:
- * <verbatim>
-
-template<typename T>
-typename std::enable_if<has_reflection_info<T>, void>::type use_reflection(const T& value)
-{
-  // code which uses generated reflection traits
-}
-
- * <endverbatim>
+ * @code{.cpp}
+ * template<typename T>
+ * typename std::enable_if<has_reflection_info<T>, void>::type use_reflection(const T& value)
+ * {
+ *   // code which uses generated reflection traits
+ * }
+ * @endcode
  *
  * @tparam T  type to check
  */
@@ -178,9 +164,17 @@ constexpr bool has_reflection_info =
 /**
  * @brief Literal used to refer to a class member variable
  */
-template <typename T, T... Chars> constexpr detail::MemberName<Chars...> operator""_member()
+template <typename T, T... Chars> constexpr detail::VarName<Chars...> operator""_var()
 {
-  return detail::MemberName<Chars...>{};
+  return detail::VarName<Chars...>{};
+}
+
+/**
+ * @brief Literal used to refer to a class member typedef
+ */
+template <typename T, T... Chars> constexpr detail::TypeName<Chars...> operator""_type()
+{
+  return detail::TypeName<Chars...>{};
 }
 
 /**
@@ -195,28 +189,24 @@ template <typename T, T... Chars> constexpr detail::MethodName<Chars...> operato
  * @brief Checks if a member variable exists via a tag
  *
  * For example:
- * <verbatim>
-
-std::cout << std::boolalpha << has<T>("a"_member) << std::endl;
-
- * <endverbatim>
+ * @code{.cpp}
+ * std::cout << std::boolalpha << has<T>("a"_var) << std::endl;
+ * @endcode
  *
  * @tparam T  type to reflect
  */
-template <typename ClassT, char... Chars> constexpr bool has(detail::MemberName<Chars...> _)
+template <typename ClassT, char... Chars> constexpr bool has(detail::VarName<Chars...> _)
 {
-  return detail::ClassMemberExists<ClassT, detail::MemberName<Chars...>>::value;
+  return detail::ClassMemberExists<ClassT, detail::VarName<Chars...>>::value;
 }
 
 /**
  * @brief Checks if a class method exists via a tag
  *
  * For example:
- * <verbatim>
-
-std::cout << std::boolalpha << has<T>("b"_method) << std::endl;
-
- * <endverbatim>
+ * @code{.cpp}
+ * std::cout << std::boolalpha << has<T>("b"_method) << std::endl;
+ * @endcode
  *
  * @tparam T  type to reflect
  */
@@ -230,9 +220,9 @@ template <typename ClassT, char... Chars> constexpr bool has(detail::MethodName<
  *
  * @tparam T  type to reflect
  */
-template <typename T> constexpr auto get_public_members(const T& value)
+template <typename T> constexpr auto get_public_vars(const T& value)
 {
-  return detail::ClassMetaInfo<T>::public_members(value);
+  return detail::ClassMetaInfo<T>::public_vars(value);
 }
 
 /**
@@ -272,8 +262,7 @@ template <typename T> constexpr const char* absolute_nameof = detail::ClassMetaI
  *
  * @tparam T  type to reflect
  */
-template <typename T>
-using public_member_info_t = typename detail::ClassMetaInfo<detail::cleaned_t<T>>::public_member_info;
+template <typename T> using public_var_info_t = typename detail::ClassMetaInfo<detail::cleaned_t<T>>::public_var_info;
 
 }  // namespace about
 

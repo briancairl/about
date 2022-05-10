@@ -17,6 +17,7 @@
 
 namespace about
 {
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -47,8 +48,8 @@ fmt_print(std::ostream& os, ValueT&& value, const std::size_t justification = Ju
   os << "{\n";
   ::about::for_each_enumerated(
     ::about::detail::Printer<Justification>{os, justification},
-    ::about::public_member_info_t<ValueT>{},
-    ::about::get_public_members(std::forward<ValueT>(value)));
+    ::about::public_var_info_t<ValueT>{},
+    ::about::get_public_vars(std::forward<ValueT>(value)));
   os << "\n";
   os << std::setw(justification - Justification) << '}';
 }
@@ -81,6 +82,7 @@ template <std::size_t N, typename T> struct Formatted
 };
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 /**
  * @brief Wraps object in wrapper used to apply formatted \c ostream serialziation
