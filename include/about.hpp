@@ -115,15 +115,13 @@ constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> r
  * @brief Traits type containing information about a type <code>T</code>
  *
  * For example:
- * <verbatim>
-
-// Name of the class
-std::cout << ClassMetaInfo<T>::name << std::endl;
-
-// Name of a member
-std::cout << ClassMetaInfo<T>::public_member_info<0>::name << std::endl:
-
- * <endverbatim>
+ * @code{.cpp}
+ * // Name of the class
+ * std::cout << ClassMetaInfo<T>::name << std::endl;
+ *
+ * // Name of a member
+ * std::cout << ClassMetaInfo<T>::public_member_info<0>::name << std::endl:
+ * @endcode
  *
  * @tparam T  type to reflect
  */
@@ -134,13 +132,10 @@ template <typename T> struct ClassMetaInfo : std::false_type
  * @brief Traits type used to check if a member variable or method exists via a tag
  *
  * For example:
- * <verbatim>
-
-std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_member)>::value << std::endl;
-
-std::cout << std::boolalpha << ClassMemberExists<T, decltype("b"_method)>::value << std::endl;
-
- * <endverbatim>
+ * @code{.cpp}
+ * std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_member)>::value << std::endl;
+ * std::cout << std::boolalpha << ClassMemberExists<T, decltype("b"_method)>::value << std::endl;
+ * @endcode
  *
  * @tparam T  type to reflect
  */
@@ -159,15 +154,13 @@ template <typename T, typename MemberTag> struct ClassMemberExists : std::false_
  * @brief Used to check if reflection information is available for a given type
  *
  * For example:
- * <verbatim>
-
-template<typename T>
-typename std::enable_if<has_reflection_info<T>, void>::type use_reflection(const T& value)
-{
-  // code which uses generated reflection traits
-}
-
- * <endverbatim>
+ * @code{.cpp}
+ * template<typename T>
+ * typename std::enable_if<has_reflection_info<T>, void>::type use_reflection(const T& value)
+ * {
+ *   // code which uses generated reflection traits
+ * }
+ * @endcode
  *
  * @tparam T  type to check
  */
@@ -195,11 +188,9 @@ template <typename T, T... Chars> constexpr detail::MethodName<Chars...> operato
  * @brief Checks if a member variable exists via a tag
  *
  * For example:
- * <verbatim>
-
-std::cout << std::boolalpha << has<T>("a"_member) << std::endl;
-
- * <endverbatim>
+ * @code{.cpp}
+ * std::cout << std::boolalpha << has<T>("a"_member) << std::endl;
+ * @endcode
  *
  * @tparam T  type to reflect
  */
@@ -212,11 +203,9 @@ template <typename ClassT, char... Chars> constexpr bool has(detail::MemberName<
  * @brief Checks if a class method exists via a tag
  *
  * For example:
- * <verbatim>
-
-std::cout << std::boolalpha << has<T>("b"_method) << std::endl;
-
- * <endverbatim>
+ * @code{.cpp}
+ * std::cout << std::boolalpha << has<T>("b"_method) << std::endl;
+ * @endcode
  *
  * @tparam T  type to reflect
  */
