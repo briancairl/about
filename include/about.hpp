@@ -26,51 +26,51 @@ struct AttrName
 /**
  * @brief Tagging element used to refer to member variables
  *
- * e.g. <code>MemberName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_member</code>
+ * e.g. <code>VarName<'m', 'y', '_', 'm', 'e', 'm'> == "my_mem"_var</code>
  */
-template <char... Chars> struct MemberName : AttrName
+template <char... Chars> struct VarName : AttrName
 {};
 
 /**
  * @brief Tagging element used to refer to class methods
  *
- * e.g. <code>MemberName<'m', 'y', '_', 'm', 'f', 'n'> == "my_mfn"_method</code>
+ * e.g. <code>MethodName<'m', 'y', '_', 'm', 'f', 'n'> == "my_mfn"_method</code>
  */
 template <char... Chars> struct MethodName : AttrName
 {};
 
 /**
- * @brief Equality comparison overload for MemberName
+ * @brief Equality comparison overload for VarName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... Chars> constexpr bool operator==(MemberName<Chars...> lhs, MemberName<Chars...> rhs) { return true; }
+template <char... Chars> constexpr bool operator==(VarName<Chars...> lhs, VarName<Chars...> rhs) { return true; }
 
 /**
- * @brief Inequality comparison overload for MemberName
+ * @brief Inequality comparison overload for VarName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
-template <char... Chars> constexpr bool operator!=(MemberName<Chars...> lhs, MemberName<Chars...> rhs) { return false; }
+template <char... Chars> constexpr bool operator!=(VarName<Chars...> lhs, VarName<Chars...> rhs) { return false; }
 
 /**
- * @brief Equality comparison overload for MemberName
+ * @brief Equality comparison overload for VarName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
 template <char... LHSChars, char... RHSChars>
-constexpr bool operator==(MemberName<LHSChars...> lhs, MemberName<RHSChars...> rhs)
+constexpr bool operator==(VarName<LHSChars...> lhs, VarName<RHSChars...> rhs)
 {
   return false;
 }
 
 /**
- * @brief Inequality comparison overload for MemberName
+ * @brief Inequality comparison overload for VarName
  *
  * @note evaluation happens entirely at compile-time, based on variadic pack
  */
 template <char... LHSChars, char... RHSChars>
-constexpr bool operator!=(MemberName<LHSChars...> lhs, MemberName<RHSChars...> rhs)
+constexpr bool operator!=(VarName<LHSChars...> lhs, VarName<RHSChars...> rhs)
 {
   return true;
 }
@@ -120,7 +120,7 @@ constexpr bool operator!=(MethodName<LHSChars...> lhs, MethodName<RHSChars...> r
  * std::cout << ClassMetaInfo<T>::name << std::endl;
  *
  * // Name of a member
- * std::cout << ClassMetaInfo<T>::public_member_info<0>::name << std::endl:
+ * std::cout << ClassMetaInfo<T>::public_var_info<0>::name << std::endl:
  * @endcode
  *
  * @tparam T  type to reflect
@@ -133,7 +133,7 @@ template <typename T> struct ClassMetaInfo : std::false_type
  *
  * For example:
  * @code{.cpp}
- * std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_member)>::value << std::endl;
+ * std::cout << std::boolalpha << ClassMemberExists<T, decltype("a"_var)>::value << std::endl;
  * std::cout << std::boolalpha << ClassMemberExists<T, decltype("b"_method)>::value << std::endl;
  * @endcode
  *
@@ -171,9 +171,9 @@ constexpr bool has_reflection_info =
 /**
  * @brief Literal used to refer to a class member variable
  */
-template <typename T, T... Chars> constexpr detail::MemberName<Chars...> operator""_member()
+template <typename T, T... Chars> constexpr detail::VarName<Chars...> operator""_var()
 {
-  return detail::MemberName<Chars...>{};
+  return detail::VarName<Chars...>{};
 }
 
 /**
@@ -189,14 +189,14 @@ template <typename T, T... Chars> constexpr detail::MethodName<Chars...> operato
  *
  * For example:
  * @code{.cpp}
- * std::cout << std::boolalpha << has<T>("a"_member) << std::endl;
+ * std::cout << std::boolalpha << has<T>("a"_var) << std::endl;
  * @endcode
  *
  * @tparam T  type to reflect
  */
-template <typename ClassT, char... Chars> constexpr bool has(detail::MemberName<Chars...> _)
+template <typename ClassT, char... Chars> constexpr bool has(detail::VarName<Chars...> _)
 {
-  return detail::ClassMemberExists<ClassT, detail::MemberName<Chars...>>::value;
+  return detail::ClassMemberExists<ClassT, detail::VarName<Chars...>>::value;
 }
 
 /**
@@ -219,9 +219,9 @@ template <typename ClassT, char... Chars> constexpr bool has(detail::MethodName<
  *
  * @tparam T  type to reflect
  */
-template <typename T> constexpr auto get_public_members(const T& value)
+template <typename T> constexpr auto get_public_vars(const T& value)
 {
-  return detail::ClassMetaInfo<T>::public_members(value);
+  return detail::ClassMetaInfo<T>::public_vars(value);
 }
 
 /**
@@ -261,8 +261,7 @@ template <typename T> constexpr const char* absolute_nameof = detail::ClassMetaI
  *
  * @tparam T  type to reflect
  */
-template <typename T>
-using public_member_info_t = typename detail::ClassMetaInfo<detail::cleaned_t<T>>::public_member_info;
+template <typename T> using public_var_info_t = typename detail::ClassMetaInfo<detail::cleaned_t<T>>::public_var_info;
 
 }  // namespace about
 

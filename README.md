@@ -102,13 +102,13 @@ cc_library_with_reflection(
 using namespace about;
 
 template<typename T>
-static typename std::enable_if<has<T>("an_int"_member)>::type print_an_int(const T& object)
+static typename std::enable_if<has<T>("an_int"_var)>::type print_an_int(const T& object)
 {
   std::cout << "This is the value of T.an_int : " << object.an_int << std::endl;
 }
 
 template<typename T>
-static typename std::enable_if<!has<T>("an_int"_member)>::type print_an_int(const T& object)
+static typename std::enable_if<!has<T>("an_int"_var)>::type print_an_int(const T& object)
 {
   std::cout << "T doesn't have an_int" << std::endl;
 }

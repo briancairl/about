@@ -38,7 +38,7 @@ TEST(Common, MemberTagCompareNotEqual) { ASSERT_NE("cool"_method, "hot"_method);
 
 TEST(Common, HasMethod) { ASSERT_TRUE(has<::TestClass>("cool"_method)); }
 
-TEST(Common, HasMember) { ASSERT_FALSE(has<::TestClass>("cool"_member)); }
+TEST(Common, HasMember) { ASSERT_FALSE(has<::TestClass>("cool"_var)); }
 
 TEST(Common, HasReflectionInfoClass) { ASSERT_TRUE((has_reflection_info<::TestClass>)); }
 
@@ -52,4 +52,4 @@ template <> struct SimpleSwitch<true> : std::true_type
 
 TEST(Common, HasMemberSwitchTrue) { ASSERT_TRUE((SimpleSwitch<has<::TestClass>("cool"_method)>::value)); }
 
-TEST(Common, HasMemberSwitchFalse) { ASSERT_FALSE((SimpleSwitch<has<::TestClass>("cool"_member)>::value)); }
+TEST(Common, HasMemberSwitchFalse) { ASSERT_FALSE((SimpleSwitch<has<::TestClass>("cool"_var)>::value)); }

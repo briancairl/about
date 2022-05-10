@@ -16,7 +16,7 @@
 
 using namespace about;
 
-template <typename T> struct HasA : std::integral_constant<bool, has<T>("a"_member)>
+template <typename T> struct HasA : std::integral_constant<bool, has<T>("a"_var)>
 {};
 
 TEST(Merge, TupleMergeNonEmpty)
