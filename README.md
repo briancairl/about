@@ -2,7 +2,11 @@
 
 C++11 tool for compile-time reflection utility through code generation.
 
-Also includes some nice meta-programming utilities.
+Code generation is run as a build step which consumes user headers (declarations).
+
+Code generation is achieved using facilities provided by [`castxml`](https://github.com/CastXML/CastXML) and [`pygccxml`](https://github.com/CastXML/pygccxml).
+
+Also includes some meta-programming and automatic serialization utilities.
 
 ## API Documentation
 
