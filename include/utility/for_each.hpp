@@ -56,6 +56,7 @@ template <std::size_t I, std::size_t N> struct Enumeration
  */
 template <typename CallbackT, typename... TupleTs> void for_each_enumerated(CallbackT&& cb, TupleTs&&... tups);
 
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -130,6 +131,7 @@ inline void for_each_enumerated(CallbackT&& cb, index_sequence<Indices...> _, Tu
 }
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 /**
  * @copydoc for_each

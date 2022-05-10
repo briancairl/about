@@ -14,6 +14,7 @@
 
 namespace about
 {
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -29,6 +30,7 @@ constexpr decltype(auto) apply(InvocableT&& fn, ArgTupleT&& targs, index_sequenc
 }
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 /**
  * @brief Calls function with with tuple (e.g <code>std::tuple</code>) as argument list

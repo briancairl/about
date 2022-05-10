@@ -11,6 +11,8 @@
 
 namespace about
 {
+
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -133,6 +135,7 @@ template <typename T, typename MemberTag> struct ClassMemberExists : std::false_
 {};
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 //////////////////////////////////////////
 //                                      //

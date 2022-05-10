@@ -17,6 +17,7 @@
 
 namespace about
 {
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -81,6 +82,7 @@ template <std::size_t N, typename T> struct Formatted
 };
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 /**
  * @brief Wraps object in wrapper used to apply formatted \c ostream serialziation

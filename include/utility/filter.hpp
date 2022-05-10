@@ -14,6 +14,7 @@
 
 namespace about
 {
+#ifndef DOXYGEN_SKIP
 namespace detail
 {
 
@@ -45,6 +46,7 @@ struct FilterImpl<Filter, TupTmpl<T0, T1, OtherTs...>>
 };
 
 }  // namespace detail
+#endif  // DOXYGEN_SKIP
 
 template <template <typename> class Filter, typename TupT>
 using filter_t = typename detail::FilterImpl<Filter, TupT>::type;
