@@ -201,6 +201,21 @@ template <typename ClassT, char... Chars> constexpr bool has(detail::VarName<Cha
 }
 
 /**
+ * @brief Checks if a member typedef exists via a tag
+ *
+ * For example:
+ * @code{.cpp}
+ * std::cout << std::boolalpha << has<T>("a"_type) << std::endl;
+ * @endcode
+ *
+ * @tparam T  type to reflect
+ */
+template <typename ClassT, char... Chars> constexpr bool has(detail::TypeName<Chars...> _)
+{
+  return detail::ClassMemberExists<ClassT, detail::TypeName<Chars...>>::value;
+}
+
+/**
  * @brief Checks if a class method exists via a tag
  *
  * For example:
