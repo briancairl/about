@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['justification_5f_113',['justification_',['../classabout_1_1detail_1_1_printer.html#a5134ecdbdc717f0e4b3f0771b70f4f70',1,'about::detail::Printer']]]
+  ['nameof_61',['nameof',['../namespaceabout.html#ade38136d9fe12346812648e0fa732615',1,'about']]]
 ];

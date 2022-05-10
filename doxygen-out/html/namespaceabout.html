@@ -64,7 +64,6 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#namespaces">Namespaces</a> &#124;
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a> &#124;
@@ -74,11 +73,6 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
-Namespaces</h2></td></tr>
-<tr class="memitem:namespaceabout_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceabout_1_1detail.html">detail</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabout_1_1_enumeration.html">Enumeration</a></td></tr>
@@ -89,12 +83,12 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a16685b0923e676ee1aab9b0792bb1b58"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a16685b0923e676ee1aab9b0792bb1b58"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a16685b0923e676ee1aab9b0792bb1b58">public_member_info_t</a> = typename <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt; <a class="el" href="namespaceabout_1_1detail.html#a03b4c308952ba4087255c69f117f76cd">detail::cleaned_t</a>&lt; T &gt; &gt;::public_member_info</td></tr>
-<tr class="memdesc:a16685b0923e676ee1aab9b0792bb1b58"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>std::tuple</code> of meta information for each public class member variable, in order of declaration  <a href="namespaceabout.html#a16685b0923e676ee1aab9b0792bb1b58">More...</a><br /></td></tr>
-<tr class="separator:a16685b0923e676ee1aab9b0792bb1b58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5bec24d11efbbc67e2359d4645c5559b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5bec24d11efbbc67e2359d4645c5559b"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a5bec24d11efbbc67e2359d4645c5559b">public_var_info_t</a> = typename detail::ClassMetaInfo&lt; detail::cleaned_t&lt; T &gt; &gt;::public_var_info</td></tr>
+<tr class="memdesc:a5bec24d11efbbc67e2359d4645c5559b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>std::tuple</code> of meta information for each public class member variable, in order of declaration  <a href="namespaceabout.html#a5bec24d11efbbc67e2359d4645c5559b">More...</a><br /></td></tr>
+<tr class="separator:a5bec24d11efbbc67e2359d4645c5559b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adeda2b422d13f14f8d39239aafd5cf56"><td class="memTemplParams" colspan="2">template&lt;template&lt; typename &gt; class Filter, typename TupT &gt; </td></tr>
-<tr class="memitem:adeda2b422d13f14f8d39239aafd5cf56"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#adeda2b422d13f14f8d39239aafd5cf56">filter_t</a> = typename <a class="el" href="structabout_1_1detail_1_1_filter_impl.html">detail::FilterImpl</a>&lt; Filter, TupT &gt;::type</td></tr>
+<tr class="memitem:adeda2b422d13f14f8d39239aafd5cf56"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#adeda2b422d13f14f8d39239aafd5cf56">filter_t</a> = typename detail::FilterImpl&lt; Filter, TupT &gt;::type</td></tr>
 <tr class="separator:adeda2b422d13f14f8d39239aafd5cf56"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a850eef2c5548e09261289d6dc6ed37"><td class="memTemplParams" colspan="2">template&lt;typename IntT , size_t N&gt; </td></tr>
 <tr class="memitem:a8a850eef2c5548e09261289d6dc6ed37"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a8a850eef2c5548e09261289d6dc6ed37">make_integer_sequence</a> = typename detail::make_sequence&lt; IntT, N &gt;::type</td></tr>
@@ -113,31 +107,35 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:afef7a9e70155378166b391e58e9adcbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Makes an index sequence type with elements for each type in <code>T...</code>  <a href="namespaceabout.html#afef7a9e70155378166b391e58e9adcbd">More...</a><br /></td></tr>
 <tr class="separator:afef7a9e70155378166b391e58e9adcbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a024053a8ae180802555acb89cbb1138c"><td class="memTemplParams" colspan="2">template&lt;typename T , typename TupT &gt; </td></tr>
-<tr class="memitem:a024053a8ae180802555acb89cbb1138c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a024053a8ae180802555acb89cbb1138c">merge_t</a> = typename <a class="el" href="structabout_1_1detail_1_1_merge_impl.html">detail::MergeImpl</a>&lt; T, TupT &gt;::type</td></tr>
+<tr class="memitem:a024053a8ae180802555acb89cbb1138c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a024053a8ae180802555acb89cbb1138c">merge_t</a> = typename detail::MergeImpl&lt; T, TupT &gt;::type</td></tr>
 <tr class="separator:a024053a8ae180802555acb89cbb1138c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7420592076be9f921f5b54968ec5fde5"><td class="memTemplParams" colspan="2">template&lt;typename T , T... Chars&gt; </td></tr>
-<tr class="memitem:a7420592076be9f921f5b54968ec5fde5"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structabout_1_1detail_1_1_member_name.html">detail::MemberName</a>&lt; Chars... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a7420592076be9f921f5b54968ec5fde5">operator&quot;&quot;_member</a> ()</td></tr>
-<tr class="memdesc:a7420592076be9f921f5b54968ec5fde5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Literal used to refer to a class member variable.  <a href="namespaceabout.html#a7420592076be9f921f5b54968ec5fde5">More...</a><br /></td></tr>
-<tr class="separator:a7420592076be9f921f5b54968ec5fde5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a6880ecc4f393dcc9e518767b3d8fa4"><td class="memTemplParams" colspan="2">template&lt;typename T , T... Chars&gt; </td></tr>
+<tr class="memitem:a3a6880ecc4f393dcc9e518767b3d8fa4"><td class="memTemplItemLeft" align="right" valign="top">constexpr detail::VarName&lt; Chars... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a3a6880ecc4f393dcc9e518767b3d8fa4">operator&quot;&quot;_var</a> ()</td></tr>
+<tr class="memdesc:a3a6880ecc4f393dcc9e518767b3d8fa4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Literal used to refer to a class member variable.  <a href="namespaceabout.html#a3a6880ecc4f393dcc9e518767b3d8fa4">More...</a><br /></td></tr>
+<tr class="separator:a3a6880ecc4f393dcc9e518767b3d8fa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99705979aff0dedba78bbe434cc957b9"><td class="memTemplParams" colspan="2">template&lt;typename T , T... Chars&gt; </td></tr>
+<tr class="memitem:a99705979aff0dedba78bbe434cc957b9"><td class="memTemplItemLeft" align="right" valign="top">constexpr detail::TypeName&lt; Chars... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a99705979aff0dedba78bbe434cc957b9">operator&quot;&quot;_type</a> ()</td></tr>
+<tr class="memdesc:a99705979aff0dedba78bbe434cc957b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Literal used to refer to a class member typedef.  <a href="namespaceabout.html#a99705979aff0dedba78bbe434cc957b9">More...</a><br /></td></tr>
+<tr class="separator:a99705979aff0dedba78bbe434cc957b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a315f301abb47cfd846d19dd01583279c"><td class="memTemplParams" colspan="2">template&lt;typename T , T... Chars&gt; </td></tr>
-<tr class="memitem:a315f301abb47cfd846d19dd01583279c"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structabout_1_1detail_1_1_method_name.html">detail::MethodName</a>&lt; Chars... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a315f301abb47cfd846d19dd01583279c">operator&quot;&quot;_method</a> ()</td></tr>
+<tr class="memitem:a315f301abb47cfd846d19dd01583279c"><td class="memTemplItemLeft" align="right" valign="top">constexpr detail::MethodName&lt; Chars... &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a315f301abb47cfd846d19dd01583279c">operator&quot;&quot;_method</a> ()</td></tr>
 <tr class="memdesc:a315f301abb47cfd846d19dd01583279c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Literal used to refer to a class method.  <a href="namespaceabout.html#a315f301abb47cfd846d19dd01583279c">More...</a><br /></td></tr>
 <tr class="separator:a315f301abb47cfd846d19dd01583279c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a64633addc9a58a505d1376b82169221b"><td class="memTemplParams" colspan="2">template&lt;typename ClassT , char... Chars&gt; </td></tr>
-<tr class="memitem:a64633addc9a58a505d1376b82169221b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a64633addc9a58a505d1376b82169221b">has</a> (<a class="el" href="structabout_1_1detail_1_1_member_name.html">detail::MemberName</a>&lt; Chars... &gt; _)</td></tr>
-<tr class="memdesc:a64633addc9a58a505d1376b82169221b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a member variable exists via a tag.  <a href="namespaceabout.html#a64633addc9a58a505d1376b82169221b">More...</a><br /></td></tr>
-<tr class="separator:a64633addc9a58a505d1376b82169221b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc62ed67bc92a2ad4d48667220a1ea75"><td class="memTemplParams" colspan="2">template&lt;typename ClassT , char... Chars&gt; </td></tr>
+<tr class="memitem:acc62ed67bc92a2ad4d48667220a1ea75"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#acc62ed67bc92a2ad4d48667220a1ea75">has</a> (detail::VarName&lt; Chars... &gt; _)</td></tr>
+<tr class="memdesc:acc62ed67bc92a2ad4d48667220a1ea75"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a member variable exists via a tag.  <a href="namespaceabout.html#acc62ed67bc92a2ad4d48667220a1ea75">More...</a><br /></td></tr>
+<tr class="separator:acc62ed67bc92a2ad4d48667220a1ea75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ada47007c4677d68ad52e204637b5b82b"><td class="memTemplParams" colspan="2">template&lt;typename ClassT , char... Chars&gt; </td></tr>
-<tr class="memitem:ada47007c4677d68ad52e204637b5b82b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ada47007c4677d68ad52e204637b5b82b">has</a> (<a class="el" href="structabout_1_1detail_1_1_method_name.html">detail::MethodName</a>&lt; Chars... &gt; _)</td></tr>
+<tr class="memitem:ada47007c4677d68ad52e204637b5b82b"><td class="memTemplItemLeft" align="right" valign="top">constexpr bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ada47007c4677d68ad52e204637b5b82b">has</a> (detail::MethodName&lt; Chars... &gt; _)</td></tr>
 <tr class="memdesc:ada47007c4677d68ad52e204637b5b82b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a class method exists via a tag.  <a href="namespaceabout.html#ada47007c4677d68ad52e204637b5b82b">More...</a><br /></td></tr>
 <tr class="separator:ada47007c4677d68ad52e204637b5b82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4c391f697db39fcf29295b487d2bc58f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4c391f697db39fcf29295b487d2bc58f"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a4c391f697db39fcf29295b487d2bc58f">get_public_members</a> (const T &amp;value)</td></tr>
-<tr class="memdesc:a4c391f697db39fcf29295b487d2bc58f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>std::tuple</code> of lvalue references to all public members, in order of declaration.  <a href="namespaceabout.html#a4c391f697db39fcf29295b487d2bc58f">More...</a><br /></td></tr>
-<tr class="separator:a4c391f697db39fcf29295b487d2bc58f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a22e1d21115ec01ab2d3d673083b66713"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a22e1d21115ec01ab2d3d673083b66713"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a22e1d21115ec01ab2d3d673083b66713">get_public_vars</a> (const T &amp;value)</td></tr>
+<tr class="memdesc:a22e1d21115ec01ab2d3d673083b66713"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a <code>std::tuple</code> of lvalue references to all public members, in order of declaration.  <a href="namespaceabout.html#a22e1d21115ec01ab2d3d673083b66713">More...</a><br /></td></tr>
+<tr class="separator:a22e1d21115ec01ab2d3d673083b66713"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2867909eb37ef22965c76351c5b8f6b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:aa2867909eb37ef22965c76351c5b8f6b"><td class="memTemplItemLeft" align="right" valign="top">constexpr auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#aa2867909eb37ef22965c76351c5b8f6b">get_name</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:aa2867909eb37ef22965c76351c5b8f6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns string literal type name of a class <code>T</code>.  <a href="namespaceabout.html#aa2867909eb37ef22965c76351c5b8f6b">More...</a><br /></td></tr>
@@ -151,11 +149,11 @@ Functions</h2></td></tr>
 <tr class="memdesc:a8c3e7e50f3bae2e5070a31325749cc48"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls function with with tuple (e.g <code>std::tuple</code>) as argument list.  <a href="namespaceabout.html#a8c3e7e50f3bae2e5070a31325749cc48">More...</a><br /></td></tr>
 <tr class="separator:a8c3e7e50f3bae2e5070a31325749cc48"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b031f2e76a38cbf43915694f621fe65"><td class="memTemplParams" colspan="2">template&lt;std::size_t N = 4UL, typename T &gt; </td></tr>
-<tr class="memitem:a6b031f2e76a38cbf43915694f621fe65"><td class="memTemplItemLeft" align="right" valign="top">constexpr <a class="el" href="structabout_1_1detail_1_1_formatted.html">detail::Formatted</a>&lt; N, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">fmt</a> (const T &amp;value)</td></tr>
+<tr class="memitem:a6b031f2e76a38cbf43915694f621fe65"><td class="memTemplItemLeft" align="right" valign="top">constexpr detail::Formatted&lt; N, T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">fmt</a> (const T &amp;value)</td></tr>
 <tr class="memdesc:a6b031f2e76a38cbf43915694f621fe65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wraps object in wrapper used to apply formatted <code>ostream</code> serialziation.  <a href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">More...</a><br /></td></tr>
 <tr class="separator:a6b031f2e76a38cbf43915694f621fe65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae5f8f3432e694468c5f3115c667b0348"><td class="memTemplParams" colspan="2">template&lt;std::size_t N, typename T &gt; </td></tr>
-<tr class="memitem:ae5f8f3432e694468c5f3115c667b0348"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ae5f8f3432e694468c5f3115c667b0348">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="structabout_1_1detail_1_1_formatted.html">detail::Formatted</a>&lt; N, T &gt; &amp;fmt_print_wrapper)</td></tr>
+<tr class="memitem:ae5f8f3432e694468c5f3115c667b0348"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ae5f8f3432e694468c5f3115c667b0348">operator&lt;&lt;</a> (std::ostream &amp;os, const detail::Formatted&lt; N, T &gt; &amp;fmt_print_wrapper)</td></tr>
 <tr class="memdesc:ae5f8f3432e694468c5f3115c667b0348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Auto-formatted <code>ostream</code> overload.  <a href="namespaceabout.html#ae5f8f3432e694468c5f3115c667b0348">More...</a><br /></td></tr>
 <tr class="separator:ae5f8f3432e694468c5f3115c667b0348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2d94c4e5b5a651f4790bfe3d69fe0069"><td class="memTemplParams" colspan="2">template&lt;typename CallbackT , typename... TupleTs&gt; </td></tr>
@@ -174,11 +172,11 @@ Variables</h2></td></tr>
 <tr class="memdesc:a5fdbe1ea7c0ec8ae9aa68732dbb79854"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to check if reflection information is available for a given type.  <a href="namespaceabout.html#a5fdbe1ea7c0ec8ae9aa68732dbb79854">More...</a><br /></td></tr>
 <tr class="separator:a5fdbe1ea7c0ec8ae9aa68732dbb79854"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ade38136d9fe12346812648e0fa732615"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ade38136d9fe12346812648e0fa732615"><td class="memTemplItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ade38136d9fe12346812648e0fa732615">nameof</a> = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::name</td></tr>
+<tr class="memitem:ade38136d9fe12346812648e0fa732615"><td class="memTemplItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ade38136d9fe12346812648e0fa732615">nameof</a> = detail::ClassMetaInfo&lt;T&gt;::name</td></tr>
 <tr class="memdesc:ade38136d9fe12346812648e0fa732615"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>constexpr</code> string literal type name of a class <code>T</code>  <a href="namespaceabout.html#ade38136d9fe12346812648e0fa732615">More...</a><br /></td></tr>
 <tr class="separator:ade38136d9fe12346812648e0fa732615"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memTemplItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ae4f925f92f8bac5c44b94ecf228c3b9d">absolute_nameof</a> = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::absolute_name</td></tr>
+<tr class="memitem:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memTemplItemLeft" align="right" valign="top">constexpr const char *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ae4f925f92f8bac5c44b94ecf228c3b9d">absolute_nameof</a> = detail::ClassMetaInfo&lt;T&gt;::absolute_name</td></tr>
 <tr class="memdesc:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="mdescLeft">&#160;</td><td class="mdescRight"><code>constexpr</code> string literal type name of a class <code>T</code> with full namespace  <a href="namespaceabout.html#ae4f925f92f8bac5c44b94ecf228c3b9d">More...</a><br /></td></tr>
 <tr class="separator:ae4f925f92f8bac5c44b94ecf228c3b9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -195,7 +193,7 @@ Variables</h2></td></tr>
 template&lt;template&lt; typename &gt; class Filter, typename TupT &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceabout.html#adeda2b422d13f14f8d39239aafd5cf56">about::filter_t</a> = typedef typename <a class="el" href="structabout_1_1detail_1_1_filter_impl.html">detail::FilterImpl</a>&lt;Filter, TupT&gt;::type</td>
+          <td class="memname">using <a class="el" href="namespaceabout.html#adeda2b422d13f14f8d39239aafd5cf56">about::filter_t</a> = typedef typename detail::FilterImpl&lt;Filter, TupT&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -308,15 +306,15 @@ template&lt;typename IntT , size_t N&gt; </div>
 template&lt;typename T , typename TupT &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceabout.html#a024053a8ae180802555acb89cbb1138c">about::merge_t</a> = typedef typename <a class="el" href="structabout_1_1detail_1_1_merge_impl.html">detail::MergeImpl</a>&lt;T, TupT&gt;::type</td>
+          <td class="memname">using <a class="el" href="namespaceabout.html#a024053a8ae180802555acb89cbb1138c">about::merge_t</a> = typedef typename detail::MergeImpl&lt;T, TupT&gt;::type</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 </div>
 </div>
-<a id="a16685b0923e676ee1aab9b0792bb1b58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16685b0923e676ee1aab9b0792bb1b58">&#9670;&nbsp;</a></span>public_member_info_t</h2>
+<a id="a5bec24d11efbbc67e2359d4645c5559b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5bec24d11efbbc67e2359d4645c5559b">&#9670;&nbsp;</a></span>public_var_info_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,7 +322,7 @@ template&lt;typename T , typename TupT &gt; </div>
 template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">using <a class="el" href="namespaceabout.html#a16685b0923e676ee1aab9b0792bb1b58">about::public_member_info_t</a> = typedef typename <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;<a class="el" href="namespaceabout_1_1detail.html#a03b4c308952ba4087255c69f117f76cd">detail::cleaned_t</a>&lt;T&gt; &gt;::public_member_info</td>
+          <td class="memname">using <a class="el" href="namespaceabout.html#a5bec24d11efbbc67e2359d4645c5559b">about::public_var_info_t</a> = typedef typename detail::ClassMetaInfo&lt;detail::cleaned_t&lt;T&gt; &gt;::public_var_info</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -406,7 +404,7 @@ template&lt;std::size_t N = 4UL, typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structabout_1_1detail_1_1_formatted.html">detail::Formatted</a>&lt;N, T&gt; about::fmt </td>
+          <td class="memname">constexpr detail::Formatted&lt;N, T&gt; about::fmt </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -620,8 +618,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a4c391f697db39fcf29295b487d2bc58f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c391f697db39fcf29295b487d2bc58f">&#9670;&nbsp;</a></span>get_public_members()</h2>
+<a id="a22e1d21115ec01ab2d3d673083b66713"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22e1d21115ec01ab2d3d673083b66713">&#9670;&nbsp;</a></span>get_public_vars()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -632,7 +630,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr auto about::get_public_members </td>
+          <td class="memname">constexpr auto about::get_public_vars </td>
           <td>(</td>
           <td class="paramtype">const T &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
@@ -656,47 +654,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a64633addc9a58a505d1376b82169221b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64633addc9a58a505d1376b82169221b">&#9670;&nbsp;</a></span>has() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename ClassT , char... Chars&gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">constexpr bool about::has </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structabout_1_1detail_1_1_member_name.html">detail::MemberName</a>&lt; Chars... &gt;&#160;</td>
-          <td class="paramname"><em>_</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Checks if a member variable exists via a tag. </p>
-<p>For example: &lt;verbatim&gt;</p>
-<p>std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;("a"_member) &lt;&lt; std::endl;</p>
-<p>&lt;endverbatim&gt;</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>type to reflect </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="ada47007c4677d68ad52e204637b5b82b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada47007c4677d68ad52e204637b5b82b">&#9670;&nbsp;</a></span>has() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ada47007c4677d68ad52e204637b5b82b">&#9670;&nbsp;</a></span>has() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -709,7 +668,7 @@ template&lt;typename ClassT , char... Chars&gt; </div>
         <tr>
           <td class="memname">constexpr bool about::has </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structabout_1_1detail_1_1_method_name.html">detail::MethodName</a>&lt; Chars... &gt;&#160;</td>
+          <td class="paramtype">detail::MethodName&lt; Chars... &gt;&#160;</td>
           <td class="paramname"><em>_</em></td><td>)</td>
           <td></td>
         </tr>
@@ -722,10 +681,8 @@ template&lt;typename ClassT , char... Chars&gt; </div>
 </div><div class="memdoc">
 
 <p>Checks if a class method exists via a tag. </p>
-<p>For example: &lt;verbatim&gt;</p>
-<p>std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;("b"_method) &lt;&lt; std::endl;</p>
-<p>&lt;endverbatim&gt;</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>For example: </p><div class="fragment"><div class="line">std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;(<span class="stringliteral">&quot;b&quot;</span>_method) &lt;&lt; std::endl;</div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type to reflect </td></tr>
   </table>
@@ -734,21 +691,22 @@ template&lt;typename ClassT , char... Chars&gt; </div>
 
 </div>
 </div>
-<a id="a7420592076be9f921f5b54968ec5fde5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7420592076be9f921f5b54968ec5fde5">&#9670;&nbsp;</a></span>operator&quot;&quot;_member()</h2>
+<a id="acc62ed67bc92a2ad4d48667220a1ea75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc62ed67bc92a2ad4d48667220a1ea75">&#9670;&nbsp;</a></span>has() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T , T... Chars&gt; </div>
+template&lt;typename ClassT , char... Chars&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structabout_1_1detail_1_1_member_name.html">detail::MemberName</a>&lt;Chars...&gt; about::operator&quot;&quot;_member </td>
+          <td class="memname">constexpr bool about::has </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">detail::VarName&lt; Chars... &gt;&#160;</td>
+          <td class="paramname"><em>_</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -759,7 +717,14 @@ template&lt;typename T , T... Chars&gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>Literal used to refer to a class member variable. </p>
+<p>Checks if a member variable exists via a tag. </p>
+<p>For example: </p><div class="fragment"><div class="line">std::cout &lt;&lt; std::boolalpha &lt;&lt; has&lt;T&gt;(<span class="stringliteral">&quot;a&quot;</span>_var) &lt;&lt; std::endl;</div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type to reflect </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -775,7 +740,7 @@ template&lt;typename T , T... Chars&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr <a class="el" href="structabout_1_1detail_1_1_method_name.html">detail::MethodName</a>&lt;Chars...&gt; about::operator&quot;&quot;_method </td>
+          <td class="memname">constexpr detail::MethodName&lt;Chars...&gt; about::operator&quot;&quot;_method </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -789,6 +754,64 @@ template&lt;typename T , T... Chars&gt; </div>
 </div><div class="memdoc">
 
 <p>Literal used to refer to a class method. </p>
+
+</div>
+</div>
+<a id="a99705979aff0dedba78bbe434cc957b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99705979aff0dedba78bbe434cc957b9">&#9670;&nbsp;</a></span>operator&quot;&quot;_type()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T... Chars&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr detail::TypeName&lt;Chars...&gt; about::operator&quot;&quot;_type </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Literal used to refer to a class member typedef. </p>
+
+</div>
+</div>
+<a id="a3a6880ecc4f393dcc9e518767b3d8fa4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a6880ecc4f393dcc9e518767b3d8fa4">&#9670;&nbsp;</a></span>operator&quot;&quot;_var()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , T... Chars&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr detail::VarName&lt;Chars...&gt; about::operator&quot;&quot;_var </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">constexpr</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Literal used to refer to a class member variable. </p>
 
 </div>
 </div>
@@ -809,7 +832,7 @@ template&lt;std::size_t N, typename T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="structabout_1_1detail_1_1_formatted.html">detail::Formatted</a>&lt; N, T &gt; &amp;&#160;</td>
+          <td class="paramtype">const detail::Formatted&lt; N, T &gt; &amp;&#160;</td>
           <td class="paramname"><em>fmt_print_wrapper</em>&#160;</td>
         </tr>
         <tr>
@@ -845,7 +868,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr const char* about::absolute_nameof = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::absolute_name</td>
+          <td class="memname">constexpr const char* about::absolute_nameof = detail::ClassMetaInfo&lt;T&gt;::absolute_name</td>
         </tr>
       </table>
   </td>
@@ -890,10 +913,12 @@ template&lt;typename T &gt; </div>
 <div class="line">  !std::is_base_of&lt;std::false_type, detail::ClassMetaInfo&lt;detail::cleaned_t&lt;T&gt;&gt;&gt;::value</div>
 </div><!-- fragment -->
 <p>Used to check if reflection information is available for a given type. </p>
-<p>For example: &lt;verbatim&gt;</p>
-<p>template&lt;typename T&gt; typename std::enable_if&lt;has_reflection_info&lt;T&gt;, void&gt;::type use_reflection(const T&amp; value) { code which uses generated reflection traits }</p>
-<p>&lt;endverbatim&gt;</p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
+<p>For example: </p><div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><span class="keyword">typename</span> std::enable_if&lt;has_reflection_info&lt;T&gt;, <span class="keywordtype">void</span>&gt;::type use_reflection(<span class="keyword">const</span> T&amp; value)</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// code which uses generated reflection traits</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
     <tr><td class="paramname">T</td><td>type to check </td></tr>
   </table>
@@ -914,7 +939,7 @@ template&lt;typename T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">constexpr const char* about::nameof = <a class="el" href="structabout_1_1detail_1_1_class_meta_info.html">detail::ClassMetaInfo</a>&lt;T&gt;::name</td>
+          <td class="memname">constexpr const char* about::nameof = detail::ClassMetaInfo&lt;T&gt;::name</td>
         </tr>
       </table>
   </td>
@@ -935,7 +960,7 @@ template&lt;typename T &gt; </div>
 </div>
 </div>
 </div><!-- contents -->
-<div class="ttc" id="anamespaceabout_html_a2d94c4e5b5a651f4790bfe3d69fe0069"><div class="ttname"><a href="namespaceabout.html#a2d94c4e5b5a651f4790bfe3d69fe0069">about::for_each</a></div><div class="ttdeci">void for_each(CallbackT &amp;&amp;cb, TupleTs &amp;&amp;... tups)</div><div class="ttdoc">Invokes a callback, cb, for elements of each tuple, tups.</div><div class="ttdef"><b>Definition:</b> for_each.hpp:139</div></div>
+<div class="ttc" id="anamespaceabout_html_a2d94c4e5b5a651f4790bfe3d69fe0069"><div class="ttname"><a href="namespaceabout.html#a2d94c4e5b5a651f4790bfe3d69fe0069">about::for_each</a></div><div class="ttdeci">void for_each(CallbackT &amp;&amp;cb, TupleTs &amp;&amp;... tups)</div><div class="ttdoc">Invokes a callback, cb, for elements of each tuple, tups.</div><div class="ttdef"><b>Definition:</b> for_each.hpp:141</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

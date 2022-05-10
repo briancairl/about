@@ -152,13 +152,13 @@ $(function() {
 <div class="line">using namespace about;</div>
 <div class="line"> </div>
 <div class="line">template&lt;typename T&gt;</div>
-<div class="line">static typename std::enable_if&lt;has&lt;T&gt;(&quot;an_int&quot;_member)&gt;::type print_an_int(const T&amp; object)</div>
+<div class="line">static typename std::enable_if&lt;has&lt;T&gt;(&quot;an_int&quot;_var)&gt;::type print_an_int(const T&amp; object)</div>
 <div class="line">{</div>
 <div class="line">  std::cout &lt;&lt; &quot;This is the value of T.an_int : &quot; &lt;&lt; object.an_int &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line">template&lt;typename T&gt;</div>
-<div class="line">static typename std::enable_if&lt;!has&lt;T&gt;(&quot;an_int&quot;_member)&gt;::type print_an_int(const T&amp; object)</div>
+<div class="line">static typename std::enable_if&lt;!has&lt;T&gt;(&quot;an_int&quot;_var)&gt;::type print_an_int(const T&amp; object)</div>
 <div class="line">{</div>
 <div class="line">  std::cout &lt;&lt; &quot;T doesn&#39;t have an_int&quot; &lt;&lt; std::endl;</div>
 <div class="line">}</div>

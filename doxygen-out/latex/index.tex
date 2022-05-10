@@ -111,13 +111,13 @@ Doxygen output for the {\bfseries{latest version}} is available \href{https://br
 \DoxyCodeLine{using namespace about;}
 \DoxyCodeLine{}
 \DoxyCodeLine{template<typename T>}
-\DoxyCodeLine{static typename std::enable\_if<has<T>("an\_int"\_member)>::type print\_an\_int(const T\& object)}
+\DoxyCodeLine{static typename std::enable\_if<has<T>("an\_int"\_var)>::type print\_an\_int(const T\& object)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{  std::cout << "This is the value of T.an\_int : " << object.an\_int << std::endl;}
 \DoxyCodeLine{\}}
 \DoxyCodeLine{}
 \DoxyCodeLine{template<typename T>}
-\DoxyCodeLine{static typename std::enable\_if<!has<T>("an\_int"\_member)>::type print\_an\_int(const T\& object)}
+\DoxyCodeLine{static typename std::enable\_if<!has<T>("an\_int"\_var)>::type print\_an\_int(const T\& object)}
 \DoxyCodeLine{\{}
 \DoxyCodeLine{  std::cout << "T doesn't have an\_int" << std::endl;}
 \DoxyCodeLine{\}}

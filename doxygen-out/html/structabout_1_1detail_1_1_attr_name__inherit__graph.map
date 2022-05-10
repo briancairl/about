@@ -1,5 +1,0 @@
-<map id="about::detail::AttrName" name="about::detail::AttrName">
-<area shape="rect" id="node1" title="Base for attribute names." alt="" coords="134,5,309,32"/>
-<area shape="rect" id="node2" href="$structabout_1_1detail_1_1_member_name.html" title="Tagging element used to refer to member variables." alt="" coords="5,80,211,121"/>
-<area shape="rect" id="node3" href="$structabout_1_1detail_1_1_method_name.html" title="Tagging element used to refer to class methods." alt="" coords="235,80,435,121"/>
-</map>

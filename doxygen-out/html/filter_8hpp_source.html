@@ -87,48 +87,48 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceabout.html">about</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceabout_1_1detail.html">detail</a></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_filter_impl.html">   20</a></span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class</span> Filter, <span class="keyword">typename</span> TupT&gt; <span class="keyword">struct</span> <a class="code" href="structabout_1_1detail_1_1_filter_impl.html">FilterImpl</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_filter_impl.html#a8ff5e40a5dff74ac46f8d9bdbd3d4e42">   22</a></span>&#160;  <span class="keyword">using</span> type = TupT;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;};</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class</span> <a class="code" href="namespaceabout_1_1detail.html">Filter</a>, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span> <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>, <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">T</a>&gt;</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_filter_impl_3_01_filter_00_01_tup_tmpl_3_01_t_01_4_01_4.html">   26</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="namespaceabout_1_1detail.html">FilterImpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">Filter</a>, <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T</a>&gt;&gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_filter_impl_3_01_filter_00_01_tup_tmpl_3_01_t_01_4_01_4.html#a6bab423b02b469b909129df2959256a1">   28</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceabout_1_1detail.html">type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">std</a>::<a class="code" href="namespaceabout_1_1detail.html">conditional</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">Filter</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T</a>&gt;::<a class="code" href="namespaceabout_1_1detail.html">value</a>, <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T</a>&gt;, <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>&lt;&gt;&gt;::<a class="code" href="namespaceabout_1_1detail.html">type</a>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">template</span> &lt;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">class</span> <a class="code" href="namespaceabout_1_1detail.html">Filter</a>,</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">class</span> <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>,</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">T0</a>,</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">T1</a>,</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">typename</span>... <a class="code" href="namespaceabout_1_1detail.html">OtherTs</a>&gt;</div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_filter_impl_3_01_filter_00_01_tup_tmpl_3_01_t0_00_01_t1_00_01_other_ts_8_8_8_01_4_01_4.html">   39</a></span>&#160;<span class="keyword">struct</span> <a class="code" href="namespaceabout_1_1detail.html">FilterImpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">Filter</a>, <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T0</a>, <a class="code" href="namespaceabout_1_1detail.html">T1</a>, <a class="code" href="namespaceabout_1_1detail.html">OtherTs</a>...&gt;&gt;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">using</span> <a class="code" href="namespaceabout_1_1detail.html">type</a> = <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">std</a>::<a class="code" href="namespaceabout_1_1detail.html">conditional</a>&lt;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="namespaceabout_1_1detail.html">Filter</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T0</a>&gt;::<a class="code" href="namespaceabout_1_1detail.html">value</a>,</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="namespaceabout_1_1detail.html">merge_t</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T0</a>, <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">FilterImpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">Filter</a>, <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T1</a>, <a class="code" href="namespaceabout_1_1detail.html">OtherTs</a>...&gt;&gt;::<a class="code" href="namespaceabout_1_1detail.html">type</a>&gt;,</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_filter_impl_3_01_filter_00_01_tup_tmpl_3_01_t0_00_01_t1_00_01_other_ts_8_8_8_01_4_01_4.html#ac39c748f0322e82a0984cd4e5495545d">   44</a></span>&#160;    <span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html">FilterImpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">Filter</a>, <a class="code" href="namespaceabout_1_1detail.html">TupTmpl</a>&lt;<a class="code" href="namespaceabout_1_1detail.html">T1</a>, <a class="code" href="namespaceabout_1_1detail.html">OtherTs</a>...&gt;&gt;::<a class="code" href="namespaceabout_1_1detail.html">type</a>&gt;::<a class="code" href="namespaceabout_1_1detail.html">type</a>;</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;}  <span class="comment">// namespace detail</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class</span> <a class="code" href="namespaceabout.html">Filter</a>, <span class="keyword">typename</span> <a class="code" href="namespaceabout.html">TupT</a>&gt;</div>
-<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="namespaceabout.html#adeda2b422d13f14f8d39239aafd5cf56">   50</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceabout.html">filter_t</a> = <span class="keyword">typename</span> <a class="code" href="namespaceabout.html">detail</a>::<a class="code" href="namespaceabout.html">FilterImpl</a>&lt;<a class="code" href="namespaceabout.html">Filter</a>, <a class="code" href="namespaceabout.html">TupT</a>&gt;::<a class="code" href="namespaceabout.html">type</a>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;}  <span class="comment">// namespace about</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">DOXYGEN_SKIP</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace</span> detail</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class</span> Filter, <span class="keyword">typename</span> TupT&gt; <span class="keyword">struct</span> FilterImpl</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;  <span class="keyword">using</span> type = TupT;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class</span> Filter, <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt; <span class="keyword">class</span> TupTmpl, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">struct</span> FilterImpl&lt;Filter, TupTmpl&lt;T&gt;&gt;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">using</span> type = <span class="keyword">typename</span> std::conditional&lt;Filter&lt;T&gt;::value, TupTmpl&lt;T&gt;, TupTmpl&lt;&gt;&gt;::type;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">class</span> Filter,</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>...&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">class</span> TupTmpl,</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">typename</span> T0,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">typename</span> T1,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">typename</span>... OtherTs&gt;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">struct</span> FilterImpl&lt;Filter, TupTmpl&lt;T0, T1, OtherTs...&gt;&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">using</span> type = <span class="keyword">typename</span> std::conditional&lt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    Filter&lt;T0&gt;::value,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    merge_t&lt;T0, <span class="keyword">typename</span> FilterImpl&lt;Filter, TupTmpl&lt;T1, OtherTs...&gt;&gt;::type&gt;,</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keyword">typename</span> FilterImpl&lt;Filter, TupTmpl&lt;T1, OtherTs...&gt;&gt;::type&gt;::type;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span>  <span class="comment">// DOXYGEN_SKIP</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>&gt; <span class="keyword">class</span> <a class="code" href="namespaceabout.html">Filter</a>, <span class="keyword">typename</span> <a class="code" href="namespaceabout.html">TupT</a>&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="namespaceabout.html#adeda2b422d13f14f8d39239aafd5cf56">   52</a></span>&#160;<span class="keyword">using</span> <a class="code" href="namespaceabout.html">filter_t</a> = <span class="keyword">typename</span> <a class="code" href="namespaceabout.html">detail</a>::<a class="code" href="namespaceabout.html">FilterImpl</a>&lt;<a class="code" href="namespaceabout.html">Filter</a>, <a class="code" href="namespaceabout.html">TupT</a>&gt;::<a class="code" href="namespaceabout.html">type</a>;</div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span>  <span class="comment">// ABOUT_FILTER_HPP</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}  <span class="comment">// namespace about</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span>  <span class="comment">// ABOUT_FILTER_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceabout_1_1detail_html"><div class="ttname"><a href="namespaceabout_1_1detail.html">about::detail</a></div><div class="ttdef"><b>Definition:</b> about.hpp:14</div></div>
 <div class="ttc" id="anamespaceabout_html"><div class="ttname"><a href="namespaceabout.html">about</a></div><div class="ttdef"><b>Definition:</b> about.hpp:12</div></div>
-<div class="ttc" id="astructabout_1_1detail_1_1_filter_impl_html"><div class="ttname"><a href="structabout_1_1detail_1_1_filter_impl.html">about::detail::FilterImpl</a></div><div class="ttdef"><b>Definition:</b> filter.hpp:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

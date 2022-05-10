@@ -1,10 +1,5 @@
 \hypertarget{namespaceabout}{}\doxysection{about Namespace Reference}
 \label{namespaceabout}\index{about@{about}}
-\doxysubsection*{Namespaces}
-\begin{DoxyCompactItemize}
-\item 
- \mbox{\hyperlink{namespaceabout_1_1detail}{detail}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,9 +10,9 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 \doxysubsection*{Typedefs}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceabout_a16685b0923e676ee1aab9b0792bb1b58}{public\+\_\+member\+\_\+info\+\_\+t}} = typename \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$ \mbox{\hyperlink{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}{detail\+::cleaned\+\_\+t}}$<$ T $>$ $>$\+::public\+\_\+member\+\_\+info
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespaceabout_a5bec24d11efbbc67e2359d4645c5559b}{public\+\_\+var\+\_\+info\+\_\+t}} = typename detail\+::\+Class\+Meta\+Info$<$ detail\+::cleaned\+\_\+t$<$ T $>$ $>$\+::public\+\_\+var\+\_\+info
 \begin{DoxyCompactList}\small\item\em {\ttfamily std\+::tuple} of meta information for each public class member variable, in order of declaration \end{DoxyCompactList}\item 
-{\footnotesize template$<$template$<$ typename $>$ class Filter, typename TupT $>$ }\\using \mbox{\hyperlink{namespaceabout_adeda2b422d13f14f8d39239aafd5cf56}{filter\+\_\+t}} = typename \mbox{\hyperlink{structabout_1_1detail_1_1_filter_impl}{detail\+::\+Filter\+Impl}}$<$ Filter, TupT $>$\+::type
+{\footnotesize template$<$template$<$ typename $>$ class Filter, typename TupT $>$ }\\using \mbox{\hyperlink{namespaceabout_adeda2b422d13f14f8d39239aafd5cf56}{filter\+\_\+t}} = typename detail\+::\+Filter\+Impl$<$ Filter, TupT $>$\+::type
 \item 
 {\footnotesize template$<$typename IntT , size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespaceabout_a8a850eef2c5548e09261289d6dc6ed37}{make\+\_\+integer\+\_\+sequence}} = typename detail\+::make\+\_\+sequence$<$ IntT, N $>$\+::type
 \begin{DoxyCompactList}\small\item\em Integer sequence where the integer type is {\ttfamily std\+::size\+\_\+t} \end{DoxyCompactList}\item 
@@ -27,20 +22,22 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 \begin{DoxyCompactList}\small\item\em Makes an integer sequence where the integer type is {\ttfamily size\+\_\+t} \end{DoxyCompactList}\item 
 {\footnotesize template$<$class... T\+Pack$>$ }\\using \mbox{\hyperlink{namespaceabout_afef7a9e70155378166b391e58e9adcbd}{index\+\_\+sequence\+\_\+for}} = \mbox{\hyperlink{namespaceabout_a8a850eef2c5548e09261289d6dc6ed37}{make\+\_\+integer\+\_\+sequence}}$<$ size\+\_\+t, sizeof...(T\+Pack)$>$
 \begin{DoxyCompactList}\small\item\em Makes an index sequence type with elements for each type in {\ttfamily T...} \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , typename TupT $>$ }\\using \mbox{\hyperlink{namespaceabout_a024053a8ae180802555acb89cbb1138c}{merge\+\_\+t}} = typename \mbox{\hyperlink{structabout_1_1detail_1_1_merge_impl}{detail\+::\+Merge\+Impl}}$<$ T, TupT $>$\+::type
+{\footnotesize template$<$typename T , typename TupT $>$ }\\using \mbox{\hyperlink{namespaceabout_a024053a8ae180802555acb89cbb1138c}{merge\+\_\+t}} = typename detail\+::\+Merge\+Impl$<$ T, TupT $>$\+::type
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{detail\+::\+Member\+Name}}$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a7420592076be9f921f5b54968ec5fde5}{operator\char`\"{}\char`\"{}\+\_\+member}} ()
+{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr detail\+::\+Var\+Name$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a3a6880ecc4f393dcc9e518767b3d8fa4}{operator\char`\"{}\char`\"{}\+\_\+var}} ()
 \begin{DoxyCompactList}\small\item\em Literal used to refer to a class member variable. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{detail\+::\+Method\+Name}}$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a315f301abb47cfd846d19dd01583279c}{operator\char`\"{}\char`\"{}\+\_\+method}} ()
+{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr detail\+::\+Type\+Name$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a99705979aff0dedba78bbe434cc957b9}{operator\char`\"{}\char`\"{}\+\_\+type}} ()
+\begin{DoxyCompactList}\small\item\em Literal used to refer to a class member typedef. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T , T... Chars$>$ }\\constexpr detail\+::\+Method\+Name$<$ Chars... $>$ \mbox{\hyperlink{namespaceabout_a315f301abb47cfd846d19dd01583279c}{operator\char`\"{}\char`\"{}\+\_\+method}} ()
 \begin{DoxyCompactList}\small\item\em Literal used to refer to a class method. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a64633addc9a58a505d1376b82169221b}{has}} (\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{detail\+::\+Member\+Name}}$<$ Chars... $>$ \+\_\+)
+{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_acc62ed67bc92a2ad4d48667220a1ea75}{has}} (detail\+::\+Var\+Name$<$ Chars... $>$ \+\_\+)
 \begin{DoxyCompactList}\small\item\em Checks if a member variable exists via a tag. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_ada47007c4677d68ad52e204637b5b82b}{has}} (\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{detail\+::\+Method\+Name}}$<$ Chars... $>$ \+\_\+)
+{\footnotesize template$<$typename ClassT , char... Chars$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_ada47007c4677d68ad52e204637b5b82b}{has}} (detail\+::\+Method\+Name$<$ Chars... $>$ \+\_\+)
 \begin{DoxyCompactList}\small\item\em Checks if a class method exists via a tag. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_a4c391f697db39fcf29295b487d2bc58f}{get\+\_\+public\+\_\+members}} (const T \&value)
+{\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_a22e1d21115ec01ab2d3d673083b66713}{get\+\_\+public\+\_\+vars}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Returns a {\ttfamily std\+::tuple} of lvalue references to all public members, in order of declaration. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename T $>$ }\\constexpr auto \mbox{\hyperlink{namespaceabout_aa2867909eb37ef22965c76351c5b8f6b}{get\+\_\+name}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Returns string literal type name of a class {\ttfamily T}. \end{DoxyCompactList}\item 
@@ -48,9 +45,9 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 \begin{DoxyCompactList}\small\item\em Returns string literal type name of a class {\ttfamily T} with full namespace. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename InvocableT , typename Arg\+TupleT $>$ }\\constexpr decltype(auto) \mbox{\hyperlink{namespaceabout_a8c3e7e50f3bae2e5070a31325749cc48}{apply}} (InvocableT \&\&fn, Arg\+TupleT \&\&targs)
 \begin{DoxyCompactList}\small\item\em Calls function with with tuple (e.\+g {\ttfamily std\+::tuple}) as argument list. \end{DoxyCompactList}\item 
-{\footnotesize template$<$std\+::size\+\_\+t N = 4\+UL, typename T $>$ }\\constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{detail\+::\+Formatted}}$<$ N, T $>$ \mbox{\hyperlink{namespaceabout_a6b031f2e76a38cbf43915694f621fe65}{fmt}} (const T \&value)
+{\footnotesize template$<$std\+::size\+\_\+t N = 4\+UL, typename T $>$ }\\constexpr detail\+::\+Formatted$<$ N, T $>$ \mbox{\hyperlink{namespaceabout_a6b031f2e76a38cbf43915694f621fe65}{fmt}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Wraps object in wrapper used to apply formatted {\ttfamily ostream} serialziation. \end{DoxyCompactList}\item 
-{\footnotesize template$<$std\+::size\+\_\+t N, typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespaceabout_ae5f8f3432e694468c5f3115c667b0348}{operator$<$$<$}} (std\+::ostream \&os, const \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{detail\+::\+Formatted}}$<$ N, T $>$ \&fmt\+\_\+print\+\_\+wrapper)
+{\footnotesize template$<$std\+::size\+\_\+t N, typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespaceabout_ae5f8f3432e694468c5f3115c667b0348}{operator$<$$<$}} (std\+::ostream \&os, const detail\+::\+Formatted$<$ N, T $>$ \&fmt\+\_\+print\+\_\+wrapper)
 \begin{DoxyCompactList}\small\item\em Auto-\/formatted {\ttfamily ostream} overload. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename CallbackT , typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_a2d94c4e5b5a651f4790bfe3d69fe0069}{for\+\_\+each}} (CallbackT \&\&cb, Tuple\+Ts \&\&... tups)
 \begin{DoxyCompactList}\small\item\em Invokes a callback, {\ttfamily cb}, for elements of each tuple, {\ttfamily tups}. \end{DoxyCompactList}\item 
@@ -61,9 +58,9 @@ struct \mbox{\hyperlink{structabout_1_1integer__sequence}{integer\+\_\+sequence}
 \item 
 {\footnotesize template$<$typename T $>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_a5fdbe1ea7c0ec8ae9aa68732dbb79854}{has\+\_\+reflection\+\_\+info}}
 \begin{DoxyCompactList}\small\item\em Used to check if reflection information is available for a given type. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ade38136d9fe12346812648e0fa732615}{nameof}} = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::name
+{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ade38136d9fe12346812648e0fa732615}{nameof}} = detail\+::\+Class\+Meta\+Info$<$T$>$\+::name
 \begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ae4f925f92f8bac5c44b94ecf228c3b9d}{absolute\+\_\+nameof}} = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::absolute\+\_\+name
+{\footnotesize template$<$typename T $>$ }\\constexpr const char $\ast$ \mbox{\hyperlink{namespaceabout_ae4f925f92f8bac5c44b94ecf228c3b9d}{absolute\+\_\+nameof}} = detail\+::\+Class\+Meta\+Info$<$T$>$\+::absolute\+\_\+name
 \begin{DoxyCompactList}\small\item\em {\ttfamily constexpr} string literal type name of a class {\ttfamily T} with full namespace \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -82,7 +79,7 @@ Brian Cairl
 \index{filter\_t@{filter\_t}!about@{about}}
 \doxysubsubsection{\texorpdfstring{filter\_t}{filter\_t}}
 {\footnotesize\ttfamily template$<$template$<$ typename $>$ class Filter, typename TupT $>$ \\
-using \mbox{\hyperlink{namespaceabout_adeda2b422d13f14f8d39239aafd5cf56}{about\+::filter\+\_\+t}} = typedef typename \mbox{\hyperlink{structabout_1_1detail_1_1_filter_impl}{detail\+::\+Filter\+Impl}}$<$Filter, TupT$>$\+::type}
+using \mbox{\hyperlink{namespaceabout_adeda2b422d13f14f8d39239aafd5cf56}{about\+::filter\+\_\+t}} = typedef typename detail\+::\+Filter\+Impl$<$Filter, TupT$>$\+::type}
 
 \mbox{\Hypertarget{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}\label{namespaceabout_ae9bad997d2899531d024a8f7ad15a304}} 
 \index{about@{about}!index\_sequence@{index\_sequence}}
@@ -155,14 +152,14 @@ Integer sequence where the integer type is {\ttfamily std\+::size\+\_\+t}
 \index{merge\_t@{merge\_t}!about@{about}}
 \doxysubsubsection{\texorpdfstring{merge\_t}{merge\_t}}
 {\footnotesize\ttfamily template$<$typename T , typename TupT $>$ \\
-using \mbox{\hyperlink{namespaceabout_a024053a8ae180802555acb89cbb1138c}{about\+::merge\+\_\+t}} = typedef typename \mbox{\hyperlink{structabout_1_1detail_1_1_merge_impl}{detail\+::\+Merge\+Impl}}$<$T, TupT$>$\+::type}
+using \mbox{\hyperlink{namespaceabout_a024053a8ae180802555acb89cbb1138c}{about\+::merge\+\_\+t}} = typedef typename detail\+::\+Merge\+Impl$<$T, TupT$>$\+::type}
 
-\mbox{\Hypertarget{namespaceabout_a16685b0923e676ee1aab9b0792bb1b58}\label{namespaceabout_a16685b0923e676ee1aab9b0792bb1b58}} 
-\index{about@{about}!public\_member\_info\_t@{public\_member\_info\_t}}
-\index{public\_member\_info\_t@{public\_member\_info\_t}!about@{about}}
-\doxysubsubsection{\texorpdfstring{public\_member\_info\_t}{public\_member\_info\_t}}
+\mbox{\Hypertarget{namespaceabout_a5bec24d11efbbc67e2359d4645c5559b}\label{namespaceabout_a5bec24d11efbbc67e2359d4645c5559b}} 
+\index{about@{about}!public\_var\_info\_t@{public\_var\_info\_t}}
+\index{public\_var\_info\_t@{public\_var\_info\_t}!about@{about}}
+\doxysubsubsection{\texorpdfstring{public\_var\_info\_t}{public\_var\_info\_t}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-using \mbox{\hyperlink{namespaceabout_a16685b0923e676ee1aab9b0792bb1b58}{about\+::public\+\_\+member\+\_\+info\+\_\+t}} = typedef typename \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$\mbox{\hyperlink{namespaceabout_1_1detail_a03b4c308952ba4087255c69f117f76cd}{detail\+::cleaned\+\_\+t}}$<$T$>$ $>$\+::public\+\_\+member\+\_\+info}
+using \mbox{\hyperlink{namespaceabout_a5bec24d11efbbc67e2359d4645c5559b}{about\+::public\+\_\+var\+\_\+info\+\_\+t}} = typedef typename detail\+::\+Class\+Meta\+Info$<$detail\+::cleaned\+\_\+t$<$T$>$ $>$\+::public\+\_\+var\+\_\+info}
 
 
 
@@ -206,7 +203,7 @@ Calls function with with tuple (e.\+g {\ttfamily std\+::tuple}) as argument list
 \index{fmt@{fmt}!about@{about}}
 \doxysubsubsection{\texorpdfstring{fmt()}{fmt()}}
 {\footnotesize\ttfamily template$<$std\+::size\+\_\+t N = 4\+UL, typename T $>$ \\
-constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{detail\+::\+Formatted}}$<$N, T$>$ about\+::fmt (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+constexpr detail\+::\+Formatted$<$N, T$>$ about\+::fmt (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
@@ -332,12 +329,12 @@ Returns string literal type name of a class {\ttfamily T}.
 {\em T} & type to reflect \\
 \hline
 \end{DoxyTemplParams}
-\mbox{\Hypertarget{namespaceabout_a4c391f697db39fcf29295b487d2bc58f}\label{namespaceabout_a4c391f697db39fcf29295b487d2bc58f}} 
-\index{about@{about}!get\_public\_members@{get\_public\_members}}
-\index{get\_public\_members@{get\_public\_members}!about@{about}}
-\doxysubsubsection{\texorpdfstring{get\_public\_members()}{get\_public\_members()}}
+\mbox{\Hypertarget{namespaceabout_a22e1d21115ec01ab2d3d673083b66713}\label{namespaceabout_a22e1d21115ec01ab2d3d673083b66713}} 
+\index{about@{about}!get\_public\_vars@{get\_public\_vars}}
+\index{get\_public\_vars@{get\_public\_vars}!about@{about}}
+\doxysubsubsection{\texorpdfstring{get\_public\_vars()}{get\_public\_vars()}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-constexpr auto about\+::get\+\_\+public\+\_\+members (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+constexpr auto about\+::get\+\_\+public\+\_\+vars (\begin{DoxyParamCaption}\item[{const T \&}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
@@ -348,78 +345,89 @@ Returns a {\ttfamily std\+::tuple} of lvalue references to all public members, i
 {\em T} & type to reflect \\
 \hline
 \end{DoxyTemplParams}
-\mbox{\Hypertarget{namespaceabout_a64633addc9a58a505d1376b82169221b}\label{namespaceabout_a64633addc9a58a505d1376b82169221b}} 
+\mbox{\Hypertarget{namespaceabout_ada47007c4677d68ad52e204637b5b82b}\label{namespaceabout_ada47007c4677d68ad52e204637b5b82b}} 
 \index{about@{about}!has@{has}}
 \index{has@{has}!about@{about}}
 \doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename ClassT , char... Chars$>$ \\
-constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{detail\+::\+Member\+Name}}$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
-
-
-
-Checks if a member variable exists via a tag. 
-
-For example\+: $<$verbatim$>$
-
-std\+::cout $<$$<$ std\+::boolalpha $<$$<$ has$<$\+T$>$(\char`\"{}a\char`\"{}\+\_\+member) $<$$<$ std\+::endl;
-
-$<$endverbatim$>$
-
-
-\begin{DoxyTemplParams}{Template Parameters}
-{\em T} & type to reflect \\
-\hline
-\end{DoxyTemplParams}
-\mbox{\Hypertarget{namespaceabout_ada47007c4677d68ad52e204637b5b82b}\label{namespaceabout_ada47007c4677d68ad52e204637b5b82b}} 
-\index{about@{about}!has@{has}}
-\index{has@{has}!about@{about}}
-\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
-{\footnotesize\ttfamily template$<$typename ClassT , char... Chars$>$ \\
-constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{detail\+::\+Method\+Name}}$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{detail\+::\+Method\+Name$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
 Checks if a class method exists via a tag. 
 
-For example\+: $<$verbatim$>$
+For example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::cout << std::boolalpha << has<T>(\textcolor{stringliteral}{"b"}\_method) << std::endl;}
+\end{DoxyCode}
 
-std\+::cout $<$$<$ std\+::boolalpha $<$$<$ has$<$\+T$>$(\char`\"{}b\char`\"{}\+\_\+method) $<$$<$ std\+::endl;
-
-$<$endverbatim$>$
 
 
 \begin{DoxyTemplParams}{Template Parameters}
 {\em T} & type to reflect \\
 \hline
 \end{DoxyTemplParams}
-\mbox{\Hypertarget{namespaceabout_a7420592076be9f921f5b54968ec5fde5}\label{namespaceabout_a7420592076be9f921f5b54968ec5fde5}} 
-\index{about@{about}!operator\char`\"{}\char`\"{}\_member@{operator""""\_member}}
-\index{operator\char`\"{}\char`\"{}\_member@{operator""""\_member}!about@{about}}
-\doxysubsubsection{\texorpdfstring{operator""""\_member()}{operator""\_member()}}
-{\footnotesize\ttfamily template$<$typename T , T... Chars$>$ \\
-constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_member_name}{detail\+::\+Member\+Name}}$<$Chars...$>$ about\+::operator\char`\"{}\char`\"{}\+\_\+member (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+\mbox{\Hypertarget{namespaceabout_acc62ed67bc92a2ad4d48667220a1ea75}\label{namespaceabout_acc62ed67bc92a2ad4d48667220a1ea75}} 
+\index{about@{about}!has@{has}}
+\index{has@{has}!about@{about}}
+\doxysubsubsection{\texorpdfstring{has()}{has()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename ClassT , char... Chars$>$ \\
+constexpr bool about\+::has (\begin{DoxyParamCaption}\item[{detail\+::\+Var\+Name$<$ Chars... $>$}]{\+\_\+ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
-Literal used to refer to a class member variable. 
+Checks if a member variable exists via a tag. 
 
+For example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{std::cout << std::boolalpha << has<T>(\textcolor{stringliteral}{"a"}\_var) << std::endl;}
+\end{DoxyCode}
+
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & type to reflect \\
+\hline
+\end{DoxyTemplParams}
 \mbox{\Hypertarget{namespaceabout_a315f301abb47cfd846d19dd01583279c}\label{namespaceabout_a315f301abb47cfd846d19dd01583279c}} 
 \index{about@{about}!operator\char`\"{}\char`\"{}\_method@{operator""""\_method}}
 \index{operator\char`\"{}\char`\"{}\_method@{operator""""\_method}!about@{about}}
 \doxysubsubsection{\texorpdfstring{operator""""\_method()}{operator""\_method()}}
 {\footnotesize\ttfamily template$<$typename T , T... Chars$>$ \\
-constexpr \mbox{\hyperlink{structabout_1_1detail_1_1_method_name}{detail\+::\+Method\+Name}}$<$Chars...$>$ about\+::operator\char`\"{}\char`\"{}\+\_\+method (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+constexpr detail\+::\+Method\+Name$<$Chars...$>$ about\+::operator\char`\"{}\char`\"{}\+\_\+method (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
 Literal used to refer to a class method. 
+
+\mbox{\Hypertarget{namespaceabout_a99705979aff0dedba78bbe434cc957b9}\label{namespaceabout_a99705979aff0dedba78bbe434cc957b9}} 
+\index{about@{about}!operator\char`\"{}\char`\"{}\_type@{operator""""\_type}}
+\index{operator\char`\"{}\char`\"{}\_type@{operator""""\_type}!about@{about}}
+\doxysubsubsection{\texorpdfstring{operator""""\_type()}{operator""\_type()}}
+{\footnotesize\ttfamily template$<$typename T , T... Chars$>$ \\
+constexpr detail\+::\+Type\+Name$<$Chars...$>$ about\+::operator\char`\"{}\char`\"{}\+\_\+type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Literal used to refer to a class member typedef. 
+
+\mbox{\Hypertarget{namespaceabout_a3a6880ecc4f393dcc9e518767b3d8fa4}\label{namespaceabout_a3a6880ecc4f393dcc9e518767b3d8fa4}} 
+\index{about@{about}!operator\char`\"{}\char`\"{}\_var@{operator""""\_var}}
+\index{operator\char`\"{}\char`\"{}\_var@{operator""""\_var}!about@{about}}
+\doxysubsubsection{\texorpdfstring{operator""""\_var()}{operator""\_var()}}
+{\footnotesize\ttfamily template$<$typename T , T... Chars$>$ \\
+constexpr detail\+::\+Var\+Name$<$Chars...$>$ about\+::operator\char`\"{}\char`\"{}\+\_\+var (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [constexpr]}}
+
+
+
+Literal used to refer to a class member variable. 
 
 \mbox{\Hypertarget{namespaceabout_ae5f8f3432e694468c5f3115c667b0348}\label{namespaceabout_ae5f8f3432e694468c5f3115c667b0348}} 
 \index{about@{about}!operator$<$$<$@{operator$<$$<$}}
 \index{operator$<$$<$@{operator$<$$<$}!about@{about}}
 \doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
 {\footnotesize\ttfamily template$<$std\+::size\+\_\+t N, typename T $>$ \\
-std\+::ostream\& about\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{detail\+::\+Formatted}}$<$ N, T $>$ \&}]{fmt\+\_\+print\+\_\+wrapper }\end{DoxyParamCaption})}
+std\+::ostream\& about\+::operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{os,  }\item[{const detail\+::\+Formatted$<$ N, T $>$ \&}]{fmt\+\_\+print\+\_\+wrapper }\end{DoxyParamCaption})}
 
 
 
@@ -443,7 +451,7 @@ Auto-\/formatted {\ttfamily ostream} overload.
 \index{absolute\_nameof@{absolute\_nameof}!about@{about}}
 \doxysubsubsection{\texorpdfstring{absolute\_nameof}{absolute\_nameof}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-constexpr const char$\ast$ about\+::absolute\+\_\+nameof = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::absolute\+\_\+name\hspace{0.3cm}{\ttfamily [constexpr]}}
+constexpr const char$\ast$ about\+::absolute\+\_\+nameof = detail\+::\+Class\+Meta\+Info$<$T$>$\+::absolute\+\_\+name\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 
@@ -471,11 +479,15 @@ constexpr bool about\+::has\+\_\+reflection\+\_\+info\hspace{0.3cm}{\ttfamily [c
 
 Used to check if reflection information is available for a given type. 
 
-For example\+: $<$verbatim$>$
+For example\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{template}<\textcolor{keyword}{typename} T>}
+\DoxyCodeLine{\textcolor{keyword}{typename} std::enable\_if<has\_reflection\_info<T>, \textcolor{keywordtype}{void}>::type use\_reflection(\textcolor{keyword}{const} T\& value)}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{  \textcolor{comment}{// code which uses generated reflection traits}}
+\DoxyCodeLine{\}}
+\end{DoxyCode}
 
-template$<$typename T$>$ typename std\+::enable\+\_\+if$<$has\+\_\+reflection\+\_\+info$<$\+T$>$, void$>$\+::type use\+\_\+reflection(const T\& value) \{ code which uses generated reflection traits \}
-
-$<$endverbatim$>$
 
 
 \begin{DoxyTemplParams}{Template Parameters}
@@ -487,7 +499,7 @@ $<$endverbatim$>$
 \index{nameof@{nameof}!about@{about}}
 \doxysubsubsection{\texorpdfstring{nameof}{nameof}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
-constexpr const char$\ast$ about\+::nameof = \mbox{\hyperlink{structabout_1_1detail_1_1_class_meta_info}{detail\+::\+Class\+Meta\+Info}}$<$T$>$\+::name\hspace{0.3cm}{\ttfamily [constexpr]}}
+constexpr const char$\ast$ about\+::nameof = detail\+::\+Class\+Meta\+Info$<$T$>$\+::name\hspace{0.3cm}{\ttfamily [constexpr]}}
 
 
 

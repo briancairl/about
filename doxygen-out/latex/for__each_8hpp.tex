@@ -16,21 +16,11 @@ Include dependency graph for for\+\_\+each.\+hpp\+:
 \begin{DoxyCompactItemize}
 \item 
 struct \mbox{\hyperlink{structabout_1_1_enumeration}{about\+::\+Enumeration$<$ I, N $>$}}
-\item 
-struct \mbox{\hyperlink{structabout_1_1detail_1_1_common_tuple_size}{about\+::detail\+::\+Common\+Tuple\+Size$<$ Tuple\+Ts $>$}}
-\begin{DoxyCompactList}\small\item\em Generates (and statically checks) common size between tuples, {\ttfamily Tuple\+Ts}. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_01_4}{about\+::detail\+::\+Common\+Tuple\+Size$<$ First\+Tuple\+T $>$}}
-\begin{DoxyCompactList}\small\item\em Generates (and statically checks) common size between tuples, {\ttfamily Tuple\+Ts}. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_00_01_second_tuple_t_00_01_other_tuple_ts_8_8_8_01_4}{about\+::detail\+::\+Common\+Tuple\+Size$<$ First\+Tuple\+T, Second\+Tuple\+T, Other\+Tuple\+Ts... $>$}}
-\begin{DoxyCompactList}\small\item\em Generates (and statically checks) common size between tuples, {\ttfamily Tuple\+Ts}. \end{DoxyCompactList}\item 
-struct \mbox{\hyperlink{structabout_1_1detail_1_1_multi_tuple_for_each_adapter}{about\+::detail\+::\+Multi\+Tuple\+For\+Each\+Adapter$<$ Index $>$}}
-\begin{DoxyCompactList}\small\item\em Calls {\ttfamily \mbox{\hyperlink{namespaceabout_a8c3e7e50f3bae2e5070a31325749cc48}{about\+::apply}}} on a tuple formed of elements at each {\ttfamily Tuple\+Ts} at {\ttfamily Index}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \mbox{\hyperlink{namespaceabout}{about}}
-\item 
- \mbox{\hyperlink{namespaceabout_1_1detail}{about\+::detail}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
@@ -38,8 +28,4 @@ struct \mbox{\hyperlink{structabout_1_1detail_1_1_multi_tuple_for_each_adapter}{
 {\footnotesize template$<$typename CallbackT , typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_a2d94c4e5b5a651f4790bfe3d69fe0069}{about\+::for\+\_\+each}} (CallbackT \&\&cb, Tuple\+Ts \&\&... tups)
 \begin{DoxyCompactList}\small\item\em Invokes a callback, {\ttfamily cb}, for elements of each tuple, {\ttfamily tups}. \end{DoxyCompactList}\item 
 {\footnotesize template$<$typename CallbackT , typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_ace2c1ff391c236111b9270ab2ebbeec1}{about\+::for\+\_\+each\+\_\+enumerated}} (CallbackT \&\&cb, Tuple\+Ts \&\&... tups)
-\begin{DoxyCompactList}\small\item\em Invokes a callback, {\ttfamily cb}, for elements of each tuple, {\ttfamily tups}, with an enumeration type. \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename CallbackT , std\+::size\+\_\+t... Indices, typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_1_1detail_ae3d8a9b66b194c0a288a73d0ef87f197}{about\+::detail\+::for\+\_\+each}} (CallbackT \&\&cb, index\+\_\+sequence$<$ Indices... $>$ \+\_\+, Tuple\+Ts \&\&... tups)
-\item 
-{\footnotesize template$<$typename CallbackT , std\+::size\+\_\+t... Indices, typename... Tuple\+Ts$>$ }\\void \mbox{\hyperlink{namespaceabout_1_1detail_a263bf8fffb045fd17609bd15900ed2a9}{about\+::detail\+::for\+\_\+each\+\_\+enumerated}} (CallbackT \&\&cb, index\+\_\+sequence$<$ Indices... $>$ \+\_\+, Tuple\+Ts \&\&... tups)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Invokes a callback, {\ttfamily cb}, for elements of each tuple, {\ttfamily tups}, with an enumeration type. \end{DoxyCompactList}\end{DoxyCompactItemize}

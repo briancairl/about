@@ -90,112 +90,102 @@ $(function() {
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceabout.html">about</a></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;{</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="keyword">namespace</span> <a class="code" href="namespaceabout_1_1detail.html">detail</a></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;{</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="classabout_1_1detail_1_1_printer.html">   23</a></span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification&gt; <span class="keyword">class</span> <a class="code" href="classabout_1_1detail_1_1_printer.html">Printer</a></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">   26</a></span>&#160;  <a class="code" href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">Printer</a>(std::ostream&amp; os, <span class="keyword">const</span> std::size_t justification) : <a class="code" href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">os_</a>{<a class="code" href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">std</a>::<a class="code" href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">addressof</a>(<a class="code" href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">os</a>)}, <a class="code" href="classabout_1_1detail_1_1_printer.html#a5134ecdbdc717f0e4b3f0771b70f4f70">justification_</a>{justification} {}</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <span class="keyword">template</span> &lt;std::size_t I, std::size_t N, <span class="keyword">typename</span> NameT, <span class="keyword">typename</span> ValueT&gt;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="classabout_1_1detail_1_1_printer.html#ab04d953e7b067532e5bf02621233bd35">operator</a>()(Enumeration&lt;I, N&gt; e, NameT _, ValueT&amp;&amp; v) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="classabout_1_1detail_1_1_printer.html#af00d24b218cf518084eabfe8e582225d">   32</a></span>&#160;  std::ostream* <a class="code" href="classabout_1_1detail_1_1_printer.html#af00d24b218cf518084eabfe8e582225d">os_</a>;</div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classabout_1_1detail_1_1_printer.html#a5134ecdbdc717f0e4b3f0771b70f4f70">   33</a></span>&#160;  std::size_t <a class="code" href="classabout_1_1detail_1_1_printer.html#a5134ecdbdc717f0e4b3f0771b70f4f70">justification_</a>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;};</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification = 2UL, <span class="keyword">typename</span> ValueT&gt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">typename</span> std::enable_if&lt;!has_reflection_info&lt;ValueT&gt;&gt;::type</div>
-<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="namespaceabout_1_1detail.html#aaa8481d5af6f3128a0447c9e669ae954">   38</a></span>&#160;<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">fmt_print</a>(<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">std</a>::<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">ostream</a>&amp; <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">os</a>, <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">ValueT</a>&amp;&amp; <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">value</a>, <span class="keyword">const</span> <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">std</a>::<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">size_t</a> <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">justification</a> = <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">Justification</a>)</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  os &lt;&lt; std::forward&lt;ValueT&gt;(value);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification = 2UL, <span class="keyword">typename</span> ValueT&gt;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">typename</span> std::enable_if&lt;has_reflection_info&lt;ValueT&gt;&gt;::type</div>
-<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">   45</a></span>&#160;<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">fmt_print</a>(<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">std</a>::<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">ostream</a>&amp; <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">os</a>, <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">ValueT</a>&amp;&amp; <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">value</a>, <span class="keyword">const</span> <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">std</a>::<a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">size_t</a> <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">justification</a> = <a class="code" href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">Justification</a>)</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  os &lt;&lt; <span class="stringliteral">&quot;{\n&quot;</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  ::about::for_each_enumerated(</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ::about::detail::Printer&lt;Justification&gt;{os, justification},</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ::about::public_member_info_t&lt;ValueT&gt;{},</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ::about::get_public_members(std::forward&lt;ValueT&gt;(value)));</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  os &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  os &lt;&lt; std::setw(justification - Justification) &lt;&lt; <span class="stringliteral">&#39;}&#39;</span>;</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
-<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">   56</a></span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">std</a>::<a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">size_t</a> <a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">I</a>, <a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">std</a>::<a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">size_t</a> <a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">N</a>&gt; <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> <a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">put_comma_condition</a> = (<a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">I</a> + 1 &lt; <a class="code" href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">N</a>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N&gt;</div>
-<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="namespaceabout_1_1detail.html#af63e7664256e4c9b19570eb4586d9a08">   59</a></span>&#160;<span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">std</a>::<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">enable_if</a>&lt;<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">put_comma_condition</a>&lt;<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">I</a>, <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">N</a>&gt;&gt;::<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">type</a> <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">put_comma</a>(<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">std</a>::<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">ostream</a>&amp; <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">os</a>)</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  os &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;}</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N&gt;</div>
-<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">   65</a></span>&#160;<span class="keyword">typename</span> <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">std</a>::<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">enable_if</a>&lt;!<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">put_comma_condition</a>&lt;<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">I</a>, <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">N</a>&gt;&gt;::<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">type</a> <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">put_comma</a>(<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">std</a>::<a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">ostream</a>&amp; <a class="code" href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">os</a>)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{}</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">template</span> &lt;<a class="code" href="namespaceabout_1_1detail.html">std</a>::<a class="code" href="namespaceabout_1_1detail.html">size_t</a> <a class="code" href="namespaceabout_1_1detail.html">Justification</a>&gt;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N, <span class="keyword">typename</span> NameT, <span class="keyword">typename</span> ValueT&gt;</div>
-<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="classabout_1_1detail_1_1_printer.html#ab04d953e7b067532e5bf02621233bd35">   70</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="classabout_1_1detail_1_1_printer.html">Printer</a>&lt;Justification&gt;::<a class="code" href="classabout_1_1detail_1_1_printer.html#ab04d953e7b067532e5bf02621233bd35">operator</a>()(Enumeration&lt;I, N&gt; e, NameT _, ValueT&amp;&amp; v) <span class="keyword">const</span></div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  (*os_) &lt;&lt; std::setw(justification_) &lt;&lt; <span class="stringliteral">&#39;&quot;&#39;</span> &lt;&lt; NameT::name &lt;&lt; <span class="stringliteral">&quot;\&quot; : &quot;</span>;</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  fmt_print&lt;Justification&gt;(*os_, std::forward&lt;ValueT&gt;(v), <span class="keyword">this</span>-&gt;justification_ + Justification);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  put_comma&lt;I, N&gt;(*<a class="code" href="classabout_1_1detail_1_1_printer.html#af00d24b218cf518084eabfe8e582225d">os_</a>);</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_formatted.html">   77</a></span>&#160;<span class="keyword">template</span> &lt;std::size_t N, <span class="keyword">typename</span> T&gt; <span class="keyword">struct</span> <a class="code" href="structabout_1_1detail_1_1_formatted.html">Formatted</a></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
-<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_formatted.html#a7b572e21f648378b31a3eea8c960f086">   79</a></span>&#160;  <span class="keyword">constexpr</span> <a class="code" href="structabout_1_1detail_1_1_formatted.html#a7b572e21f648378b31a3eea8c960f086">Formatted</a>(<span class="keyword">const</span> T&amp; _v) : <a class="code" href="structabout_1_1detail_1_1_formatted.html#a1478c044913588c3f4364ccd35be8013">v</a>(_v) {}</div>
-<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="structabout_1_1detail_1_1_formatted.html#a1478c044913588c3f4364ccd35be8013">   80</a></span>&#160;  <span class="keyword">const</span> T&amp; <a class="code" href="structabout_1_1detail_1_1_formatted.html#a1478c044913588c3f4364ccd35be8013">v</a>;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;};</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;}  <span class="comment">// namespace detail</span></div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment"> * @brief Wraps object in wrapper used to apply formatted \c ostream serialziation</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">   88</a></span>&#160;<span class="keyword">template</span> &lt;std::size_t N = 4UL, <span class="keyword">typename</span> T&gt; <span class="keyword">constexpr</span> <a class="code" href="namespaceabout_1_1detail.html">detail</a>::<a class="code" href="structabout_1_1detail_1_1_formatted.html">Formatted</a>&lt;N, T&gt; <a class="code" href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">fmt</a>(<span class="keyword">const</span> T&amp; value)</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;{</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="namespaceabout_1_1detail.html">detail</a>::<a class="code" href="structabout_1_1detail_1_1_formatted.html">Formatted</a>&lt;N, T&gt;{value};</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/**</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment"> * @brief Auto-formatted &lt;code&gt;ostream&lt;/code&gt; overload</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> * @param[in/out] os  ostream</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> * @param fmt_print_wrapper  wrapper around object of type &lt;code&gt;T&lt;/code&gt; used to designate formatted serialization</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> * @return \c os</span></div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> */</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">template</span> &lt;std::size_t N, <span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="namespaceabout.html#ae5f8f3432e694468c5f3115c667b0348">  102</a></span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> <a class="code" href="namespaceabout_1_1detail.html">detail</a>::<a class="code" href="structabout_1_1detail_1_1_formatted.html">Formatted</a>&lt;N, T&gt;&amp; fmt_print_wrapper)</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;{</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  detail::fmt_print&lt;N&gt;(os, fmt_print_wrapper.v);</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordflow">return</span> os;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}  <span class="comment">// namespace about</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">ifndef</span> <span class="preprocessor">DOXYGEN_SKIP</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">namespace</span> detail</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;{</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification&gt; <span class="keyword">class</span> Printer</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;  Printer(std::ostream&amp; os, <span class="keyword">const</span> std::size_t justification) : os_{std::addressof(os)}, justification_{justification} {}</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  <span class="keyword">template</span> &lt;std::size_t I, std::size_t N, <span class="keyword">typename</span> NameT, <span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keywordtype">void</span> operator()(Enumeration&lt;I, N&gt; e, NameT _, ValueT&amp;&amp; v) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  std::ostream* os_;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  std::size_t justification_;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification = 2UL, <span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">typename</span> std::enable_if&lt;!has_reflection_info&lt;ValueT&gt;&gt;::type</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;fmt_print(std::ostream&amp; os, ValueT&amp;&amp; value, <span class="keyword">const</span> std::size_t justification = Justification)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  os &lt;&lt; std::forward&lt;ValueT&gt;(value);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification = 2UL, <span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">typename</span> std::enable_if&lt;has_reflection_info&lt;ValueT&gt;&gt;::type</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;fmt_print(std::ostream&amp; os, ValueT&amp;&amp; value, <span class="keyword">const</span> std::size_t justification = Justification)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  os &lt;&lt; <span class="stringliteral">&quot;{\n&quot;</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  ::about::for_each_enumerated(</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    ::about::detail::Printer&lt;Justification&gt;{os, justification},</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    ::about::public_var_info_t&lt;ValueT&gt;{},</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    ::about::get_public_vars(std::forward&lt;ValueT&gt;(value)));</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  os &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  os &lt;&lt; std::setw(justification - Justification) &lt;&lt; <span class="stringliteral">&#39;}&#39;</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N&gt; <span class="keyword">constexpr</span> <span class="keywordtype">bool</span> put_comma_condition = (I + 1 &lt; N);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N&gt;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">typename</span> std::enable_if&lt;put_comma_condition&lt;I, N&gt;&gt;::type put_comma(std::ostream&amp; os)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;{</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  os &lt;&lt; <span class="stringliteral">&quot;,\n&quot;</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N&gt;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">typename</span> std::enable_if&lt;!put_comma_condition&lt;I, N&gt;&gt;::type put_comma(std::ostream&amp; os)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">template</span> &lt;std::size_t Justification&gt;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">template</span> &lt;std::size_t I, std::size_t N, <span class="keyword">typename</span> NameT, <span class="keyword">typename</span> ValueT&gt;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keywordtype">void</span> Printer&lt;Justification&gt;::operator()(Enumeration&lt;I, N&gt; e, NameT _, ValueT&amp;&amp; v) <span class="keyword">const</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  (*os_) &lt;&lt; std::setw(justification_) &lt;&lt; <span class="stringliteral">&#39;&quot;&#39;</span> &lt;&lt; NameT::name &lt;&lt; <span class="stringliteral">&quot;\&quot; : &quot;</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  fmt_print&lt;Justification&gt;(*os_, std::forward&lt;ValueT&gt;(v), <span class="keyword">this</span>-&gt;justification_ + Justification);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  put_comma&lt;I, N&gt;(*os_);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;}</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span> &lt;std::size_t N, <span class="keyword">typename</span> T&gt; <span class="keyword">struct</span> Formatted</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">constexpr</span> Formatted(<span class="keyword">const</span> T&amp; _v) : v(_v) {}</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">const</span> T&amp; v;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}  <span class="comment">// namespace detail</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span>  <span class="comment">// DOXYGEN_SKIP</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment"> * @brief Wraps object in wrapper used to apply formatted \c ostream serialziation</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">   90</a></span>&#160;<span class="keyword">template</span> &lt;std::size_t N = 4UL, <span class="keyword">typename</span> T&gt; <span class="keyword">constexpr</span> detail::Formatted&lt;N, T&gt; <a class="code" href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">fmt</a>(<span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordflow">return</span> detail::Formatted&lt;N, T&gt;{value};</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/**</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment"> * @brief Auto-formatted &lt;code&gt;ostream&lt;/code&gt; overload</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment"> * @param[in/out] os  ostream</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment"> * @param fmt_print_wrapper  wrapper around object of type &lt;code&gt;T&lt;/code&gt; used to designate formatted serialization</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment"> * @return \c os</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="keyword">template</span> &lt;std::size_t N, <span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="namespaceabout.html#ae5f8f3432e694468c5f3115c667b0348">  104</a></span>&#160;std::ostream&amp; operator&lt;&lt;(std::ostream&amp; os, <span class="keyword">const</span> detail::Formatted&lt;N, T&gt;&amp; fmt_print_wrapper)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;{</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  detail::fmt_print&lt;N&gt;(os, fmt_print_wrapper.v);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keywordflow">return</span> os;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;}</div>
 <div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span>  <span class="comment">// ABOUT_FMT_HPP</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;}  <span class="comment">// namespace about</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#</span><span class="preprocessor">endif</span>  <span class="comment">// ABOUT_FMT_HPP</span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="anamespaceabout_1_1detail_html"><div class="ttname"><a href="namespaceabout_1_1detail.html">about::detail</a></div><div class="ttdef"><b>Definition:</b> about.hpp:14</div></div>
-<div class="ttc" id="aclassabout_1_1detail_1_1_printer_html_af00d24b218cf518084eabfe8e582225d"><div class="ttname"><a href="classabout_1_1detail_1_1_printer.html#af00d24b218cf518084eabfe8e582225d">about::detail::Printer::os_</a></div><div class="ttdeci">std::ostream * os_</div><div class="ttdef"><b>Definition:</b> fmt.hpp:32</div></div>
-<div class="ttc" id="astructabout_1_1detail_1_1_formatted_html_a1478c044913588c3f4364ccd35be8013"><div class="ttname"><a href="structabout_1_1detail_1_1_formatted.html#a1478c044913588c3f4364ccd35be8013">about::detail::Formatted::v</a></div><div class="ttdeci">const T &amp; v</div><div class="ttdef"><b>Definition:</b> fmt.hpp:80</div></div>
-<div class="ttc" id="aclassabout_1_1detail_1_1_printer_html_ab90f84b836c4247e71b7b73394315e1b"><div class="ttname"><a href="classabout_1_1detail_1_1_printer.html#ab90f84b836c4247e71b7b73394315e1b">about::detail::Printer::Printer</a></div><div class="ttdeci">Printer(std::ostream &amp;os, const std::size_t justification)</div><div class="ttdef"><b>Definition:</b> fmt.hpp:26</div></div>
-<div class="ttc" id="anamespaceabout_1_1detail_html_a2d5767d6a8cedaf47931e2e01959b327"><div class="ttname"><a href="namespaceabout_1_1detail.html#a2d5767d6a8cedaf47931e2e01959b327">about::detail::put_comma_condition</a></div><div class="ttdeci">constexpr bool put_comma_condition</div><div class="ttdef"><b>Definition:</b> fmt.hpp:56</div></div>
-<div class="ttc" id="anamespaceabout_1_1detail_html_ad091661eaaec507c4a6ce4ff1387f6f8"><div class="ttname"><a href="namespaceabout_1_1detail.html#ad091661eaaec507c4a6ce4ff1387f6f8">about::detail::fmt_print</a></div><div class="ttdeci">std::enable_if&lt; has_reflection_info&lt; ValueT &gt; &gt;::type fmt_print(std::ostream &amp;os, ValueT &amp;&amp;value, const std::size_t justification=Justification)</div><div class="ttdef"><b>Definition:</b> fmt.hpp:45</div></div>
-<div class="ttc" id="anamespaceabout_1_1detail_html_a26d3251fd63e65ac889f553f48b65d0e"><div class="ttname"><a href="namespaceabout_1_1detail.html#a26d3251fd63e65ac889f553f48b65d0e">about::detail::put_comma</a></div><div class="ttdeci">std::enable_if&lt;!put_comma_condition&lt; I, N &gt; &gt;::type put_comma(std::ostream &amp;os)</div><div class="ttdef"><b>Definition:</b> fmt.hpp:65</div></div>
-<div class="ttc" id="anamespaceabout_html_a6b031f2e76a38cbf43915694f621fe65"><div class="ttname"><a href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">about::fmt</a></div><div class="ttdeci">constexpr detail::Formatted&lt; N, T &gt; fmt(const T &amp;value)</div><div class="ttdoc">Wraps object in wrapper used to apply formatted ostream serialziation.</div><div class="ttdef"><b>Definition:</b> fmt.hpp:88</div></div>
-<div class="ttc" id="aclassabout_1_1detail_1_1_printer_html_a5134ecdbdc717f0e4b3f0771b70f4f70"><div class="ttname"><a href="classabout_1_1detail_1_1_printer.html#a5134ecdbdc717f0e4b3f0771b70f4f70">about::detail::Printer::justification_</a></div><div class="ttdeci">std::size_t justification_</div><div class="ttdef"><b>Definition:</b> fmt.hpp:33</div></div>
-<div class="ttc" id="astructabout_1_1detail_1_1_formatted_html"><div class="ttname"><a href="structabout_1_1detail_1_1_formatted.html">about::detail::Formatted</a></div><div class="ttdef"><b>Definition:</b> fmt.hpp:77</div></div>
-<div class="ttc" id="aclassabout_1_1detail_1_1_printer_html"><div class="ttname"><a href="classabout_1_1detail_1_1_printer.html">about::detail::Printer</a></div><div class="ttdef"><b>Definition:</b> fmt.hpp:23</div></div>
+<div class="ttc" id="anamespaceabout_html_a6b031f2e76a38cbf43915694f621fe65"><div class="ttname"><a href="namespaceabout.html#a6b031f2e76a38cbf43915694f621fe65">about::fmt</a></div><div class="ttdeci">constexpr detail::Formatted&lt; N, T &gt; fmt(const T &amp;value)</div><div class="ttdoc">Wraps object in wrapper used to apply formatted ostream serialziation.</div><div class="ttdef"><b>Definition:</b> fmt.hpp:90</div></div>
 <div class="ttc" id="anamespaceabout_html"><div class="ttname"><a href="namespaceabout.html">about</a></div><div class="ttdef"><b>Definition:</b> about.hpp:12</div></div>
-<div class="ttc" id="astructabout_1_1detail_1_1_formatted_html_a7b572e21f648378b31a3eea8c960f086"><div class="ttname"><a href="structabout_1_1detail_1_1_formatted.html#a7b572e21f648378b31a3eea8c960f086">about::detail::Formatted::Formatted</a></div><div class="ttdeci">constexpr Formatted(const T &amp;_v)</div><div class="ttdef"><b>Definition:</b> fmt.hpp:79</div></div>
-<div class="ttc" id="aclassabout_1_1detail_1_1_printer_html_ab04d953e7b067532e5bf02621233bd35"><div class="ttname"><a href="classabout_1_1detail_1_1_printer.html#ab04d953e7b067532e5bf02621233bd35">about::detail::Printer::operator()</a></div><div class="ttdeci">void operator()(Enumeration&lt; I, N &gt; e, NameT _, ValueT &amp;&amp;v) const</div><div class="ttdef"><b>Definition:</b> fmt.hpp:70</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by &#160;<a href="http://www.doxygen.org/index.html">

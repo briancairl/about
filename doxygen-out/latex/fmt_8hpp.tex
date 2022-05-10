@@ -13,40 +13,18 @@ Include dependency graph for fmt.\+hpp\+:
 \includegraphics[width=350pt]{fmt_8hpp__incl}
 \end{center}
 \end{figure}
-\doxysubsection*{Classes}
-\begin{DoxyCompactItemize}
-\item 
-class \mbox{\hyperlink{classabout_1_1detail_1_1_printer}{about\+::detail\+::\+Printer$<$ Justification $>$}}
-\item 
-struct \mbox{\hyperlink{structabout_1_1detail_1_1_formatted}{about\+::detail\+::\+Formatted$<$ N, T $>$}}
-\end{DoxyCompactItemize}
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
  \mbox{\hyperlink{namespaceabout}{about}}
-\item 
- \mbox{\hyperlink{namespaceabout_1_1detail}{about\+::detail}}
 \end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
-\item 
-{\footnotesize template$<$std\+::size\+\_\+t Justification = 2\+UL, typename ValueT $>$ }\\std\+::enable\+\_\+if$<$!has\+\_\+reflection\+\_\+info$<$ ValueT $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_aaa8481d5af6f3128a0447c9e669ae954}{about\+::detail\+::fmt\+\_\+print}} (std\+::ostream \&os, ValueT \&\&value, const std\+::size\+\_\+t justification=Justification)
-\item 
-{\footnotesize template$<$std\+::size\+\_\+t Justification = 2\+UL, typename ValueT $>$ }\\std\+::enable\+\_\+if$<$ has\+\_\+reflection\+\_\+info$<$ ValueT $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_ad091661eaaec507c4a6ce4ff1387f6f8}{about\+::detail\+::fmt\+\_\+print}} (std\+::ostream \&os, ValueT \&\&value, const std\+::size\+\_\+t justification=Justification)
-\item 
-{\footnotesize template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ }\\std\+::enable\+\_\+if$<$ put\+\_\+comma\+\_\+condition$<$ I, N $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_af63e7664256e4c9b19570eb4586d9a08}{about\+::detail\+::put\+\_\+comma}} (std\+::ostream \&os)
-\item 
-{\footnotesize template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ }\\std\+::enable\+\_\+if$<$!put\+\_\+comma\+\_\+condition$<$ I, N $>$ $>$\+::type \mbox{\hyperlink{namespaceabout_1_1detail_a26d3251fd63e65ac889f553f48b65d0e}{about\+::detail\+::put\+\_\+comma}} (std\+::ostream \&os)
 \item 
 {\footnotesize template$<$std\+::size\+\_\+t N = 4\+UL, typename T $>$ }\\constexpr detail\+::\+Formatted$<$ N, T $>$ \mbox{\hyperlink{namespaceabout_a6b031f2e76a38cbf43915694f621fe65}{about\+::fmt}} (const T \&value)
 \begin{DoxyCompactList}\small\item\em Wraps object in wrapper used to apply formatted {\ttfamily ostream} serialziation. \end{DoxyCompactList}\item 
 {\footnotesize template$<$std\+::size\+\_\+t N, typename T $>$ }\\std\+::ostream \& \mbox{\hyperlink{namespaceabout_ae5f8f3432e694468c5f3115c667b0348}{about\+::operator$<$$<$}} (std\+::ostream \&os, const detail\+::\+Formatted$<$ N, T $>$ \&fmt\+\_\+print\+\_\+wrapper)
 \begin{DoxyCompactList}\small\item\em Auto-\/formatted {\ttfamily ostream} overload. \end{DoxyCompactList}\end{DoxyCompactItemize}
-\doxysubsection*{Variables}
-\begin{DoxyCompactItemize}
-\item 
-{\footnotesize template$<$std\+::size\+\_\+t I, std\+::size\+\_\+t N$>$ }\\constexpr bool \mbox{\hyperlink{namespaceabout_1_1detail_a2d5767d6a8cedaf47931e2e01959b327}{about\+::detail\+::put\+\_\+comma\+\_\+condition}} = (I + 1 $<$ N)
-\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}

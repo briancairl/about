@@ -1,12 +1,7 @@
 var searchData=
 [
-  ['make_5findex_5fsequence_38',['make_index_sequence',['../namespaceabout.html#a14b44a7d06abdd7dc752e93c2a00e72f',1,'about']]],
-  ['make_5finteger_5fsequence_39',['make_integer_sequence',['../namespaceabout.html#a8a850eef2c5548e09261289d6dc6ed37',1,'about']]],
-  ['membername_40',['MemberName',['../structabout_1_1detail_1_1_member_name.html',1,'about::detail']]],
-  ['merge_2ehpp_41',['merge.hpp',['../merge_8hpp.html',1,'']]],
-  ['merge_5ft_42',['merge_t',['../namespaceabout.html#a024053a8ae180802555acb89cbb1138c',1,'about']]],
-  ['mergeimpl_43',['MergeImpl',['../structabout_1_1detail_1_1_merge_impl.html',1,'about::detail']]],
-  ['mergeimpl_3c_20t_2c_20tuptmpl_3c_20originats_2e_2e_2e_20_3e_20_3e_44',['MergeImpl&lt; T, TupTmpl&lt; OriginaTs... &gt; &gt;',['../structabout_1_1detail_1_1_merge_impl_3_01_t_00_01_tup_tmpl_3_01_origina_ts_8_8_8_01_4_01_4.html',1,'about::detail']]],
-  ['methodname_45',['MethodName',['../structabout_1_1detail_1_1_method_name.html',1,'about::detail']]],
-  ['multitupleforeachadapter_46',['MultiTupleForEachAdapter',['../structabout_1_1detail_1_1_multi_tuple_for_each_adapter.html',1,'about::detail']]]
+  ['operator_22_22_5fmethod_28',['operator&quot;&quot;_method',['../namespaceabout.html#a315f301abb47cfd846d19dd01583279c',1,'about']]],
+  ['operator_22_22_5ftype_29',['operator&quot;&quot;_type',['../namespaceabout.html#a99705979aff0dedba78bbe434cc957b9',1,'about']]],
+  ['operator_22_22_5fvar_30',['operator&quot;&quot;_var',['../namespaceabout.html#a3a6880ecc4f393dcc9e518767b3d8fa4',1,'about']]],
+  ['operator_3c_3c_31',['operator&lt;&lt;',['../namespaceabout.html#ae5f8f3432e694468c5f3115c667b0348',1,'about']]]
 ];

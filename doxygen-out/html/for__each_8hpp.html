@@ -98,24 +98,10 @@ Include dependency graph for for_each.hpp:</div>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabout_1_1_enumeration.html">about::Enumeration&lt; I, N &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabout_1_1detail_1_1_common_tuple_size.html">about::detail::CommonTupleSize&lt; TupleTs &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates (and statically checks) common size between tuples, <code>TupleTs</code>.  <a href="structabout_1_1detail_1_1_common_tuple_size.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_01_4.html">about::detail::CommonTupleSize&lt; FirstTupleT &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates (and statically checks) common size between tuples, <code>TupleTs</code>.  <a href="structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_01_4.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_00_01_second_tuple_t_00_01_other_tuple_ts_8_8_8_01_4.html">about::detail::CommonTupleSize&lt; FirstTupleT, SecondTupleT, OtherTupleTs... &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates (and statically checks) common size between tuples, <code>TupleTs</code>.  <a href="structabout_1_1detail_1_1_common_tuple_size_3_01_first_tuple_t_00_01_second_tuple_t_00_01_other_tuple_ts_8_8_8_01_4.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structabout_1_1detail_1_1_multi_tuple_for_each_adapter.html">about::detail::MultiTupleForEachAdapter&lt; Index &gt;</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calls <code><a class="el" href="namespaceabout.html#a8c3e7e50f3bae2e5070a31325749cc48" title="Calls function with with tuple (e.g std::tuple) as argument list.">about::apply</a></code> on a tuple formed of elements at each <code>TupleTs</code> at <code>Index</code>.  <a href="structabout_1_1detail_1_1_multi_tuple_for_each_adapter.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
 Namespaces</h2></td></tr>
 <tr class="memitem:namespaceabout"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceabout.html">about</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:namespaceabout_1_1detail"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceabout_1_1detail.html">about::detail</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -128,12 +114,6 @@ Functions</h2></td></tr>
 <tr class="memitem:ace2c1ff391c236111b9270ab2ebbeec1"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout.html#ace2c1ff391c236111b9270ab2ebbeec1">about::for_each_enumerated</a> (CallbackT &amp;&amp;cb, TupleTs &amp;&amp;... tups)</td></tr>
 <tr class="memdesc:ace2c1ff391c236111b9270ab2ebbeec1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Invokes a callback, <code>cb</code>, for elements of each tuple, <code>tups</code>, with an enumeration type.  <a href="namespaceabout.html#ace2c1ff391c236111b9270ab2ebbeec1">More...</a><br /></td></tr>
 <tr class="separator:ace2c1ff391c236111b9270ab2ebbeec1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3d8a9b66b194c0a288a73d0ef87f197"><td class="memTemplParams" colspan="2">template&lt;typename CallbackT , std::size_t... Indices, typename... TupleTs&gt; </td></tr>
-<tr class="memitem:ae3d8a9b66b194c0a288a73d0ef87f197"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout_1_1detail.html#ae3d8a9b66b194c0a288a73d0ef87f197">about::detail::for_each</a> (CallbackT &amp;&amp;cb, index_sequence&lt; Indices... &gt; _, TupleTs &amp;&amp;... tups)</td></tr>
-<tr class="separator:ae3d8a9b66b194c0a288a73d0ef87f197"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a263bf8fffb045fd17609bd15900ed2a9"><td class="memTemplParams" colspan="2">template&lt;typename CallbackT , std::size_t... Indices, typename... TupleTs&gt; </td></tr>
-<tr class="memitem:a263bf8fffb045fd17609bd15900ed2a9"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceabout_1_1detail.html#a263bf8fffb045fd17609bd15900ed2a9">about::detail::for_each_enumerated</a> (CallbackT &amp;&amp;cb, index_sequence&lt; Indices... &gt; _, TupleTs &amp;&amp;... tups)</td></tr>
-<tr class="separator:a263bf8fffb045fd17609bd15900ed2a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
