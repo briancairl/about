@@ -27,6 +27,7 @@ struct Element
     CLASS_METHOD,
     CLASS_TEMPLATE,
     CLASS_TEMPLATE_PARAM,
+    FUNCTION_TEMPLATE,
     ENUM,
     ENUM_LABEL,
     IGNORED,
@@ -59,6 +60,7 @@ const static std::unordered_map<std::string, Element::Type> StringToElementType{
   {"CXXMethodDecl", Element::CLASS_METHOD},
   {"ClassTemplateDecl", Element::CLASS_TEMPLATE},
   {"TemplateTypeParmDecl", Element::CLASS_TEMPLATE_PARAM},
+  {"FunctionTemplateDecl", Element::FUNCTION_TEMPLATE},
   {"FullComment", Element::COMMENT},
   {"TextComment", Element::COMMENT},
   {"BlockCommandComment", Element::COMMENT},
@@ -117,7 +119,11 @@ const static std::unordered_map<Element::Type, ParsePropFunc> ElementTypeToParse
    }},
   {Element::CLASS_TEMPLATE_PARAM,
    [](Element& e, Context& ctx, const picojson::object& object) {
-     std::cout << "ARG: " << object.at("name") << std::endl;
+
+   }},
+  {Element::FUNCTION_TEMPLATE,
+   [](Element& e, Context& ctx, const picojson::object& object) {
+
    }},
   {Element::COMMENT,
    [](Element& e, Context& ctx, const picojson::object& object) {
@@ -147,6 +153,7 @@ parse(std::vector<Element>& element_tree, Context& ctx, const picojson::value& v
       const auto kv_itr = StringToElementType.find(kind);
       if (kv_itr != StringToElementType.end() and kv_itr->second != Element::Type::IGNORED)
       {
+        std::cout << " ----> got it" << std::endl;
         element.type = kv_itr->second;
       }
       else
@@ -162,14 +169,9 @@ parse(std::vector<Element>& element_tree, Context& ctx, const picojson::value& v
     if (itr != object.end())
     {
       const auto& name = itr->second.get<std::string>();
-      if (!element_tree.empty() and element_tree[parent].name == name)
-      {
-        return std::numeric_limits<std::size_t>::max();
-      }
-      else
+      if (!element_tree.empty())
       {
         element.name = name.c_str();
-        std::cout << ctx.is_private << "  " << element.name << " parent " << element_tree[parent].name << std::endl;
       }
     }
   }
@@ -213,13 +215,18 @@ static void generate(const std::vector<Element>& tree, const std::size_t pos = 0
     std::cout << e.name << "   " << e.children.size() << std::endl;
     for (const auto c_pos : e.children)
     {
-      if (tree[c_pos].type == Element::Type::CLASS_VARIABLE)
+      if (tree[c_pos].type == Element::Type::CLASS)
       {
-        std::cout << "var: " << tree[c_pos].name << std::endl;
+        std::cout << "class: " << tree[c_pos].name << " -- " << tree[c_pos].children.size() << std::endl;
+        generate(tree, c_pos);
+      }
+      else if (tree[c_pos].type == Element::Type::CLASS_VARIABLE)
+      {
+        std::cout << "var: " << tree[c_pos].name << " -- " << tree[c_pos].children.size() << std::endl;
       }
       else if (tree[c_pos].type == Element::Type::CLASS_METHOD)
       {
-        std::cout << "mfn: " << tree[c_pos].name << std::endl;
+        std::cout << "mfn: " << tree[c_pos].name << " -- " << tree[c_pos].children.size() << std::endl;
       }
     }
   }

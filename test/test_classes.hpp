@@ -26,6 +26,8 @@ public:
   SomethingTemplate() = default;
   SomethingTemplate(ScalarT v) : real_number{v} {};
 
+  template <typename ReturnT> constexpr ReturnT phish() const;
+
 private:
   ScalarT real_number_private;
 };
