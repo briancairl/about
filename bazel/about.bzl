@@ -1,5 +1,5 @@
 
-def reflection(name, hdrs, enable_meta=True, enable_enum_ostream=True, __genrule_target_name=None):
+def reflection(name, hdrs, cxx, enable_meta=True, enable_enum_ostream=True, __genrule_target_name=None):
     """
     Generates reflection headers from input header files, hdrs
     """
@@ -8,33 +8,32 @@ def reflection(name, hdrs, enable_meta=True, enable_enum_ostream=True, __genrule
 
     __genrule_target_name = __genrule_target_name or name
 
-    out_files = []
-    cmd =  "$(location //tools:about) -i $(locations {})".format(' '.join(hdrs))
+    output_files = []
 
-    # Use basic meta information generation feature
     if enable_meta:
-        out_meta_header = "{name}.meta.hpp".format(name=name)
-        out_files.append(out_meta_header)
-        cmd += " -om $(location {})".format(out_meta_header)
+        output_files.append("{name}.meta.hpp".format(name=name))
 
-    # Use enum-ostream overload generation feature
     if enable_enum_ostream:
-        out_enum_ostream_header = "{name}.enum_ostream.hpp".format(name=name)
-        out_files.append(out_enum_ostream_header)
-        cmd += " -oe $(location {})".format(out_enum_ostream_header)
+        output_files.append("{name}.enum_ostream.hpp".format(name=name))
+
+    clang_ast_out = "{}_clang_ast_gen.json".format(name)
+    clang_ast_gen = "clang++-9 -Xclang -ast-dump=json -fsyntax-only $(locations {}) -std={} > {}".format(' '.join(hdrs), cxx, clang_ast_out)
+    cland_ast_consume = "$(location //tools:about_clang_ast) {} {}".format(clang_ast_out, ' '.join(["$(location {})".format(f) for f in output_files]))
+
+    cmd =  "({}) && ({})".format(clang_ast_gen, cland_ast_consume)
 
     # Run the generation script
     native.genrule(
         name = __genrule_target_name,
-        outs = out_files,
-        tools = ["//tools:about"],
+        outs = output_files,
+        tools = ["//tools:about_clang_ast"],
         cmd = cmd,
         srcs = hdrs,
     )
 
-    return out_files
+    return output_files
 
-def cc_library_with_reflection(name, hdrs, deps=[], enable_meta=True, enable_enum_ostream=True, **kwargs):
+def cc_library_with_reflection(name, hdrs, cxx, deps=[], enable_meta=True, enable_enum_ostream=True, **kwargs):
     """
     Generates reflection headers and creates a single library with input header files, hdrs, and generated header files
     """
@@ -44,6 +43,7 @@ def cc_library_with_reflection(name, hdrs, deps=[], enable_meta=True, enable_enu
         hdrs=hdrs + reflection(
             name=name,
             hdrs=hdrs,
+            cxx=cxx,
             enable_meta=enable_meta,
             enable_enum_ostream=enable_enum_ostream,
             __genrule_target_name=reflection_target_name,

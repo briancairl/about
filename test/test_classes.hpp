@@ -6,48 +6,67 @@
 namespace my_ns
 {
 
-struct Something
-{
-  float real_number;
-};
-
-struct SomethingElse
-{
-  Something a, b;
-};
-
-class MyClass
+class Something
 {
 public:
-  typedef int typdef_member_type;
-  typedef float typdef_member_type_2;
+  float real_number;
+  Something() = default;
+  Something(float v) : real_number{v} {};
 
-  int a;
-  float b;
-  double c;
-
-  SomethingElse d;
-
-  void my_method(const char* my_arg);
-
-  // A nested enumeration
-  enum class NestedEnum
-  {
-    PASS,
-    FAIL,
-    NOOP
-  };
+  int phish() const;
 
 private:
-  const char* privates = "don't touch me";
+  float real_number_private;
 };
 
-enum class MyEnum
+template <typename ScalarT> class SomethingTemplate
 {
-  THIS,
-  IS,
-  A,
-  CODE
+public:
+  ScalarT real_number;
+  SomethingTemplate() = default;
+  SomethingTemplate(ScalarT v) : real_number{v} {};
+
+private:
+  ScalarT real_number_private;
 };
+
+// struct SomethingElse
+// {
+//   Something a, b;
+// };
+
+// class MyClass
+// {
+// public:
+//   typedef int typdef_member_type;
+//   typedef float typdef_member_type_2;
+
+//   int a;
+//   float b;
+//   double c;
+
+//   SomethingElse d;
+
+//   void my_method(const char* my_arg);
+
+//   // A nested enumeration
+//   enum class NestedEnum
+//   {
+//     PASS,
+//     FAIL,
+//     NOOP
+//   };
+
+// private:
+//   const char* privates = "don't touch me";
+// };
+
+// enum class MyEnum
+// {
+//   THIS,
+//   IS,
+//   A,
+//   CODE
+// };
 
 }  // namespace my_ns

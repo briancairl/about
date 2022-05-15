@@ -11,3 +11,10 @@ py_binary(
     visibility = ["//visibility:public"],
     deps = [":impl"],
 )
+
+cc_binary(
+    name = "about_clang_ast",
+    srcs = ["about_clang_ast.cpp"],
+    visibility = ["//visibility:public"],
+    deps = ["@picojson//:picojson",],
+)

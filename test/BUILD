@@ -11,6 +11,7 @@ cc_test(
 
 cc_library_with_reflection(
   name="test_classes_with_reflection",
+  cxx="c++11",
   hdrs=["test_classes.hpp"],
   visibility=["//visibility:public"]
 )
