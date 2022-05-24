@@ -149,11 +149,9 @@ parse(std::vector<Element>& element_tree, Context& ctx, const picojson::value& v
     {
       const auto& kind = itr->second.get<std::string>();
 
-      std::cout << " --> " << kind << std::endl;
       const auto kv_itr = StringToElementType.find(kind);
       if (kv_itr != StringToElementType.end() and kv_itr->second != Element::Type::IGNORED)
       {
-        std::cout << " ----> got it" << std::endl;
         element.type = kv_itr->second;
       }
       else
@@ -205,6 +203,7 @@ static void generate(const std::vector<Element>& tree, const std::size_t pos = 0
   const auto& e = tree[pos];
   if (e.type == Element::Type::NAMESPACE or e.type == Element::Type::TRANSLATION_UNIT)
   {
+    std::cout << e.name << std::endl;
     for (const auto c_pos : e.children)
     {
       generate(tree, c_pos);
@@ -212,46 +211,51 @@ static void generate(const std::vector<Element>& tree, const std::size_t pos = 0
   }
   else if (e.type == Element::Type::CLASS or e.type == Element::Type::CLASS_TEMPLATE)
   {
-    std::cout << e.name << "   " << e.children.size() << std::endl;
+    // std::cout << e.name << "   " << e.children.size() << std::endl;
     for (const auto c_pos : e.children)
     {
       if (tree[c_pos].type == Element::Type::CLASS)
       {
-        std::cout << "class: " << tree[c_pos].name << " -- " << tree[c_pos].children.size() << std::endl;
+        // std::cout << "class: " << tree[c_pos].name << " -- " << tree[pos].name << std::endl;
         generate(tree, c_pos);
       }
       else if (tree[c_pos].type == Element::Type::CLASS_VARIABLE)
       {
-        std::cout << "var: " << tree[c_pos].name << " -- " << tree[c_pos].children.size() << std::endl;
+        // std::cout << "var: " << tree[c_pos].name << " -- " << tree[pos].name << std::endl;
       }
       else if (tree[c_pos].type == Element::Type::CLASS_METHOD)
       {
-        std::cout << "mfn: " << tree[c_pos].name << " -- " << tree[c_pos].children.size() << std::endl;
+        // std::cout << "mfn: " << tree[c_pos].name << " -- " << tree[pos].name << std::endl;
       }
     }
   }
 }
 
+
 int main(int argc, char** argv)
 {
-  const picojson::value ast = [argv] {
-    std::ifstream ifs{argv[1]};
-    picojson::value v;
-    ifs >> v;
-    return v;
-  }();
-
-  for (int i = 2; i < argc; ++i)
+  if (argc != 3)
   {
-    std::ofstream ofs{argv[i]};
+    return 1;
   }
+
+  picojson::value tree{[argv] {
+    std::ifstream ifs{argv[2]};
+    picojson::value subtree;
+    ifs >> subtree;
+    return subtree;
+  }()};
+
+  std::ofstream ofs{argv[1]};
 
   std::vector<Element> element_tree;
 
   Context ctx{};
-  parse(element_tree, ctx, ast);
+  parse(element_tree, ctx, tree);
 
   generate(element_tree, 0);
+
+  std::cout << argc << std::endl;
 
   // const auto& obj = ast.get<picojson::object>();
   // const auto itr = obj.find("inner");

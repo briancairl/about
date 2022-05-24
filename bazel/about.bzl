@@ -1,53 +1,50 @@
 
-def reflection(name, hdrs, cxx, enable_meta=True, enable_enum_ostream=True, __genrule_target_name=None):
+def ast(name, hdrs, cxx):
+    """
+    Generates abstract syntax tree a structured text (JSON)
+    """
+    ast_out = "{}.json".format(name)
+    ast_cmd = "clang++-9 -Xclang -ast-dump=json -fsyntax-only $(locations {}) -std={} > $(location {})".format(' '.join(hdrs), cxx, ast_out)
+    native.genrule(
+        name = name,
+        outs = [ast_out],
+        tools = ["//tools:about_clang_ast"],
+        cmd = ast_cmd,
+        srcs = hdrs,
+    )
+    return ast_out
+
+
+def reflection(name, ast):
     """
     Generates reflection headers from input header files, hdrs
     """
-    if not (enable_meta or enable_enum_ostream):
-        fail("At least one feature must be enabled! Otherwise, this rule has no affect.")
+    refl_out = "{}.hpp".format(name)
+    refl_cmd = "$(location //tools:about_clang_ast) $(location {}) $(location {})".format(refl_out, ast)
 
-    __genrule_target_name = __genrule_target_name or name
-
-    output_files = []
-
-    if enable_meta:
-        output_files.append("{name}.meta.hpp".format(name=name))
-
-    if enable_enum_ostream:
-        output_files.append("{name}.enum_ostream.hpp".format(name=name))
-
-    clang_ast_out = "{}_clang_ast_gen.json".format(name)
-    clang_ast_gen = "clang++-9 -Xclang -ast-dump=json -fsyntax-only $(locations {}) -std={} > {}".format(' '.join(hdrs), cxx, clang_ast_out)
-    cland_ast_consume = "$(location //tools:about_clang_ast) {} {}".format(clang_ast_out, ' '.join(["$(location {})".format(f) for f in output_files]))
-
-    cmd =  "({}) && ({})".format(clang_ast_gen, cland_ast_consume)
+    print(refl_cmd)
 
     # Run the generation script
     native.genrule(
-        name = __genrule_target_name,
-        outs = output_files,
+        name = name,
+        outs = [refl_out],
         tools = ["//tools:about_clang_ast"],
-        cmd = cmd,
-        srcs = hdrs,
+        cmd = refl_cmd,
+        srcs = [ast]
     )
 
-    return output_files
-
-def cc_library_with_reflection(name, hdrs, cxx, deps=[], enable_meta=True, enable_enum_ostream=True, **kwargs):
+def cc_library_with_reflection(name, hdrs, cxx, deps=[], **kwargs):
     """
     Generates reflection headers and creates a single library with input header files, hdrs, and generated header files
     """
-    reflection_target_name = "__{name}_code_generation".format(name=name)
+
+    ast_path = ast(name="ast_{}".format(name), hdrs=hdrs, cxx=cxx)
+
+    hdrs.append(reflection(name="refl_{}".format(name), ast=ast_path))
+
     native.cc_library(
         name=name,
-        hdrs=hdrs + reflection(
-            name=name,
-            hdrs=hdrs,
-            cxx=cxx,
-            enable_meta=enable_meta,
-            enable_enum_ostream=enable_enum_ostream,
-            __genrule_target_name=reflection_target_name,
-        ),
+        hdrs=hdrs,
         deps=["//:about"] + deps,
         **kwargs
     )
