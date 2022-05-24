@@ -7,7 +7,7 @@
 #include <gtest/gtest.h>
 
 // About
-#include "test/test_classes_with_reflection.meta.hpp"
+#include "test/test_classes_with_reflection.hpp"
 #include <about/fmt.hpp>
 
 using namespace about;
